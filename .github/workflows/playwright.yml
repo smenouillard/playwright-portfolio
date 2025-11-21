@@ -98,9 +98,7 @@ jobs:
       - name: Merge Playwright reports
         run: |
           mkdir merged-report
-          npx playwright merge-reports \
-            --report-dir=merged-report \
-            all-reports/**/playwright-report
+          npx playwright merge-reports all-reports/**/playwright-report --output=merged-report
 
       - name: Upload merged report
         uses: actions/upload-artifact@v4
