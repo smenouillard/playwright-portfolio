@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    name: Playwright Tests
+    name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -18,18 +18,31 @@ jobs:
         include:
           - os: ubuntu-latest
             browser: chromium
+            name: "Ubuntu - Chromium"
+
           - os: ubuntu-latest
             browser: firefox
+            name: "Ubuntu - Firefox"
+
           - os: ubuntu-latest
             browser: webkit
+            name: "Ubuntu - WebKit"
+
           - os: windows-latest
             browser: chromium
+            name: "Windows - Chromium"
+
           - os: windows-latest
             browser: edge
+            name: "Windows - Edge"
+
           - os: macos-latest
             browser: chromium
+            name: "macOS - Chromium"
+
           - os: macos-latest
             browser: webkit
+            name: "macOS - WebKit"
 
     env:
       PW_USERNAME: ${{ secrets.PW_USERNAME }}
@@ -54,7 +67,8 @@ jobs:
             npx playwright test --project=${{ matrix.browser }} || true
           fi
 
-      - run: |
+      - shell: bash
+        run: |
           mkdir -p metadata
           cat > metadata/metadata.json <<EOF
           {
@@ -103,3 +117,4 @@ jobs:
           github_token: ${{ secrets.PAT }}
           publish_dir: ./reports
           commit_message: "Publish Playwright reports [skip ci]"
+          force_orphan: true
