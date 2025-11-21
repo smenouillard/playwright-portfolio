@@ -1,0 +1,58 @@
+<testsuites id="" name="" tests="24" failures="0" skipped="0" errors="0" time="36.313172">
+<testsuite name="login.spec.ts" timestamp="2025-11-21T17:05:14.224Z" hostname="chromium" tests="6" failures="0" skipped="0" time="50.564" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="login.spec.ts" time="9.059">
+</testcase>
+<testcase name="Login tests › invalid login – invalid username" classname="login.spec.ts" time="8.341">
+</testcase>
+<testcase name="Login tests › invalid login – invalid password" classname="login.spec.ts" time="8.513">
+</testcase>
+<testcase name="Login tests › invalid login – empty username" classname="login.spec.ts" time="8.072">
+</testcase>
+<testcase name="Login tests › invalid login – empty password" classname="login.spec.ts" time="8.598">
+</testcase>
+<testcase name="Login tests › invalid login – both fields empty" classname="login.spec.ts" time="7.981">
+</testcase>
+</testsuite>
+<testsuite name="login.spec.ts" timestamp="2025-11-21T17:05:14.224Z" hostname="firefox" tests="6" failures="0" skipped="0" time="38.672" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="login.spec.ts" time="6.686">
+</testcase>
+<testcase name="Login tests › invalid login – invalid username" classname="login.spec.ts" time="3.661">
+</testcase>
+<testcase name="Login tests › invalid login – invalid password" classname="login.spec.ts" time="6.117">
+</testcase>
+<testcase name="Login tests › invalid login – empty username" classname="login.spec.ts" time="3.937">
+</testcase>
+<testcase name="Login tests › invalid login – empty password" classname="login.spec.ts" time="8.713">
+</testcase>
+<testcase name="Login tests › invalid login – both fields empty" classname="login.spec.ts" time="9.558">
+</testcase>
+</testsuite>
+<testsuite name="login.spec.ts" timestamp="2025-11-21T17:05:14.224Z" hostname="webkit" tests="6" failures="0" skipped="0" time="29.136" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="login.spec.ts" time="4.521">
+</testcase>
+<testcase name="Login tests › invalid login – invalid username" classname="login.spec.ts" time="5.392">
+</testcase>
+<testcase name="Login tests › invalid login – invalid password" classname="login.spec.ts" time="4.719">
+</testcase>
+<testcase name="Login tests › invalid login – empty username" classname="login.spec.ts" time="4.604">
+</testcase>
+<testcase name="Login tests › invalid login – empty password" classname="login.spec.ts" time="4.956">
+</testcase>
+<testcase name="Login tests › invalid login – both fields empty" classname="login.spec.ts" time="4.944">
+</testcase>
+</testsuite>
+<testsuite name="login.spec.ts" timestamp="2025-11-21T17:05:14.224Z" hostname="edge" tests="6" failures="0" skipped="0" time="30" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="login.spec.ts" time="5.953">
+</testcase>
+<testcase name="Login tests › invalid login – invalid username" classname="login.spec.ts" time="5.954">
+</testcase>
+<testcase name="Login tests › invalid login – invalid password" classname="login.spec.ts" time="6.739">
+</testcase>
+<testcase name="Login tests › invalid login – empty username" classname="login.spec.ts" time="4.536">
+</testcase>
+<testcase name="Login tests › invalid login – empty password" classname="login.spec.ts" time="2.905">
+</testcase>
+<testcase name="Login tests › invalid login – both fields empty" classname="login.spec.ts" time="3.913">
+</testcase>
+</testsuite>
+</testsuites>
