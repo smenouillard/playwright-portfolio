@@ -90,15 +90,13 @@ jobs:
         with:
           path: all-reports
 
-      - name: Install Playwright
-        run: |
-          npm ci
-          npx playwright install --with-deps
+      - name: Install Playwright dependencies (CLI only)
+        run: npm ci
 
       - name: Merge Playwright reports
         run: |
           mkdir merged-report
-          npx playwright merge-reports all-reports/**/playwright-report --output=merged-report
+          npx playwright merge-reports --report-dir merged-report all-reports/**/playwright-report
 
       - name: Upload merged report
         uses: actions/upload-artifact@v4
