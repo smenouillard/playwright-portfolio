@@ -135,10 +135,9 @@ jobs:
           name: report-${{ matrix.os }}-${{ matrix.browser }}
           path: |
             metadata/
-            playwright-report/
-            playwright-report.zip
             jsonReports/
             junit/
+            playwright-report.zip
           retention-days: 30
           if-no-files-found: warn
 
