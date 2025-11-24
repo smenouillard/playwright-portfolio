@@ -1,4 +1,6 @@
 # /.github/workflows/playwright.yml
+# --- Playwright E2E CI Workflow ---
+
 name: Playwright E2E Tests
 
 on:
@@ -8,7 +10,7 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
-# Cancel older runs on same branch
+# --- Cancel older runs on the same branch ---
 concurrency:
   group: playwright-${{ github.ref }}
   cancel-in-progress: true
@@ -22,7 +24,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Ubuntu
+          # --- Ubuntu browsers ---
           - os: ubuntu-latest
             browser: chromium
             name: "Ubuntu - Chromium"
@@ -35,7 +37,7 @@ jobs:
             browser: webkit
             name: "Ubuntu - WebKit"
 
-          # Windows
+          # --- Windows browsers ---
           - os: windows-latest
             browser: chromium
             name: "Windows - Chromium"
@@ -44,7 +46,7 @@ jobs:
             browser: edge
             name: "Windows - Edge"
 
-          # macOS
+          # --- macOS browsers ---
           - os: macos-latest
             browser: chromium
             name: "macOS - Chromium"
@@ -58,18 +60,18 @@ jobs:
       PW_PASSWORD: ${{ secrets.PW_PASSWORD }}
 
     steps:
-      # Checkout code
-      - name: Checkout source code
+      # --- Checkout source ---
+      - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      # Setup Node.js
+      # --- Setup Node.js ---
       - name: Setup Node.js
         uses: actions/setup-node@v4.0.2
         with:
           node-version: lts/*
 
-      # Cache npm deps
-      - name: Cache npm dependencies
+      # --- Cache npm dependencies ---
+      - name: Cache npm deps
         uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -77,26 +79,26 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # Install deps
-      - name: Install npm dependencies
+      # --- Install npm packages ---
+      - name: Install deps
         run: npm ci
 
-      # Install browsers
-      - name: Install Playwright browsers
+      # --- Install Playwright browsers ---
+      - name: Install Playwright
         run: npx playwright install --with-deps
 
-      # Run tests (Ubuntu)
-      - name: Run Playwright tests (Ubuntu with xvfb)
+      # --- Run tests on Ubuntu with xvfb ---
+      - name: Run tests (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         shell: bash
         run: xvfb-run npx playwright test --project=${{ matrix.browser }} || true
 
-      # Run tests (Win/mac)
-      - name: Run Playwright tests (Windows/macOS)
+      # --- Run tests on Windows/macOS ---
+      - name: Run tests (Windows/macOS)
         if: matrix.os != 'ubuntu-latest'
         run: npx playwright test --project=${{ matrix.browser }} || true
 
-      # Generate metadata
+      # --- Generate metadata.json ---
       - name: Generate metadata
         shell: bash
         run: |
@@ -106,12 +108,12 @@ jobs:
             "timestamp": "$(date -u '+%Y-%m-%d %H:%M UTC')",
             "os": "${{ matrix.os }}",
             "browser": "${{ matrix.browser }}",
-            "runner": "${{ matrix.os }} (GitHub-hosted)"
+            "runner": "${{ matrix.os }}"
           }
           EOF
 
-      # Zip report (Unix)
-      - name: Zip Playwright HTML Report (Unix)
+      # --- Zip HTML report on Unix ---
+      - name: Zip report (Unix)
         if: runner.os != 'Windows'
         shell: bash
         run: |
@@ -119,8 +121,8 @@ jobs:
             zip -r playwright-report.zip playwright-report
           fi
 
-      # Zip report (Win)
-      - name: Zip Playwright HTML Report (Windows)
+      # --- Zip HTML report on Windows ---
+      - name: Zip report (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
@@ -128,8 +130,8 @@ jobs:
             Compress-Archive -Path "playwright-report" -DestinationPath "playwright-report.zip" -Force
           }
 
-      # Upload artifacts
-      - name: Upload Playwright Reports
+      # --- Upload test artifacts ---
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: report-${{ matrix.os }}-${{ matrix.browser }}
@@ -148,28 +150,17 @@ jobs:
     if: always() && github.ref == 'refs/heads/main'
 
     steps:
-      # Checkout code
-      - name: Checkout source code
+      # --- Checkout code ---
+      - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      # Download artifacts
+      # --- Download all artifacts into ./reports ---
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
           path: ./reports
 
-      # Unzip artifacts
-      - name: Extract artifacts
-        shell: bash
-        run: |
-          cd reports
-          for file in *.zip; do
-            dirname="${file%.zip}"
-            mkdir -p "$dirname"
-            unzip -q "$file" -d "$dirname"
-          done
-
-      # Generate dashboard
+      # --- Generate dashboard index.html ---
       - name: Generate dashboard
         run: |
           metadata='{
@@ -180,11 +171,11 @@ jobs:
           }'
           METADATA_JSON="$metadata" node scripts/generate-index.js
 
-      # Publish reports
-      - name: Publish to GitHub Pages
+      # --- Deploy reports to GitHub Pages ---
+      - name: Publish to Pages
         uses: peaceiris/actions-gh-pages@v3.9.2
         with:
           github_token: ${{ secrets.PAT }}
           publish_dir: ./reports
-          commit_message: "Publish Playwright reports [skip ci]"
+          commit_message: "Publish Playwright dashboard [skip ci]"
           force_orphan: true
