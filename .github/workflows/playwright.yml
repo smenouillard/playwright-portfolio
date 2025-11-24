@@ -8,7 +8,7 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
-# Avoid running outdated jobs when new commits arrive
+# Cancel older runs on the same branch
 concurrency:
   group: playwright-${{ github.ref }}
   cancel-in-progress: true
@@ -68,7 +68,7 @@ jobs:
         with:
           node-version: lts/*
 
-      # --- Cache node_modules ---
+      # --- Cache npm dependencies ---
       - name: Cache npm dependencies
         uses: actions/cache@v4
         with:
@@ -81,18 +81,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # --- Install Playwright browsers (optimized) ---
+      # --- Install Playwright browsers (standard, current method) ---
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps --only=chromium,firefox,webkit
+        run: npx playwright install --with-deps
 
       # --- Run tests on Ubuntu (requires xvfb) ---
-      - name: Run Playwright Tests (Ubuntu with xvfb)
+      - name: Run Playwright tests (Ubuntu with xvfb)
         if: matrix.os == 'ubuntu-latest'
         shell: bash
         run: xvfb-run npx playwright test --project=${{ matrix.browser }} || true
 
-      # --- Run tests on Windows and macOS ---
-      - name: Run Playwright Tests (Windows/macOS)
+      # --- Run tests on Windows/macOS ---
+      - name: Run Playwright tests (Windows/macOS)
         if: matrix.os != 'ubuntu-latest'
         run: npx playwright test --project=${{ matrix.browser }} || true
 
@@ -110,7 +110,7 @@ jobs:
           }
           EOF
 
-      # --- Zip HTML Report (for easy download) ---
+      # --- Zip HTML report for easy download ---
       - name: Zip Playwright HTML Report
         run: |
           if [ -d "playwright-report" ]; then
