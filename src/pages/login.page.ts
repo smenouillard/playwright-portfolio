@@ -30,10 +30,13 @@ export class LoginPage {
     this.secureAreaHeader = page.locator('h2:has-text("Secure Area")');
   }
 
-  // Open login page
+  /// Open login page
   async goto() {
     await this.page.goto('/login');
+    await this.page.waitForLoadState("domcontentloaded");
+    await this.page.waitForLoadState("networkidle");
   }
+
 
   // Perform valid login
   async login(username: string, password: string) {
