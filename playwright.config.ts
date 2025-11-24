@@ -26,6 +26,7 @@ export default defineConfig({
 
   // Configure reporters for dashboard generation
   reporter: [
+    ['github'],
     ['list'],
     ['json', { outputFile: 'jsonReports/jsonReport.json' }],
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
