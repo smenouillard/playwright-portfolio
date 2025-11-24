@@ -15,10 +15,10 @@ export class LoginPage {
   private readonly secureAreaHeader: Locator;
 
   constructor(page: Page) {
-    // Assign page
+    // Map page
     this.page = page;
 
-    // Map inputs
+    // Map fields
     this.usernameInput = page.locator('#username');
     this.passwordInput = page.locator('#password');
 
