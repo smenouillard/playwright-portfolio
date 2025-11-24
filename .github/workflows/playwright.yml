@@ -158,6 +158,17 @@ jobs:
         with:
           path: ./reports
 
+      # Unzip artifacts
+      - name: Extract artifacts
+        shell: bash
+        run: |
+          cd reports
+          for file in *.zip; do
+            dirname="${file%.zip}"
+            mkdir -p "$dirname"
+            unzip -q "$file" -d "$dirname"
+          done
+
       # Generate dashboard
       - name: Generate dashboard
         run: |
