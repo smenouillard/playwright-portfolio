@@ -1,5 +1,4 @@
 # /.github/workflows/playwright.yml
-
 name: Playwright E2E Tests
 
 on:
@@ -18,25 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Windows
-          - os: windows-latest
-            browser: chromium
-            name: "Windows - Chromium"
-
-          - os: windows-latest
-            browser: edge
-            name: "Windows - Edge"
-
-          # macOS
-          - os: macos-latest
-            browser: chromium
-            name: "macOS - Chromium"
-
-          - os: macos-latest
-            browser: webkit
-            name: "macOS - WebKit"
-
-          # Linux
+          # Ubuntu runners
           - os: ubuntu-latest
             browser: chromium
             name: "Ubuntu - Chromium"
@@ -49,36 +30,61 @@ jobs:
             browser: webkit
             name: "Ubuntu - WebKit"
 
+          # Windows runners
+          - os: windows-latest
+            browser: chromium
+            name: "Windows - Chromium"
+
+          - os: windows-latest
+            browser: edge
+            name: "Windows - Edge"
+
+          # macOS runners
+          - os: macos-latest
+            browser: chromium
+            name: "macOS - Chromium"
+
+          - os: macos-latest
+            browser: webkit
+            name: "macOS - WebKit"
+
     env:
       PW_USERNAME: ${{ secrets.PW_USERNAME }}
       PW_PASSWORD: ${{ secrets.PW_PASSWORD }}
 
     steps:
       # Checkout repository
-      - uses: actions/checkout@v4
+      - name: Checkout source code
+        uses: actions/checkout@v4
 
-      # Set Node.js version
-      - uses: actions/setup-node@v4
+      # Setup Node.js runtime
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
       # Install dependencies
-      - run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-      # Install browsers
-      - run: npx playwright install --with-deps
+      # Install Playwright browsers
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
-      # Run Playwright tests
-      - shell: bash
-        run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
-            xvfb-run npx playwright test --project=${{ matrix.browser }} || true
-          else
-            npx playwright test --project=${{ matrix.browser }} || true
-          fi
+      # Run tests on Ubuntu (xvfb required)
+      - name: Run Playwright tests (Ubuntu with xvfb)
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
+        run: xvfb-run npx playwright test --project=${{ matrix.browser }} || true
+
+      # Run tests on all other OS (no xvfb)
+      - name: Run Playwright tests (Windows/macOS)
+        if: matrix.os != 'ubuntu-latest'
+        run: npx playwright test --project=${{ matrix.browser }} || true
 
       # Generate metadata for dashboard
-      - shell: bash
+      - name: Generate metadata
+        shell: bash
         run: |
           mkdir -p metadata
           cat > metadata/metadata.json <<EOF
@@ -90,8 +96,9 @@ jobs:
           }
           EOF
 
-      # Upload reports
-      - uses: actions/upload-artifact@v4
+      # Upload artifacts for dashboard
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
         with:
           name: report-${{ matrix.os }}-${{ matrix.browser }}
           path: |
@@ -109,16 +116,18 @@ jobs:
     if: always() && github.ref == 'refs/heads/main'
 
     steps:
-      # Checkout repository
-      - uses: actions/checkout@v4
+      - name: Checkout source code
+        uses: actions/checkout@v4
 
-      # Download all artifacts
-      - uses: actions/download-artifact@v4
+      # Download all test artifacts
+      - name: Download reports
+        uses: actions/download-artifact@v4
         with:
           path: ./reports
 
-      # Build dashboard index
-      - run: |
+      # Generate dashboard index.html
+      - name: Generate dashboard
+        run: |
           metadata='{
             "publishTimestamp": "'"$(date -u '+%Y-%m-%d %H:%M UTC')"'",
             "commitSha": "'"$GITHUB_SHA"'",
@@ -127,8 +136,9 @@ jobs:
           }'
           METADATA_JSON="$metadata" node scripts/generate-index.js
 
-      # Deploy dashboard to GitHub Pages
-      - uses: peaceiris/actions-gh-pages@v3
+      # Deploy reports to GitHub Pages
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PAT }}
           publish_dir: ./reports
