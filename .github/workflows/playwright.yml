@@ -8,7 +8,7 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
-# Cancel older runs on the same branch
+# Cancel older runs on same branch
 concurrency:
   group: playwright-${{ github.ref }}
   cancel-in-progress: true
@@ -58,17 +58,17 @@ jobs:
       PW_PASSWORD: ${{ secrets.PW_PASSWORD }}
 
     steps:
-      # --- Checkout code ---
+      # Checkout code
       - name: Checkout source code
         uses: actions/checkout@v4.1.1
 
-      # --- Setup Node.js ---
+      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4.0.2
         with:
           node-version: lts/*
 
-      # --- Cache npm dependencies ---
+      # Cache npm deps
       - name: Cache npm dependencies
         uses: actions/cache@v4
         with:
@@ -77,26 +77,26 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # --- Install dependencies ---
-      - name: Install dependencies
+      # Install deps
+      - name: Install npm dependencies
         run: npm ci
 
-      # --- Install Playwright browsers (standard, current method) ---
+      # Install browsers
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # --- Run tests on Ubuntu (requires xvfb) ---
+      # Run tests (Ubuntu)
       - name: Run Playwright tests (Ubuntu with xvfb)
         if: matrix.os == 'ubuntu-latest'
         shell: bash
         run: xvfb-run npx playwright test --project=${{ matrix.browser }} || true
 
-      # --- Run tests on Windows/macOS ---
+      # Run tests (Win/mac)
       - name: Run Playwright tests (Windows/macOS)
         if: matrix.os != 'ubuntu-latest'
         run: npx playwright test --project=${{ matrix.browser }} || true
 
-      # --- Generate metadata ---
+      # Generate metadata
       - name: Generate metadata
         shell: bash
         run: |
@@ -110,14 +110,25 @@ jobs:
           }
           EOF
 
-      # --- Zip HTML report for easy download ---
-      - name: Zip Playwright HTML Report
+      # Zip report (Unix)
+      - name: Zip Playwright HTML Report (Unix)
+        if: runner.os != 'Windows'
+        shell: bash
         run: |
           if [ -d "playwright-report" ]; then
             zip -r playwright-report.zip playwright-report
           fi
 
-      # --- Upload artifacts ---
+      # Zip report (Win)
+      - name: Zip Playwright HTML Report (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          if (Test-Path "playwright-report") {
+            Compress-Archive -Path "playwright-report" -DestinationPath "playwright-report.zip" -Force
+          }
+
+      # Upload artifacts
       - name: Upload Playwright Reports
         uses: actions/upload-artifact@v4
         with:
@@ -138,14 +149,17 @@ jobs:
     if: always() && github.ref == 'refs/heads/main'
 
     steps:
+      # Checkout code
       - name: Checkout source code
         uses: actions/checkout@v4.1.1
 
+      # Download artifacts
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
           path: ./reports
 
+      # Generate dashboard
       - name: Generate dashboard
         run: |
           metadata='{
@@ -156,6 +170,7 @@ jobs:
           }'
           METADATA_JSON="$metadata" node scripts/generate-index.js
 
+      # Publish reports
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3.9.2
         with:
