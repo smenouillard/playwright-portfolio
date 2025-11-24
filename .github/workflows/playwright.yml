@@ -1,4 +1,5 @@
 # /.github/workflows/playwright.yml
+
 name: Playwright E2E Tests
 
 on:
@@ -12,10 +13,30 @@ jobs:
   test:
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
+
     strategy:
       fail-fast: false
       matrix:
         include:
+          # Windows
+          - os: windows-latest
+            browser: chromium
+            name: "Windows - Chromium"
+
+          - os: windows-latest
+            browser: edge
+            name: "Windows - Edge"
+
+          # macOS
+          - os: macos-latest
+            browser: chromium
+            name: "macOS - Chromium"
+
+          - os: macos-latest
+            browser: webkit
+            name: "macOS - WebKit"
+
+          # Linux
           - os: ubuntu-latest
             browser: chromium
             name: "Ubuntu - Chromium"
@@ -28,37 +49,26 @@ jobs:
             browser: webkit
             name: "Ubuntu - WebKit"
 
-          - os: windows-latest
-            browser: chromium
-            name: "Windows - Chromium"
-
-          - os: windows-latest
-            browser: edge
-            name: "Windows - Edge"
-
-          - os: macos-latest
-            browser: chromium
-            name: "macOS - Chromium"
-
-          - os: macos-latest
-            browser: webkit
-            name: "macOS - WebKit"
-
     env:
       PW_USERNAME: ${{ secrets.PW_USERNAME }}
       PW_PASSWORD: ${{ secrets.PW_PASSWORD }}
 
     steps:
+      # Checkout repository
       - uses: actions/checkout@v4
 
+      # Set Node.js version
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
+      # Install dependencies
       - run: npm ci
 
+      # Install browsers
       - run: npx playwright install --with-deps
 
+      # Run Playwright tests
       - shell: bash
         run: |
           if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
@@ -67,6 +77,7 @@ jobs:
             npx playwright test --project=${{ matrix.browser }} || true
           fi
 
+      # Generate metadata for dashboard
       - shell: bash
         run: |
           mkdir -p metadata
@@ -79,6 +90,7 @@ jobs:
           }
           EOF
 
+      # Upload reports
       - uses: actions/upload-artifact@v4
         with:
           name: report-${{ matrix.os }}-${{ matrix.browser }}
@@ -97,12 +109,15 @@ jobs:
     if: always() && github.ref == 'refs/heads/main'
 
     steps:
+      # Checkout repository
       - uses: actions/checkout@v4
 
+      # Download all artifacts
       - uses: actions/download-artifact@v4
         with:
           path: ./reports
 
+      # Build dashboard index
       - run: |
           metadata='{
             "publishTimestamp": "'"$(date -u '+%Y-%m-%d %H:%M UTC')"'",
@@ -112,6 +127,7 @@ jobs:
           }'
           METADATA_JSON="$metadata" node scripts/generate-index.js
 
+      # Deploy dashboard to GitHub Pages
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PAT }}

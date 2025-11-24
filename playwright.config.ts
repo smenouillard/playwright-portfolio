@@ -3,18 +3,18 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 
-// Load env variables
+// Load environment variables
 dotenv.config();
 
 export default defineConfig({
-  // Set test directory
+  // Set tests root directory
   testDir: './tests',
 
-  // Set timeouts
+  // Configure global timeouts
   timeout: 30_000,
   expect: { timeout: 5_000 },
 
-  // Set default test behavior
+  // Configure default test behavior
   use: {
     baseURL: 'https://the-internet.herokuapp.com',
     headless: !!process.env.CI,
@@ -24,7 +24,7 @@ export default defineConfig({
     actionTimeout: 10_000,
   },
 
-  // Configure reporters for dashboard generator
+  // Configure reporters for dashboard generation
   reporter: [
     ['list'],
     ['json', { outputFile: 'jsonReports/jsonReport.json' }],
@@ -32,14 +32,22 @@ export default defineConfig({
     ['junit', { outputFile: 'junit/test-results.xml' }],
   ],
 
-  // Define browser projects
+  // Define browser matrix (aligned with workflow)
   projects: [
+    // Windows
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
     { name: 'edge', use: { ...devices['Desktop Edge'], channel: 'msedge' } },
+
+    // macOS
+    { name: 'chromium-mac', use: { ...devices['Desktop Chrome'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+
+    // Linux
+    { name: 'chromium-linux', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit-linux', use: { ...devices['Desktop Safari'] } },
   ],
 
-  // Adjust number of workers for CI
+  // Limit workers in CI
   workers: process.env.CI ? 2 : undefined,
 });
