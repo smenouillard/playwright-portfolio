@@ -1,60 +1,64 @@
 // scripts/generate-index.js
 // Generate Playwright dashboard
 
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
 // --- Setup ---
 const REPORTS_DIR = "./reports";
 const METADATA_FILE = "metadata.json";
 
 // --- Read metadata injected by CI ---
-const ciMetadata = JSON.parse(process.env.METADATA_JSON || "{}");
+let ciMetadata = {};
+try {
+  ciMetadata = JSON.parse(process.env.METADATA_JSON || "{}");
+} catch {
+  ciMetadata = {};
+}
 
-// --- Helper: Read metadata.json inside each artifact folder ---
+// --- Load metadata for one report folder ---
 function loadRunMetadata(runPath) {
   const metadataPath = path.join(runPath, METADATA_FILE);
   if (!fs.existsSync(metadataPath)) return null;
 
   try {
     return JSON.parse(fs.readFileSync(metadataPath, "utf8"));
-  } catch (err) {
-    console.error(`Failed to read metadata at: ${metadataPath}`);
+  } catch {
     return null;
   }
 }
 
-// --- Load all runs inside /reports ---
+// --- Load all artifacts ---
 function loadArtifacts() {
-  const artifacts = fs.readdirSync(REPORTS_DIR)
+  const entries = fs.readdirSync(REPORTS_DIR);
+
+  const artifacts = entries
     .filter(name => name.startsWith("report-"))
-    .map(name => ({
-      name,
-      fullPath: path.join(REPORTS_DIR, name),
-      metadata: loadRunMetadata(path.join(REPORTS_DIR, name))
-    }))
-    .filter(entry => entry.metadata);
+    .map(name => {
+      const fullPath = path.join(REPORTS_DIR, name);
+      const metadata = loadRunMetadata(fullPath);
+      return metadata ? { name, fullPath, metadata } : null;
+    })
+    .filter(Boolean);
 
   return artifacts;
 }
 
-// --- Sort order for OS display ---
+// --- OS display order ---
 const OS_ORDER = ["Windows", "macOS", "Ubuntu"];
 
-// --- Sort runs by OS priority ---
+// --- Sort artifacts by OS ---
 function sortArtifacts(artifacts) {
   return artifacts.sort((a, b) => {
     const aOS = a.metadata.os || "";
     const bOS = b.metadata.os || "";
-
     const aIndex = OS_ORDER.findIndex(os => aOS.includes(os));
     const bIndex = OS_ORDER.findIndex(os => bOS.includes(os));
-
     return aIndex - bIndex;
   });
 }
 
-// --- Render HTML table entry ---
+// --- Render one table row ---
 function renderRow(item) {
   return `
     <tr>
@@ -67,7 +71,7 @@ function renderRow(item) {
   `;
 }
 
-// --- Generate full HTML dashboard ---
+// --- Build dashboard HTML ---
 function generateHTML(sortedRuns) {
   const rows = sortedRuns.map(renderRow).join("");
 
@@ -89,7 +93,7 @@ function generateHTML(sortedRuns) {
 <h1>Playwright Test Reports</h1>
 <p>Generated: ${ciMetadata.publishTimestamp || "N/A"}</p>
 <p>
-  Run: #${ciMetadata.runNumber || "?"} — 
+  Run: #${ciMetadata.runNumber || "?"} —
   <a href="${ciMetadata.runUrl}" target="_blank">GitHub Actions Run</a>
 </p>
 
@@ -113,11 +117,10 @@ function generateHTML(sortedRuns) {
   `;
 }
 
-// --- Execute generator ---
+// --- Execute ---
 const artifacts = loadArtifacts();
 const sortedRuns = sortArtifacts(artifacts);
 const html = generateHTML(sortedRuns);
 
 fs.writeFileSync(path.join(REPORTS_DIR, "index.html"), html, "utf8");
-
 console.log("Dashboard generated: reports/index.html");
