@@ -185,3 +185,83 @@ jobs:
           publish_dir: ./reports
           commit_message: "Publish Playwright dashboard [skip ci]"
           force_orphan: true
+
+  publish-preview:
+    name: Publish Preview Dashboard
+    runs-on: ubuntu-latest
+    needs: test
+    if: always() && github.ref != 'refs/heads/main'
+
+    steps:
+      # Checkout source
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      # Download artifacts
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./reports
+
+      # Extract HTML reports for preview
+      - name: Extract HTML reports
+        shell: bash
+        run: |
+          cd reports
+          for dir in report-*; do
+            if [ -d "$dir" ] && [ -f "$dir/playwright-report.zip" ]; then
+              mkdir -p "$dir/playwright-report"
+              unzip -q "$dir/playwright-report.zip" -d "$dir/playwright-report"
+            fi
+          done
+
+      # Generate preview dashboard
+      - name: Generate dashboard (preview)
+        run: |
+          BRANCH_NAME_SAFE="${GITHUB_REF_NAME//\//-}"
+
+          metadata='{
+            "publishTimestamp": "'"$(date -u '+%Y-%m-%d %H:%M UTC')"'",
+            "commitSha": "'"$GITHUB_SHA"'",
+            "runNumber": "'"$GITHUB_RUN_NUMBER"'",
+            "runUrl": "https://github.com/'"$GITHUB_REPOSITORY"'/actions/runs/'"$GITHUB_RUN_ID"'"
+          }'
+
+          METADATA_JSON="$metadata" node scripts/generate-index.js
+
+          mkdir -p "previews/$BRANCH_NAME_SAFE"
+          cp -r reports/* "previews/$BRANCH_NAME_SAFE/" || true
+
+      # Publish preview dashboard
+      - name: Publish preview to Pages
+        uses: peaceiris/actions-gh-pages@v3.9.2
+        with:
+          github_token: ${{ secrets.PAT }}
+          publish_dir: ./previews
+          commit_message: "Publish preview dashboard for ${{ github.ref_name }} [skip ci]"
+          keep_files: true
+
+      # Post preview link comment on PR
+      - name: Comment preview link on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branch = process.env.GITHUB_REF_NAME.replace(/\//g, "-");
+            const url = `https://smenouillard.github.io/Playwright-portfolio/previews/${branch}/`;
+
+            const body = [
+              "### Preview Dashboard Ready",
+              "",
+              "**URL:**  ",
+              url,
+              "",
+              "_This link updates automatically with each push to this branch._"
+            ].join("\n");
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });
