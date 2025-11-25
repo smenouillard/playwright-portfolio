@@ -1,0 +1,22 @@
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="14.833993">
+<testsuite name="specs/login.spec.ts" timestamp="2025-11-25T13:40:35.134Z" hostname="webkit" tests="6" failures="0" skipped="0" time="13.157" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs/login.spec.ts" time="4.521">
+</testcase>
+<testcase name="Login tests › invalid login - invalid username" classname="specs/login.spec.ts" time="2.364">
+</testcase>
+<testcase name="Login tests › invalid login - invalid password" classname="specs/login.spec.ts" time="1.801">
+</testcase>
+<testcase name="Login tests › invalid login - empty username" classname="specs/login.spec.ts" time="1.502">
+</testcase>
+<testcase name="Login tests › invalid login - empty password" classname="specs/login.spec.ts" time="1.485">
+</testcase>
+<testcase name="Login tests › invalid login - both fields empty" classname="specs/login.spec.ts" time="1.484">
+</testcase>
+</testsuite>
+<testsuite name="specs/simpleFormDemo.spec.ts" timestamp="2025-11-25T13:40:35.134Z" hostname="webkit" tests="2" failures="0" skipped="0" time="8.239" errors="0">
+<testcase name="Simple Form Demo › Single Input Field: valid text and empty value" classname="specs/simpleFormDemo.spec.ts" time="5.364">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields: numeric validation and sum (randomized)" classname="specs/simpleFormDemo.spec.ts" time="2.875">
+</testcase>
+</testsuite>
+</testsuites>

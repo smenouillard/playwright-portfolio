@@ -1,0 +1,665 @@
+{
+  "config": {
+    "configFile": "/Users/runner/work/playwright-portfolio/playwright-portfolio/playwright.config.ts",
+    "rootDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
+        "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+        "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+      },
+      "gitCommit": {
+        "shortHash": "88e78dd",
+        "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+        "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
+        "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+        "author": {
+          "name": "Sylvain Menouillard",
+          "email": "smenouillard@gmail.com",
+          "time": 1764078000000
+        },
+        "committer": {
+          "name": "Sylvain Menouillard",
+          "email": "smenouillard@gmail.com",
+          "time": 1764078000000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "github",
+        null
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "jsonReports/jsonReport.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "junit/test-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
+            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+          },
+          "gitCommit": {
+            "shortHash": "88e78dd",
+            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
+            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "author": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "committer": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
+            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+          },
+          "gitCommit": {
+            "shortHash": "88e78dd",
+            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
+            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "author": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "committer": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "edge",
+        "name": "edge",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
+            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+          },
+          "gitCommit": {
+            "shortHash": "88e78dd",
+            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
+            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "author": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "committer": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "chromium-mac",
+        "name": "chromium-mac",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
+            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+          },
+          "gitCommit": {
+            "shortHash": "88e78dd",
+            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
+            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "author": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "committer": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
+            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+          },
+          "gitCommit": {
+            "shortHash": "88e78dd",
+            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
+            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "author": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "committer": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "chromium-linux",
+        "name": "chromium-linux",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
+            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+          },
+          "gitCommit": {
+            "shortHash": "88e78dd",
+            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
+            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "author": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "committer": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
+            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+          },
+          "gitCommit": {
+            "shortHash": "88e78dd",
+            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
+            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
+            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "author": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "committer": {
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764078000000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "webkit-linux",
+        "name": "webkit-linux",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "specs/login.spec.ts",
+      "file": "specs/login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Login tests",
+          "file": "specs/login.spec.ts",
+          "line": 16,
+          "column": 6,
+          "specs": [
+            {
+              "title": "valid login redirects to secure area",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4521,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-25T13:40:35.507Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e7da2f3a65ad9cd8e037-90765e06830c58986cc8",
+              "file": "specs/login.spec.ts",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "invalid login - invalid username",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2364,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-25T13:40:41.103Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e7da2f3a65ad9cd8e037-8e4617834c3edb9f7bfb",
+              "file": "specs/login.spec.ts",
+              "line": 29,
+              "column": 9
+            },
+            {
+              "title": "invalid login - invalid password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1801,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-25T13:40:43.500Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e7da2f3a65ad9cd8e037-376412092f67c526a3f3",
+              "file": "specs/login.spec.ts",
+              "line": 29,
+              "column": 9
+            },
+            {
+              "title": "invalid login - empty username",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1502,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-25T13:40:45.312Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e7da2f3a65ad9cd8e037-0e1262a35157c8f3091f",
+              "file": "specs/login.spec.ts",
+              "line": 29,
+              "column": 9
+            },
+            {
+              "title": "invalid login - empty password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1485,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-25T13:40:46.822Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e7da2f3a65ad9cd8e037-a7c29819a84aaae15e98",
+              "file": "specs/login.spec.ts",
+              "line": 29,
+              "column": 9
+            },
+            {
+              "title": "invalid login - both fields empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1484,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-25T13:40:48.314Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e7da2f3a65ad9cd8e037-42328ab82ba4f47376c3",
+              "file": "specs/login.spec.ts",
+              "line": 29,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/simpleFormDemo.spec.ts",
+      "file": "specs/simpleFormDemo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Simple Form Demo",
+          "file": "specs/simpleFormDemo.spec.ts",
+          "line": 12,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Single Input Field: valid text and empty value",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5364,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-25T13:40:35.515Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b06d49e97e70612ef21b-ebde93acc23bd75e6e5c",
+              "file": "specs/simpleFormDemo.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "Two Input Fields: numeric validation and sum (randomized)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2875,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-25T13:40:41.933Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b06d49e97e70612ef21b-ec20cd18a5994bf29738",
+              "file": "specs/simpleFormDemo.spec.ts",
+              "line": 32,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-11-25T13:40:35.050Z",
+    "duration": 14833.993,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
