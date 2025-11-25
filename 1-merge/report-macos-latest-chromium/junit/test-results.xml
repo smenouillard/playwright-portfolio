@@ -1,22 +1,22 @@
-<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="13.256143">
-<testsuite name="specs/login.spec.ts" timestamp="2025-11-25T16:19:49.104Z" hostname="chromium" tests="6" failures="0" skipped="0" time="11.109" errors="0">
-<testcase name="Login tests › valid login redirects to secure area" classname="specs/login.spec.ts" time="2.981">
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="12.146510000000001">
+<testsuite name="specs/login.spec.ts" timestamp="2025-11-25T16:34:26.538Z" hostname="chromium" tests="6" failures="0" skipped="0" time="10.081" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs/login.spec.ts" time="2.532">
 </testcase>
-<testcase name="Login tests › invalid login - invalid username" classname="specs/login.spec.ts" time="1.644">
+<testcase name="Login tests › invalid login - invalid username" classname="specs/login.spec.ts" time="1.451">
 </testcase>
-<testcase name="Login tests › invalid login - invalid password" classname="specs/login.spec.ts" time="1.417">
+<testcase name="Login tests › invalid login - invalid password" classname="specs/login.spec.ts" time="1.541">
 </testcase>
-<testcase name="Login tests › invalid login - empty username" classname="specs/login.spec.ts" time="2.065">
+<testcase name="Login tests › invalid login - empty username" classname="specs/login.spec.ts" time="1.491">
 </testcase>
-<testcase name="Login tests › invalid login - empty password" classname="specs/login.spec.ts" time="1.427">
+<testcase name="Login tests › invalid login - empty password" classname="specs/login.spec.ts" time="1.519">
 </testcase>
-<testcase name="Login tests › invalid login - both fields empty" classname="specs/login.spec.ts" time="1.575">
+<testcase name="Login tests › invalid login - both fields empty" classname="specs/login.spec.ts" time="1.547">
 </testcase>
 </testsuite>
-<testsuite name="specs/simpleFormDemo.spec.ts" timestamp="2025-11-25T16:19:49.104Z" hostname="chromium" tests="2" failures="0" skipped="0" time="5.378" errors="0">
-<testcase name="Simple Form Demo › Single Input Field: valid text and empty value" classname="specs/simpleFormDemo.spec.ts" time="4.098">
+<testsuite name="specs/simpleFormDemo.spec.ts" timestamp="2025-11-25T16:34:26.538Z" hostname="chromium" tests="2" failures="0" skipped="0" time="3.582" errors="0">
+<testcase name="Simple Form Demo › Single Input Field: valid text and empty value" classname="specs/simpleFormDemo.spec.ts" time="2.484">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields: numeric validation and sum (randomized)" classname="specs/simpleFormDemo.spec.ts" time="1.28">
+<testcase name="Simple Form Demo › Two Input Fields: numeric validation and sum (randomized)" classname="specs/simpleFormDemo.spec.ts" time="1.098">
 </testcase>
 </testsuite>
 </testsuites>
