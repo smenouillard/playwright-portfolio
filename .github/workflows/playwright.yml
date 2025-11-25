@@ -8,6 +8,8 @@ permissions:
   contents: read
   issues: write
   pull-requests: write
+  pages: write # <-- REQUIRED for deploy-pages
+  id-token: write # <-- REQUIRED for deploy-pages authentication
 
 on:
   push:
@@ -94,7 +96,7 @@ jobs:
         run: xvfb-run npx playwright test --project=${{ matrix.browser }} || true
 
       # Run tests on Windows/macOS
-      - name: Run tests (Windows/macCOS)
+      - name: Run tests (Windows/macOS)
         if: matrix.os != 'ubuntu-latest'
         run: npx playwright test --project=${{ matrix.browser }} || true
 
@@ -183,14 +185,14 @@ jobs:
           }'
           METADATA_JSON="$metadata" node scripts/generate-index.js
 
-      # Publish to GitHub Pages (using keep_files instead of force_orphan)
+      # Publish to GitHub Pages (main dashboard)
       - name: Publish to Pages
         uses: peaceiris/actions-gh-pages@v3.9.2
         with:
           github_token: ${{ secrets.PAT }}
           publish_dir: ./reports
           commit_message: "Publish Playwright dashboard [skip ci]"
-          keep_files: true # ← ONLY CHANGE
+          keep_files: true
 
   publish-preview:
     name: Publish Preview Dashboard
@@ -271,3 +273,13 @@ jobs:
               repo: context.repo.repo,
               body
             });
+
+  deploy-pages:
+    name: Deploy GitHub Pages
+    needs: [publish, publish-preview]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
