@@ -1,61 +1,22 @@
-<testsuites id="" name="" tests="8" failures="1" skipped="0" errors="0" time="44.355956">
-<testsuite name="specs/login.spec.ts" timestamp="2025-11-25T17:26:13.167Z" hostname="webkit" tests="6" failures="1" skipped="0" time="40.054" errors="0">
-<testcase name="Login tests › valid login redirects to secure area" classname="specs/login.spec.ts" time="30.253">
-<failure message="login.spec.ts:17:7 valid login redirects to secure area" type="FAILURE">
-<![CDATA[  [webkit] › specs/login.spec.ts:17:7 › Login tests › valid login redirects to secure area ─────────
-
-    Test timeout of 30000ms exceeded.
-
-    Error: page.waitForLoadState: Test timeout of 30000ms exceeded.
-
-       at ../src/pages/login.page.ts:37
-
-      35 |     await this.page.goto('/login');
-      36 |     await this.page.waitForLoadState("domcontentloaded");
-    > 37 |     await this.page.waitForLoadState("networkidle");
-         |                     ^
-      38 |   }
-      39 |
-      40 |
-        at LoginPage.goto (/Users/runner/work/playwright-portfolio/playwright-portfolio/src/pages/login.page.ts:37:21)
-        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/login.spec.ts:19:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/specs-login-Login-tests-valid-login-redirects-to-secure-area-webkit/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/specs-login-Login-tests-valid-login-redirects-to-secure-area-webkit/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/specs-login-Login-tests-valid-login-redirects-to-secure-area-webkit/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../test-results/specs-login-Login-tests-valid-login-redirects-to-secure-area-webkit/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/specs-login-Login-tests-valid-login-redirects-to-secure-area-webkit/video.webm]]
-
-[[ATTACHMENT|../test-results/specs-login-Login-tests-valid-login-redirects-to-secure-area-webkit/error-context.md]]
-]]>
-</system-out>
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="15.418457">
+<testsuite name="specs/login.spec.ts" timestamp="2025-11-25T17:54:56.295Z" hostname="webkit" tests="6" failures="0" skipped="0" time="13.109" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs/login.spec.ts" time="5.478">
 </testcase>
-<testcase name="Login tests › invalid login - invalid username" classname="specs/login.spec.ts" time="2.14">
+<testcase name="Login tests › invalid login - invalid username" classname="specs/login.spec.ts" time="2.45">
 </testcase>
-<testcase name="Login tests › invalid login - invalid password" classname="specs/login.spec.ts" time="1.762">
+<testcase name="Login tests › invalid login - invalid password" classname="specs/login.spec.ts" time="1.547">
 </testcase>
-<testcase name="Login tests › invalid login - empty username" classname="specs/login.spec.ts" time="1.754">
+<testcase name="Login tests › invalid login - empty username" classname="specs/login.spec.ts" time="1.258">
 </testcase>
-<testcase name="Login tests › invalid login - empty password" classname="specs/login.spec.ts" time="1.975">
+<testcase name="Login tests › invalid login - empty password" classname="specs/login.spec.ts" time="1.241">
 </testcase>
-<testcase name="Login tests › invalid login - both fields empty" classname="specs/login.spec.ts" time="2.17">
+<testcase name="Login tests › invalid login - both fields empty" classname="specs/login.spec.ts" time="1.135">
 </testcase>
 </testsuite>
-<testsuite name="specs/simpleFormDemo.spec.ts" timestamp="2025-11-25T17:26:13.167Z" hostname="webkit" tests="2" failures="0" skipped="0" time="11.329" errors="0">
-<testcase name="Simple Form Demo › Single Input Field: valid text and empty value" classname="specs/simpleFormDemo.spec.ts" time="6.647">
+<testsuite name="specs/simpleFormDemo.spec.ts" timestamp="2025-11-25T17:54:56.295Z" hostname="webkit" tests="2" failures="0" skipped="0" time="9.201" errors="0">
+<testcase name="Simple Form Demo › Single Input Field: valid text and empty value" classname="specs/simpleFormDemo.spec.ts" time="5.498">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields: numeric validation and sum (randomized)" classname="specs/simpleFormDemo.spec.ts" time="4.682">
+<testcase name="Simple Form Demo › Two Input Fields: numeric validation and sum (randomized)" classname="specs/simpleFormDemo.spec.ts" time="3.703">
 </testcase>
 </testsuite>
 </testsuites>
