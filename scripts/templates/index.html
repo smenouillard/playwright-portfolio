@@ -116,7 +116,11 @@
       border-radius: 8px;
       background: var(--card-bg);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-      transition: box-shadow 0.15s ease, transform 0.15s ease, background 0.2s ease;
+      transition:
+        box-shadow 0.15s ease,
+        transform 0.15s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .report-block:hover {
@@ -129,12 +133,14 @@
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
+      gap: 10px;
     }
 
     .report-header-main {
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .caret {
@@ -151,9 +157,60 @@
       display: none;
     }
 
-    .links a {
-      margin-right: 12px;
+    .report-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 4px 16px;
+      margin-bottom: 8px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .meta-label {
+      font-weight: 600;
+      margin-right: 6px;
+    }
+
+    .meta-value {
+      text-align: right;
+      opacity: 0.9;
+    }
+
+    .quick-summary {
+      font-size: 13px;
+      margin: 6px 0 10px;
+    }
+
+    .quick-summary strong {
+      font-weight: 600;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .link-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      font-size: 12px;
       text-decoration: none;
+      background: var(--card-bg);
+      transition: background 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .link-pill:hover {
+      background: var(--table-header-bg);
+      border-color: var(--link-color);
     }
 
     table.summary {
@@ -205,7 +262,10 @@
       border-radius: 999px;
       cursor: pointer;
       font-size: 13px;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
     }
 
     .toggle-btn:hover,
@@ -252,7 +312,7 @@
 
   <h1>Playwright Reports</h1>
 
-  <p><strong>Published:</strong> {{PUBLISH_TIMESTAMP}}</p>
+  <p><strong>Published (UTC):</strong> {{PUBLISH_TIMESTAMP}}</p>
   <p><strong>Commit:</strong> {{COMMIT_SHA}}</p>
   <p><strong>Run:</strong> #{{RUN_NUMBER}}</p>
   <p><a href="{{RUN_URL}}">View Full Run Logs</a></p>
@@ -288,19 +348,23 @@
       const body = document.body;
       const themeToggle = document.getElementById('theme-toggle');
 
+      // THEME
       const savedTheme = localStorage.getItem('pw-theme');
       if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
-        themeToggle.textContent = '☀️ Light mode';
+        if (themeToggle) themeToggle.textContent = '☀️ Light mode';
       }
 
-      themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-        localStorage.setItem('pw-theme', isDark ? 'dark' : 'light');
-        themeToggle.textContent = isDark ? '☀️ Light mode' : '🌙 Dark mode';
-      });
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          body.classList.toggle('dark-mode');
+          const isDark = body.classList.contains('dark-mode');
+          localStorage.setItem('pw-theme', isDark ? 'dark' : 'light');
+          themeToggle.textContent = isDark ? '☀️ Light mode' : '🌙 Dark mode';
+        });
+      }
 
+      // FILTERS
       const filterButtons = document.querySelectorAll('.filter-btn');
 
       function applyFilter(filter) {
@@ -308,12 +372,12 @@
         const blocks = document.querySelectorAll('.report-block');
 
         rows.forEach(row => {
-          const status = row.dataset.status;
+          const status = (row.dataset.status || '').toLowerCase();
           row.style.display = (filter === 'all' || status === filter) ? '' : 'none';
         });
 
         blocks.forEach(block => {
-          const status = block.dataset.status;
+          const status = (block.dataset.status || '').toLowerCase();
           block.style.display = (filter === 'all' || status === filter) ? '' : 'none';
         });
       }
@@ -326,21 +390,27 @@
         });
       });
 
+      // COLLAPSIBLE REPORT BLOCKS
       const reportBlocks = document.querySelectorAll('.report-block');
       reportBlocks.forEach(block => {
         const header = block.querySelector('.report-header');
         const caret = block.querySelector('.caret');
-        const status = block.dataset.status;
+        const status = (block.dataset.status || '').toLowerCase();
 
+        // Default: PASS + NONE collapsed, FAIL + SKIP expanded
         if (status === 'pass' || status === 'none') {
           block.classList.add('collapsed');
-          caret.textContent = '▶';
+          if (caret) caret.textContent = '▶';
+        } else {
+          if (caret) caret.textContent = '▼';
         }
 
-        header.addEventListener('click', () => {
-          const isCollapsed = block.classList.toggle('collapsed');
-          caret.textContent = isCollapsed ? '▶' : '▼';
-        });
+        if (header) {
+          header.addEventListener('click', () => {
+            const isCollapsed = block.classList.toggle('collapsed');
+            if (caret) caret.textContent = isCollapsed ? '▶' : '▼';
+          });
+        }
       });
     });
   </script>

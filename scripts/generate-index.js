@@ -1,19 +1,28 @@
 // /scripts/generate-index.js
-// Generate Playwright dashboard using HTML template
+// generate dashboard
 
 const fs = require("fs");
 const path = require("path");
 
-// --- Setup paths ---
+// Utility: format UTC timestamps
+function formatUtcTimestamp(raw) {
+  if (!raw) return "N/A";
+  const date = new Date(raw);
+  if (isNaN(date.getTime())) return raw + " UTC";
+  const yyyy = date.getUTCFullYear();
+  const mm = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(date.getUTCDate()).padStart(2, "0");
+  const hh = String(date.getUTCHours()).padStart(2, "0");
+  const min = String(date.getUTCMinutes()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd} ${hh}:${min} UTC`;
+}
+
+// Setup paths
 const REPORTS_DIR = path.join(process.cwd(), "reports");
 const TEMPLATE_PATH = path.join(__dirname, "templates", "index.html");
-const METADATA_RELATIVE = path.join("metadata", "metadata.json");
-const JSON_REPORT_RELATIVE = path.join("jsonReports", "jsonReport.json");
-
-// --- Load HTML template ---
 let template = fs.readFileSync(TEMPLATE_PATH, "utf8");
 
-// --- Load global CI metadata ---
+// Load global metadata
 let globalMeta = {};
 try {
   globalMeta = JSON.parse(process.env.METADATA_JSON || "{}");
@@ -21,14 +30,14 @@ try {
   globalMeta = {};
 }
 
-// --- Define OS badges ---
+// OS badges
 const osBadges = {
   "ubuntu-latest": { emoji: "🐧", label: "Ubuntu" },
   "windows-latest": { emoji: "🪟", label: "Windows" },
   "macos-latest": { emoji: "🍎", label: "macOS" },
 };
 
-// --- Define browser badges ---
+// Browser badges
 const browserBadges = {
   chromium: { emoji: "🌐", label: "Chromium" },
   firefox: { emoji: "🦊", label: "Firefox" },
@@ -36,151 +45,148 @@ const browserBadges = {
   edge: { emoji: "🟦", label: "Edge" },
 };
 
-// --- Format duration from seconds ---
-function formatDurationSeconds(value) {
-  const seconds = Math.round(value || 0);
-  const minutes = Math.floor(seconds / 60);
-  const remain = seconds % 60;
-  return minutes > 0 ? `${minutes}m ${remain}s` : `${remain}s`;
+// Parse Playwright JSON stats
+function parseJsonStats(filePath) {
+  if (!fs.existsSync(filePath)) return null;
+  try {
+    const json = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const stats = json.stats || {};
+    const totalTests =
+      (stats.expected || 0) +
+      (stats.unexpected || 0) +
+      (stats.skipped || 0);
+    return {
+      totalTests,
+      totalFailures: stats.unexpected || 0,
+      totalSkipped: stats.skipped || 0,
+      totalTimeSec: (stats.duration || 0) / 1000,
+    };
+  } catch {
+    return null;
+  }
 }
 
-// --- Build summary object from Playwright stats ---
-function computeSummary(stats) {
-  if (!stats) {
-    return {
-      totalTests: 0,
-      totalFailures: 0,
-      totalSkipped: 0,
-      totalTimeSec: 0,
+// Parse JUnit XML
+function parseJUnitSummary(xml) {
+  if (!xml) return null;
+  const suiteRegex = /<testsuite\b([^>]*)>/g;
+  let totalTests = 0;
+  let totalFailures = 0;
+  let totalSkipped = 0;
+  let totalTime = 0;
+  let match;
+  while ((match = suiteRegex.exec(xml)) !== null) {
+    const attrs = match[1];
+    const get = (name) => {
+      const re = new RegExp(name + '="([^"]+)"');
+      const m = re.exec(attrs);
+      return m ? m[1] : null;
     };
+    totalTests += parseInt(get("tests") || "0", 10);
+    totalFailures += parseInt(get("failures") || "0", 10);
+    totalSkipped += parseInt(get("skipped") || "0", 10);
+    totalTime += parseFloat(get("time") || "0");
   }
-
-  const totalTests =
-    (stats.expected || 0) +
-    (stats.unexpected || 0) +
-    (stats.skipped || 0);
-  const totalFailures = stats.unexpected || 0;
-  const totalSkipped = stats.skipped || 0;
-  const totalTimeSec = (stats.duration || 0) / 1000;
-
   return {
     totalTests,
     totalFailures,
     totalSkipped,
-    totalTimeSec,
+    totalTimeSec: totalTime,
   };
 }
 
-// --- Determine status pill ---
+// Status pill logic
 function statusInfo(summary) {
-  if (summary.totalFailures > 0) {
+  if (!summary)
+    return { text: "NO TESTS", emoji: "⚪", css: "pill-none", code: "none" };
+  if (summary.totalFailures > 0)
     return { text: "FAIL", emoji: "🔴", css: "pill-fail", code: "fail" };
-  }
-  if (summary.totalSkipped > 0) {
+  if (summary.totalSkipped > 0)
     return { text: "SKIPPED", emoji: "🟡", css: "pill-skip", code: "skip" };
-  }
-  if (summary.totalTests > 0) {
+  if (summary.totalTests > 0)
     return { text: "PASS", emoji: "🟢", css: "pill-pass", code: "pass" };
-  }
   return { text: "NO TESTS", emoji: "⚪", css: "pill-none", code: "none" };
 }
 
-// --- Load one report entry ---
+// Load one report folder
 function loadRunEntry(dirName) {
-  const folderPath = path.join(REPORTS_DIR, dirName);
-  const metadataFile = path.join(folderPath, METADATA_RELATIVE);
-
-  if (!fs.existsSync(metadataFile)) return null;
-
+  const folder = path.join(REPORTS_DIR, dirName);
+  const metadataPath = path.join(folder, "metadata", "metadata.json");
+  if (!fs.existsSync(metadataPath)) return null;
   let metadata;
   try {
-    metadata = JSON.parse(fs.readFileSync(metadataFile, "utf8"));
+    metadata = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
   } catch {
     return null;
   }
-
-  const jsonReportFile = path.join(folderPath, JSON_REPORT_RELATIVE);
-  let stats = null;
-
-  if (fs.existsSync(jsonReportFile)) {
+  const jsonStats = parseJsonStats(
+    path.join(folder, "jsonReports", "jsonReport.json")
+  );
+  let junitStats = null;
+  const junitPath = path.join(folder, "junit", "test-results.xml");
+  if (fs.existsSync(junitPath)) {
     try {
-      const jsonReport = JSON.parse(
-        fs.readFileSync(jsonReportFile, "utf8")
-      );
-      stats = jsonReport.stats || null;
-    } catch {
-      stats = null;
-    }
+      const xml = fs.readFileSync(junitPath, "utf8");
+      junitStats = parseJUnitSummary(xml);
+    } catch { }
   }
-
-  const summary = computeSummary(stats);
-
-  const osMeta =
-    osBadges[metadata.os] || {
-      emoji: "❓",
-      label: metadata.os || "Unknown OS",
-    };
-
-  const browserMeta =
-    browserBadges[metadata.browser] || {
-      emoji: "❓",
-      label: metadata.browser || "Unknown",
-    };
-
-  const status = statusInfo(summary);
-
+  const finalStats = jsonStats || junitStats || {
+    totalTests: 0,
+    totalFailures: 0,
+    totalSkipped: 0,
+    totalTimeSec: 0,
+  };
+  const status = statusInfo(finalStats);
+  const osMeta = osBadges[metadata.os] || {
+    emoji: "❓",
+    label: metadata.os || "Unknown OS",
+  };
+  const browserMeta = browserBadges[metadata.browser] || {
+    emoji: "❓",
+    label: metadata.browser || "Unknown",
+  };
   return {
     name: dirName,
     metadata,
-    summary,
+    stats: finalStats,
+    status,
     os: osMeta,
     browser: browserMeta,
-    status,
   };
 }
 
-// --- Load all report entries ---
+// Load entries
 function loadEntries() {
   if (!fs.existsSync(REPORTS_DIR)) return [];
-
-  const dirents = fs
+  return fs
     .readdirSync(REPORTS_DIR, { withFileTypes: true })
-    .filter((d) => d.isDirectory());
-
-  const entries = dirents
-    .filter((d) => d.name.startsWith("report-"))
+    .filter((d) => d.isDirectory() && d.name.startsWith("report-"))
     .map((d) => loadRunEntry(d.name))
     .filter(Boolean);
-
-  return entries;
 }
 
-// --- Define OS order for display ---
+// OS sorting priority
 const OS_ORDER = ["windows-latest", "macos-latest", "ubuntu-latest"];
 
-// --- Sort entries by OS and then by browser ---
+// Sort entries
 function sortEntries(entries) {
-  return entries.slice().sort((a, b) => {
-    const aIndex = OS_ORDER.indexOf(a.metadata.os);
-    const bIndex = OS_ORDER.indexOf(b.metadata.os);
-
-    const aRank = aIndex === -1 ? OS_ORDER.length : aIndex;
-    const bRank = bIndex === -1 ? OS_ORDER.length : bIndex;
-
-    if (aRank !== bRank) return aRank - bRank;
-
-    return (a.metadata.browser || "").localeCompare(
-      b.metadata.browser || ""
-    );
+  return entries.sort((a, b) => {
+    const aOs = OS_ORDER.indexOf(a.metadata.os);
+    const bOs = OS_ORDER.indexOf(b.metadata.os);
+    if (aOs !== bOs) return aOs - bOs;
+    if (a.metadata.browser !== b.metadata.browser) {
+      return (a.metadata.browser || "").localeCompare(
+        b.metadata.browser || ""
+      );
+    }
+    const order = { fail: 0, skip: 1, pass: 2, none: 3 };
+    return order[a.status.code] - order[b.status.code];
   });
 }
 
-// --- Build summary table HTML ---
+// Build summary table
 function buildSummaryTable(entries) {
-  if (entries.length === 0) {
-    return "<p>No reports available.</p>";
-  }
-
+  if (entries.length === 0) return "<p>No reports available.</p>";
   let html = `
 <table class="summary">
   <thead>
@@ -189,115 +195,102 @@ function buildSummaryTable(entries) {
       <th>OS</th>
       <th>Browser</th>
       <th>Total</th>
-      <th>Failed</th>
+      <th>Failures</th>
       <th>Skipped</th>
       <th>Duration</th>
     </tr>
   </thead>
   <tbody>
 `;
-
-  entries.forEach((e) => {
+  for (const e of entries) {
     html += `
-    <tr class="summary-row" data-status="${e.status.code}">
-      <td class="status-cell">
-        <span class="status-pill ${e.status.css}">
-          ${e.status.emoji} ${e.status.text}
-        </span>
-      </td>
-      <td>${e.os.emoji} ${e.os.label}</td>
-      <td>${e.browser.emoji} ${e.browser.label}</td>
-      <td class="num-cell">${e.summary.totalTests}</td>
-      <td class="num-cell">${e.summary.totalFailures}</td>
-      <td class="num-cell">${e.summary.totalSkipped}</td>
-      <td>${formatDurationSeconds(e.summary.totalTimeSec)}</td>
-    </tr>
-`;
-  });
-
+<tr class="summary-row" data-status="${e.status.code}">
+  <td class="status-cell">
+    <span class="status-pill ${e.status.css}">
+      ${e.status.emoji} ${e.status.text}
+    </span>
+  </td>
+  <td>${e.os.emoji} ${e.os.label}</td>
+  <td>${e.browser.emoji} ${e.browser.label}</td>
+  <td class="num-cell">${e.stats.totalTests}</td>
+  <td class="num-cell">${e.stats.totalFailures}</td>
+  <td class="num-cell">${e.stats.totalSkipped}</td>
+  <td>${Math.round(e.stats.totalTimeSec)}s</td>
+</tr>`;
+  }
   html += `
   </tbody>
 </table>
 `;
-
   return html;
 }
 
-// --- Build detailed report blocks HTML ---
+// Build hybrid blocks
 function buildReportBlocks(entries) {
-  if (entries.length === 0) {
-    return "<p>No reports available.</p>";
-  }
-
+  if (entries.length === 0) return "<p>No reports available.</p>";
   let blocks = "";
-
-  entries.forEach((e) => {
+  for (const e of entries) {
+    const timestamp = formatUtcTimestamp(e.metadata.timestamp);
     blocks += `
 <div class="report-block" data-status="${e.status.code}">
   <div class="report-header">
     <div class="report-header-main">
-      <div class="report-title">
-        <span class="status-pill ${e.status.css}">
-          ${e.status.emoji} ${e.status.text}
-        </span>
-        <span class="os-label">${e.os.emoji} ${e.os.label}</span>
-        <span class="browser-label">${e.browser.emoji} ${e.browser.label}</span>
-      </div>
-      <div class="report-header-meta">
-        <div class="meta-row">
-          <span class="meta-label">Tests:</span>
-          <span class="meta-value">${e.summary.totalTests}</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Failed:</span>
-          <span class="meta-value">${e.summary.totalFailures}</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Skipped:</span>
-          <span class="meta-value">${e.summary.totalSkipped}</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Duration:</span>
-          <span class="meta-value">${formatDurationSeconds(
-      e.summary.totalTimeSec
-    )}</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Timestamp:</span>
-          <span class="meta-value">${e.metadata.timestamp || ""}</span>
-        </div>
-      </div>
-      <div class="links">
-        <a href="./${e.name}/playwright-report/index.html" target="_blank">
-          Open HTML report
-        </a>
-        <a href="./${e.name}/playwright-report.zip" download>
-          Download ZIP
-        </a>
-      </div>
+      <span class="status-pill ${e.status.css}">
+        ${e.status.emoji} ${e.status.text}
+      </span>
+      <span class="badge os-badge">${e.os.emoji} ${e.os.label}</span>
+      <span class="badge browser-badge">${e.browser.emoji} ${e.browser.label}</span>
     </div>
+    <span class="caret">▼</span>
+  </div>
+
+  <div class="report-content">
+
+    <div class="report-meta-grid">
+      <div class="meta-row"><span class="meta-label">Tests:</span><span class="meta-value">${e.stats.totalTests}</span></div>
+      <div class="meta-row"><span class="meta-label">Failed:</span><span class="meta-value">${e.stats.totalFailures}</span></div>
+      <div class="meta-row"><span class="meta-label">Skipped:</span><span class="meta-value">${e.stats.totalSkipped}</span></div>
+      <div class="meta-row"><span class="meta-label">Duration:</span><span class="meta-value">${Math.round(e.stats.totalTimeSec)}s</span></div>
+      <div class="meta-row"><span class="meta-label">Timestamp:</span><span class="meta-value">${timestamp}</span></div>
+      <div class="meta-row"><span class="meta-label">Runner:</span><span class="meta-value">${e.metadata.os}</span></div>
+    </div>
+
+    <div class="quick-summary">
+      📊 <strong>${e.stats.totalTests}</strong> tests •
+      ⚠ <strong>${e.stats.totalFailures}</strong> failed •
+      ➖ <strong>${e.stats.totalSkipped}</strong> skipped •
+      ⏱ <strong>${Math.round(e.stats.totalTimeSec)}s</strong>
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="./${e.name}/playwright-report/index.html" target="_blank">📄 HTML</a>
+      <a class="link-pill" href="./${e.name}/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
+      <a class="link-pill" href="./${e.name}/junit/test-results.xml" target="_blank">📑 XML</a>
+      <a class="link-pill" href="./${e.name}/playwright-report.zip" download>📦 ZIP</a>
+      <a class="link-pill" href="${globalMeta.runUrl}" target="_blank">📘 Logs</a>
+    </div>
+
   </div>
 </div>
 `;
-  });
-
+  }
   return blocks;
 }
 
-// --- Generate dashboard HTML ---
+// Generate final HTML
 const entries = sortEntries(loadEntries());
 const summaryTable = buildSummaryTable(entries);
 const reportBlocks = buildReportBlocks(entries);
 
 template = template
-  .replace("{{PUBLISH_TIMESTAMP}}", globalMeta.publishTimestamp || "N/A")
+  .replace("{{PUBLISH_TIMESTAMP}}", formatUtcTimestamp(globalMeta.publishTimestamp))
   .replace("{{COMMIT_SHA}}", globalMeta.commitSha || "N/A")
   .replace("{{RUN_NUMBER}}", globalMeta.runNumber || "N/A")
   .replace("{{RUN_URL}}", globalMeta.runUrl || "#")
   .replace("{{SUMMARY_TABLE}}", summaryTable)
   .replace("{{REPORT_LIST}}", reportBlocks);
 
-// --- Write final index.html ---
+// Write dashboard
 fs.writeFileSync(path.join(REPORTS_DIR, "index.html"), template, "utf8");
 
-console.log("Dashboard generated successfully.");
+console.log("Super Dashboard (Hybrid Version) generated successfully.");
