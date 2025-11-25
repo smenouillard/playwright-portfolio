@@ -3,7 +3,7 @@
 
 name: Playwright E2E Tests
 
-# Required permissions for artifacts, PR comments, and gh-pages publishing
+# Permissions required for artifacts, PR comments, and gh-pages publishing
 permissions:
   contents: read
   issues: write
@@ -14,11 +14,11 @@ on:
   push:
     branches: [main, master]
 
-  # Trigger CI on PRs targeting main or master
+  # Trigger CI on PRs to main or master
   pull_request:
     branches: [main, master]
 
-  # Manual trigger
+  # Manual trigger support
   workflow_dispatch:
 
 concurrency:
@@ -71,7 +71,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      # Install Node.js LTS
+      # Install Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4.0.2
         with:
@@ -85,7 +85,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
 
-      # Install dependencies
+      # Install project dependencies
       - name: Install deps
         run: npm ci
 
@@ -93,7 +93,7 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps
 
-      # Run tests on Ubuntu via xvfb
+      # Run tests on Ubuntu
       - name: Run tests (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         shell: bash
@@ -136,7 +136,7 @@ jobs:
             Compress-Archive -Path "playwright-report" -DestinationPath "playwright-report.zip" -Force
           }
 
-      # Upload artifacts for dashboard generator
+      # Upload all artifacts
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -160,7 +160,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      # Download artifacts
+      # Download all artifacts
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
@@ -178,7 +178,7 @@ jobs:
             fi
           done
 
-      # Build main dashboard
+      # Generate main dashboard
       - name: Generate dashboard
         run: |
           metadata='{
@@ -189,7 +189,7 @@ jobs:
           }'
           METADATA_JSON="$metadata" node scripts/generate-index.js
 
-      # Publish main dashboard (reports/)
+      # Publish main dashboard to gh-pages root
       - name: Publish to Pages
         uses: peaceiris/actions-gh-pages@v3.9.2
         with:
@@ -227,7 +227,7 @@ jobs:
             fi
           done
 
-      # Build preview dashboard
+      # Generate preview dashboard
       - name: Generate dashboard (preview)
         run: |
           BRANCH_NAME_SAFE="${GITHUB_REF_NAME//\//-}"
@@ -241,10 +241,16 @@ jobs:
 
           METADATA_JSON="$metadata" node scripts/generate-index.js
 
+          # Remove old preview (overwrite fix)
+          rm -rf previews/$BRANCH_NAME_SAFE
+
+          # Create fresh preview folder
           mkdir -p "previews/$BRANCH_NAME_SAFE"
+
+          # Copy dashboard into preview folder
           cp -r reports/* "previews/$BRANCH_NAME_SAFE/" || true
 
-      # Publish preview dashboard (published directly as /<branch>/)
+      # Publish preview dashboard (directly as /<branch>/)
       - name: Publish preview to Pages
         uses: peaceiris/actions-gh-pages@v3.9.2
         with:
