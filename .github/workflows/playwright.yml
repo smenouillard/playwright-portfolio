@@ -1,5 +1,5 @@
 # /.github/workflows/playwright.yml
-# --- Playwright E2E CI Workflow ---
+# Playwright E2E CI Workflow
 
 name: Playwright E2E Tests
 
@@ -10,7 +10,6 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
-# --- Cancel older runs on the same branch ---
 concurrency:
   group: playwright-${{ github.ref }}
   cancel-in-progress: true
@@ -24,33 +23,29 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # --- Ubuntu browsers ---
+          # Ubuntu
           - os: ubuntu-latest
             browser: chromium
             name: "Ubuntu - Chromium"
-
           - os: ubuntu-latest
             browser: firefox
             name: "Ubuntu - Firefox"
-
           - os: ubuntu-latest
             browser: webkit
             name: "Ubuntu - WebKit"
 
-          # --- Windows browsers ---
+          # Windows
           - os: windows-latest
             browser: chromium
             name: "Windows - Chromium"
-
           - os: windows-latest
             browser: edge
             name: "Windows - Edge"
 
-          # --- macOS browsers ---
+          # macOS
           - os: macos-latest
             browser: chromium
             name: "macOS - Chromium"
-
           - os: macos-latest
             browser: webkit
             name: "macOS - WebKit"
@@ -60,45 +55,44 @@ jobs:
       PW_PASSWORD: ${{ secrets.PW_PASSWORD }}
 
     steps:
-      # --- Checkout source ---
+      # Checkout source
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      # --- Setup Node.js ---
+      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4.0.2
         with:
           node-version: lts/*
 
-      # --- Cache npm dependencies ---
+      # Cache npm dependencies
       - name: Cache npm deps
         uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          restore-keys: ${{ runner.os }}-node-
 
-      # --- Install npm packages ---
+      # Install dependencies
       - name: Install deps
         run: npm ci
 
-      # --- Install Playwright browsers ---
+      # Install Playwright browsers
       - name: Install Playwright
         run: npx playwright install --with-deps
 
-      # --- Run tests on Ubuntu with xvfb ---
+      # Run tests on Ubuntu
       - name: Run tests (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         shell: bash
         run: xvfb-run npx playwright test --project=${{ matrix.browser }} || true
 
-      # --- Run tests on Windows/macOS ---
+      # Run tests on Windows/macOS
       - name: Run tests (Windows/macOS)
         if: matrix.os != 'ubuntu-latest'
         run: npx playwright test --project=${{ matrix.browser }} || true
 
-      # --- Generate metadata.json ---
+      # Write metadata file
       - name: Generate metadata
         shell: bash
         run: |
@@ -112,7 +106,7 @@ jobs:
           }
           EOF
 
-      # --- Zip HTML report on Unix ---
+      # Zip HTML report on Unix
       - name: Zip report (Unix)
         if: runner.os != 'Windows'
         shell: bash
@@ -121,7 +115,7 @@ jobs:
             zip -r playwright-report.zip playwright-report
           fi
 
-      # --- Zip HTML report on Windows ---
+      # Zip HTML report on Windows
       - name: Zip report (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
@@ -130,7 +124,7 @@ jobs:
             Compress-Archive -Path "playwright-report" -DestinationPath "playwright-report.zip" -Force
           }
 
-      # --- Upload test artifacts ---
+      # Upload artifacts
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -150,17 +144,29 @@ jobs:
     if: always() && github.ref == 'refs/heads/main'
 
     steps:
-      # --- Checkout code ---
+      # Checkout source
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      # --- Download all artifacts into ./reports ---
+      # Download artifacts
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
           path: ./reports
 
-      # --- Generate dashboard index.html ---
+      # Extract HTML reports
+      - name: Extract HTML reports
+        shell: bash
+        run: |
+          cd reports
+          for dir in report-*; do
+            if [ -d "$dir" ] && [ -f "$dir/playwright-report.zip" ]; then
+              mkdir -p "$dir/playwright-report"
+              unzip -q "$dir/playwright-report.zip" -d "$dir/playwright-report"
+            fi
+          done
+
+      # Generate dashboard
       - name: Generate dashboard
         run: |
           metadata='{
@@ -171,7 +177,7 @@ jobs:
           }'
           METADATA_JSON="$metadata" node scripts/generate-index.js
 
-      # --- Deploy reports to GitHub Pages ---
+      # Publish to GitHub Pages
       - name: Publish to Pages
         uses: peaceiris/actions-gh-pages@v3.9.2
         with:
