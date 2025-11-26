@@ -1,5 +1,5 @@
 # /.github/workflows/playwright.yml
-# Playwright E2E CI Workflow
+# Playwright E2E CI Workflow v2
 
 name: Playwright E2E Tests
 
