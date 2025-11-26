@@ -209,13 +209,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      # Download all artifacts
+      # Download all artifacts for preview
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
           path: ./reports
 
-      # Extract Playwright HTML reports
+      # Extract all HTML reports for preview dashboard
       - name: Extract HTML reports
         shell: bash
         run: |
@@ -252,6 +252,12 @@ jobs:
           cp -r reports/report-* "previews/$BRANCH_NAME_SAFE/" || true
           cp -r reports/jsonReports "previews/$BRANCH_NAME_SAFE/" || true
           cp -r reports/junit "previews/$BRANCH_NAME_SAFE/" || true
+
+          # Add cache-control file for CDN invalidation
+          echo "Cache-Control: no-cache, no-store, must-revalidate" > "previews/$BRANCH_NAME_SAFE/.cache-control"
+
+          # Touch index.html to force Cloudflare to refresh cached version
+          touch "previews/$BRANCH_NAME_SAFE/index.html"
 
       # Publish preview dashboard to gh-pages
       - name: Publish preview to Pages
