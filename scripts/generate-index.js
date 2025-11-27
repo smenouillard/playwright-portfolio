@@ -238,8 +238,22 @@ function buildSummaryTable(entries) {
 // Build collapsible report detail blocks
 function buildReportBlocks(entries) {
   let blocks = "";
+
   for (const e of entries) {
+
     const timestamp = formatUtcTimestamp(e.metadata.timestamp);
+
+    // Build compact summary line
+    const summaryLine = `
+      📊 ${e.stats.totalTests} tests • 
+      ⚠ ${e.stats.totalFailures} failed • 
+      ➖ ${e.stats.totalSkipped} skipped • 
+      ⏱ ${Math.round(e.stats.totalTimeSec)}s
+    `.replace(/\s+/g, " ").trim();
+
+    // Build timestamp line
+    const timestampLine = `🕒 ${timestamp}`;
+
     blocks += `
 <div class="report-block" data-status="${e.status.code}">
   <div class="report-header">
@@ -255,20 +269,14 @@ function buildReportBlocks(entries) {
 
   <div class="report-content">
 
-    <div class="report-meta-grid">
-      <div class="meta-row"><span class="meta-label">Tests:</span><span class="meta-value">${e.stats.totalTests}</span></div>
-      <div class="meta-row"><span class="meta-label">Failed:</span><span class="meta-value">${e.stats.totalFailures}</span></div>
-      <div class="meta-row"><span class="meta-label">Skipped:</span><span class="meta-value">${e.stats.totalSkipped}</span></div>
-      <div class="meta-row"><span class="meta-label">Duration:</span><span class="meta-value">${Math.round(e.stats.totalTimeSec)}s</span></div>
-      <div class="meta-row"><span class="meta-label">Timestamp:</span><span class="meta-value">${timestamp}</span></div>
-      <div class="meta-row"><span class="meta-label">Runner:</span><span class="meta-value">${e.metadata.os}</span></div>
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      ${summaryLine}
     </div>
 
+    <!-- Visual timestamp -->
     <div class="quick-summary">
-      📊 <strong>${e.stats.totalTests}</strong> tests •
-      ⚠ <strong>${e.stats.totalFailures}</strong> failed •
-      ➖ <strong>${e.stats.totalSkipped}</strong> skipped •
-      ⏱ <strong>${Math.round(e.stats.totalTimeSec)}s</strong>
+      ${timestampLine}
     </div>
 
     <div class="links">
@@ -283,6 +291,7 @@ function buildReportBlocks(entries) {
 </div>
 `;
   }
+
   return blocks;
 }
 
