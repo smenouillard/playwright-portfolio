@@ -1,0 +1,873 @@
+<!-- /scripts/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Playwright Reports</title>
+
+  <!-- Global theme and layout -->
+  <style>
+    /* Global theme variables */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --card-bg: #fafafa;
+      --border-color: #cccccc;
+      --table-header-bg: #eeeeee;
+      --link-color: #0066cc;
+      --stripe-bg: rgba(0, 0, 0, 0.03);
+      --hover-bg: rgba(0, 0, 0, 0.08);
+    }
+
+    /* Dark mode variables */
+    body.dark-mode {
+      --bg-color: #111827;
+      --text-color: #e5e7eb;
+      --card-bg: #1f2937;
+      --border-color: #374151;
+      --table-header-bg: #374151;
+      --link-color: #60a5fa;
+      --stripe-bg: rgba(255, 255, 255, 0.05);
+      --hover-bg: rgba(255, 255, 255, 0.10);
+    }
+
+    /* Base layout */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    /* Page title spacing */
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    /* Link styling */
+    a {
+      color: var(--link-color);
+    }
+
+    /* Badge base style */
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 12px;
+      margin-right: 6px;
+    }
+
+    /* OS badge */
+    .os-badge {
+      background: #555;
+    }
+
+    /* Browser badge */
+    .browser-badge {
+      background: #777;
+    }
+
+    /* Status pill base style */
+    .status-pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    /* PASS pill */
+    .pill-pass {
+      background: #d6f5d6;
+      color: #0a4;
+    }
+
+    /* FAIL pill */
+    .pill-fail {
+      background: #ffd6d6;
+      color: #a00;
+    }
+
+    /* SKIP pill */
+    .pill-skip {
+      background: #fff2b3;
+      color: #a68b00;
+    }
+
+    /* NONE pill */
+    .pill-none {
+      background: #e3e3e3;
+      color: #555;
+    }
+
+    /* Dark mode pills */
+    body.dark-mode .pill-pass {
+      background: #14532d;
+      color: #bbf7d0;
+    }
+
+    body.dark-mode .pill-fail {
+      background: #7f1d1d;
+      color: #fecaca;
+    }
+
+    body.dark-mode .pill-skip {
+      background: #78350f;
+      color: #fef3c7;
+    }
+
+    body.dark-mode .pill-none {
+      background: #4b5563;
+      color: #e5e7eb;
+    }
+
+    /* Report block container */
+    .report-block {
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 8px;
+      background: var(--card-bg);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      transition: box-shadow .15s ease, transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+
+    /* Report block hover */
+    .report-block:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+      transform: translateY(-1px);
+    }
+
+    /* Report header layout */
+    .report-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 10px;
+    }
+
+    /* Header main badge zone */
+    .report-header-main {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Caret arrow */
+    .caret {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .report-content {
+      margin-top: 10px;
+    }
+
+    .report-block.collapsed .report-content {
+      display: none;
+    }
+
+    /* Metadata grid */
+    .report-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 4px 16px;
+      margin-bottom: 8px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .meta-label {
+      font-weight: 600;
+      margin-right: 6px;
+    }
+
+    .meta-value {
+      text-align: right;
+      opacity: 0.9;
+    }
+
+    .quick-summary {
+      font-size: 13px;
+      margin: 6px 0 10px;
+    }
+
+    .quick-summary strong {
+      font-weight: 600;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .link-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      font-size: 12px;
+      text-decoration: none;
+      background: var(--card-bg);
+      transition: background .15s ease, border-color .15s ease;
+      white-space: nowrap;
+    }
+
+    .link-pill:hover {
+      background: var(--table-header-bg);
+      border-color: var(--link-color);
+    }
+
+    /* Summary table container */
+    table.summary {
+      border-collapse: collapse;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+
+      /* NEW: stable table layout */
+      table-layout: fixed;
+    }
+
+    /* Summary zebra */
+    table.summary tbody tr:nth-child(even) {
+      background: var(--stripe-bg);
+    }
+
+    table.summary tbody tr:hover {
+      background: var(--hover-bg);
+    }
+
+    /* Summary cell base */
+    table.summary th,
+    table.summary td {
+      border-bottom: 1px solid var(--border-color);
+      padding: 6px 8px;
+      font-size: 14px;
+      overflow-wrap: break-word;
+    }
+
+    table.summary th {
+      background: var(--table-header-bg);
+    }
+
+    /* Status column */
+    .summary td.status-cell {
+      text-align: center;
+      width: 140px;
+    }
+
+    /* Equal-width numeric columns */
+    /* (Total, Failures, Skipped, Duration) */
+    .summary td.num-cell,
+    .summary td.time-cell {
+      width: 12%;
+      /* responsive equal width */
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* OS / Browser alignment improved */
+    .summary td.os-cell,
+    .summary td.browser-cell {
+      padding-left: 28px;
+      text-indent: -14px;
+    }
+
+    /* Toolbar container */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 20px;
+    }
+
+    .toggle-btn,
+    .filter-btn {
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-color);
+      padding: 5px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background .15s ease, border-color .15s ease, color .15s ease;
+    }
+
+    .toggle-btn:hover,
+    .filter-btn:hover {
+      background: var(--table-header-bg);
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .filter-btn.active {
+      border-color: #2563eb;
+      color: #2563eb;
+    }
+
+    body.dark-mode .filter-btn.active {
+      border-color: #60a5fa;
+      color: #60a5fa;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      text-align: center;
+      color: #555;
+    }
+
+    body.dark-mode footer {
+      color: #9ca3af;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Page title -->
+  <h1>Playwright Reports</h1>
+
+  <!-- Publish timestamp -->
+  <p><strong>Published:</strong> 2025-11-27 20:06 UTC</p>
+
+  <!-- Commit SHA -->
+  <p><strong>Commit:</strong> d550dbbfb72fbbbfb01db8da85a9e7d7706a4d0f</p>
+
+  <!-- Run number -->
+  <p><strong>Run:</strong> #35</p>
+
+  <!-- Link to GitHub Actions logs -->
+  <p><a href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19746759005">View Full Run Logs</a></p>
+
+  <!-- Toolbar: theme toggle and status filters -->
+  <div class="toolbar">
+    <button id="theme-toggle" class="toggle-btn">🌙 Dark mode</button>
+
+    <!-- Status filters -->
+    <div class="filter-group">
+      <span class="filter-label">Filter by status:</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="fail">Fail</button>
+      <button class="filter-btn" data-filter="skip">Skipped</button>
+      <button class="filter-btn" data-filter="pass">Pass</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Summary section -->
+  <h2>Summary</h2>
+  
+<table class="summary">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>OS</th>
+      <th>Browser</th>
+      <th>Total</th>
+      <th>Failures</th>
+      <th>Skipped</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<tr class="summary-row" data-status="pass">
+  <td class="status-cell">
+    <span class="status-pill pill-pass">
+      🟢 PASS
+    </span>
+  </td>
+
+  <!-- OS cell -->
+  <td class="os-cell">🪟 Windows</td>
+
+  <!-- Browser cell -->
+  <td class="browser-cell">🌐 Chromium</td>
+
+  <td class="num-cell">8</td>
+  <td class="num-cell">0</td>
+  <td class="num-cell">0</td>
+  <td class="time-cell">11s</td>
+</tr>
+<tr class="summary-row" data-status="pass">
+  <td class="status-cell">
+    <span class="status-pill pill-pass">
+      🟢 PASS
+    </span>
+  </td>
+
+  <!-- OS cell -->
+  <td class="os-cell">🪟 Windows</td>
+
+  <!-- Browser cell -->
+  <td class="browser-cell">🟦 Edge</td>
+
+  <td class="num-cell">8</td>
+  <td class="num-cell">0</td>
+  <td class="num-cell">0</td>
+  <td class="time-cell">46s</td>
+</tr>
+<tr class="summary-row" data-status="pass">
+  <td class="status-cell">
+    <span class="status-pill pill-pass">
+      🟢 PASS
+    </span>
+  </td>
+
+  <!-- OS cell -->
+  <td class="os-cell">🍎 macOS</td>
+
+  <!-- Browser cell -->
+  <td class="browser-cell">🌐 Chromium</td>
+
+  <td class="num-cell">8</td>
+  <td class="num-cell">0</td>
+  <td class="num-cell">0</td>
+  <td class="time-cell">11s</td>
+</tr>
+<tr class="summary-row" data-status="pass">
+  <td class="status-cell">
+    <span class="status-pill pill-pass">
+      🟢 PASS
+    </span>
+  </td>
+
+  <!-- OS cell -->
+  <td class="os-cell">🍎 macOS</td>
+
+  <!-- Browser cell -->
+  <td class="browser-cell">🍏 WebKit</td>
+
+  <td class="num-cell">8</td>
+  <td class="num-cell">0</td>
+  <td class="num-cell">0</td>
+  <td class="time-cell">21s</td>
+</tr>
+<tr class="summary-row" data-status="pass">
+  <td class="status-cell">
+    <span class="status-pill pill-pass">
+      🟢 PASS
+    </span>
+  </td>
+
+  <!-- OS cell -->
+  <td class="os-cell">🐧 Ubuntu</td>
+
+  <!-- Browser cell -->
+  <td class="browser-cell">🌐 Chromium</td>
+
+  <td class="num-cell">8</td>
+  <td class="num-cell">0</td>
+  <td class="num-cell">0</td>
+  <td class="time-cell">13s</td>
+</tr>
+<tr class="summary-row" data-status="pass">
+  <td class="status-cell">
+    <span class="status-pill pill-pass">
+      🟢 PASS
+    </span>
+  </td>
+
+  <!-- OS cell -->
+  <td class="os-cell">🐧 Ubuntu</td>
+
+  <!-- Browser cell -->
+  <td class="browser-cell">🦊 Firefox</td>
+
+  <td class="num-cell">8</td>
+  <td class="num-cell">0</td>
+  <td class="num-cell">0</td>
+  <td class="time-cell">18s</td>
+</tr>
+<tr class="summary-row" data-status="pass">
+  <td class="status-cell">
+    <span class="status-pill pill-pass">
+      🟢 PASS
+    </span>
+  </td>
+
+  <!-- OS cell -->
+  <td class="os-cell">🐧 Ubuntu</td>
+
+  <!-- Browser cell -->
+  <td class="browser-cell">🍏 WebKit</td>
+
+  <td class="num-cell">8</td>
+  <td class="num-cell">0</td>
+  <td class="num-cell">0</td>
+  <td class="time-cell">22s</td>
+</tr>
+  </tbody>
+</table>
+
+
+  <hr>
+
+  <!-- Report list section -->
+  <h2>Report List</h2>
+  
+<div class="report-block" data-status="pass">
+  <div class="report-header">
+    <div class="report-header-main">
+      <span class="status-pill pill-pass">
+        🟢 PASS
+      </span>
+      <span class="badge os-badge">🪟 Windows</span>
+      <span class="badge browser-badge">🌐 Chromium</span>
+    </div>
+    <span class="caret">▼</span>
+  </div>
+
+  <div class="report-content">
+
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • 🔴 0 failed • 🟡 0 skipped • ⏱ 11s
+    </div>
+
+    <!-- Visual timestamp -->
+    <div class="quick-summary">
+      🕒 2025-11-27 20:05 UTC
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="./report-windows-latest-chromium/playwright-report/index.html" target="_blank">📄 HTML</a>
+      <a class="link-pill" href="./report-windows-latest-chromium/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
+      <a class="link-pill" href="./report-windows-latest-chromium/junit/test-results.xml" target="_blank">📑 XML</a>
+      <a class="link-pill" href="./report-windows-latest-chromium/playwright-report.zip" download>📦 ZIP</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19746759005" target="_blank">📘 Logs</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="report-block" data-status="pass">
+  <div class="report-header">
+    <div class="report-header-main">
+      <span class="status-pill pill-pass">
+        🟢 PASS
+      </span>
+      <span class="badge os-badge">🪟 Windows</span>
+      <span class="badge browser-badge">🟦 Edge</span>
+    </div>
+    <span class="caret">▼</span>
+  </div>
+
+  <div class="report-content">
+
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • 🔴 0 failed • 🟡 0 skipped • ⏱ 46s
+    </div>
+
+    <!-- Visual timestamp -->
+    <div class="quick-summary">
+      🕒 2025-11-27 20:05 UTC
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="./report-windows-latest-edge/playwright-report/index.html" target="_blank">📄 HTML</a>
+      <a class="link-pill" href="./report-windows-latest-edge/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
+      <a class="link-pill" href="./report-windows-latest-edge/junit/test-results.xml" target="_blank">📑 XML</a>
+      <a class="link-pill" href="./report-windows-latest-edge/playwright-report.zip" download>📦 ZIP</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19746759005" target="_blank">📘 Logs</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="report-block" data-status="pass">
+  <div class="report-header">
+    <div class="report-header-main">
+      <span class="status-pill pill-pass">
+        🟢 PASS
+      </span>
+      <span class="badge os-badge">🍎 macOS</span>
+      <span class="badge browser-badge">🌐 Chromium</span>
+    </div>
+    <span class="caret">▼</span>
+  </div>
+
+  <div class="report-content">
+
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • 🔴 0 failed • 🟡 0 skipped • ⏱ 11s
+    </div>
+
+    <!-- Visual timestamp -->
+    <div class="quick-summary">
+      🕒 2025-11-27 20:02 UTC
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="./report-macos-latest-chromium/playwright-report/index.html" target="_blank">📄 HTML</a>
+      <a class="link-pill" href="./report-macos-latest-chromium/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
+      <a class="link-pill" href="./report-macos-latest-chromium/junit/test-results.xml" target="_blank">📑 XML</a>
+      <a class="link-pill" href="./report-macos-latest-chromium/playwright-report.zip" download>📦 ZIP</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19746759005" target="_blank">📘 Logs</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="report-block" data-status="pass">
+  <div class="report-header">
+    <div class="report-header-main">
+      <span class="status-pill pill-pass">
+        🟢 PASS
+      </span>
+      <span class="badge os-badge">🍎 macOS</span>
+      <span class="badge browser-badge">🍏 WebKit</span>
+    </div>
+    <span class="caret">▼</span>
+  </div>
+
+  <div class="report-content">
+
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • 🔴 0 failed • 🟡 0 skipped • ⏱ 21s
+    </div>
+
+    <!-- Visual timestamp -->
+    <div class="quick-summary">
+      🕒 2025-11-27 20:02 UTC
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="./report-macos-latest-webkit/playwright-report/index.html" target="_blank">📄 HTML</a>
+      <a class="link-pill" href="./report-macos-latest-webkit/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
+      <a class="link-pill" href="./report-macos-latest-webkit/junit/test-results.xml" target="_blank">📑 XML</a>
+      <a class="link-pill" href="./report-macos-latest-webkit/playwright-report.zip" download>📦 ZIP</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19746759005" target="_blank">📘 Logs</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="report-block" data-status="pass">
+  <div class="report-header">
+    <div class="report-header-main">
+      <span class="status-pill pill-pass">
+        🟢 PASS
+      </span>
+      <span class="badge os-badge">🐧 Ubuntu</span>
+      <span class="badge browser-badge">🌐 Chromium</span>
+    </div>
+    <span class="caret">▼</span>
+  </div>
+
+  <div class="report-content">
+
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • 🔴 0 failed • 🟡 0 skipped • ⏱ 13s
+    </div>
+
+    <!-- Visual timestamp -->
+    <div class="quick-summary">
+      🕒 2025-11-27 20:03 UTC
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="./report-ubuntu-latest-chromium/playwright-report/index.html" target="_blank">📄 HTML</a>
+      <a class="link-pill" href="./report-ubuntu-latest-chromium/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
+      <a class="link-pill" href="./report-ubuntu-latest-chromium/junit/test-results.xml" target="_blank">📑 XML</a>
+      <a class="link-pill" href="./report-ubuntu-latest-chromium/playwright-report.zip" download>📦 ZIP</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19746759005" target="_blank">📘 Logs</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="report-block" data-status="pass">
+  <div class="report-header">
+    <div class="report-header-main">
+      <span class="status-pill pill-pass">
+        🟢 PASS
+      </span>
+      <span class="badge os-badge">🐧 Ubuntu</span>
+      <span class="badge browser-badge">🦊 Firefox</span>
+    </div>
+    <span class="caret">▼</span>
+  </div>
+
+  <div class="report-content">
+
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • 🔴 0 failed • 🟡 0 skipped • ⏱ 18s
+    </div>
+
+    <!-- Visual timestamp -->
+    <div class="quick-summary">
+      🕒 2025-11-27 20:03 UTC
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="./report-ubuntu-latest-firefox/playwright-report/index.html" target="_blank">📄 HTML</a>
+      <a class="link-pill" href="./report-ubuntu-latest-firefox/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
+      <a class="link-pill" href="./report-ubuntu-latest-firefox/junit/test-results.xml" target="_blank">📑 XML</a>
+      <a class="link-pill" href="./report-ubuntu-latest-firefox/playwright-report.zip" download>📦 ZIP</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19746759005" target="_blank">📘 Logs</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="report-block" data-status="pass">
+  <div class="report-header">
+    <div class="report-header-main">
+      <span class="status-pill pill-pass">
+        🟢 PASS
+      </span>
+      <span class="badge os-badge">🐧 Ubuntu</span>
+      <span class="badge browser-badge">🍏 WebKit</span>
+    </div>
+    <span class="caret">▼</span>
+  </div>
+
+  <div class="report-content">
+
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • 🔴 0 failed • 🟡 0 skipped • ⏱ 22s
+    </div>
+
+    <!-- Visual timestamp -->
+    <div class="quick-summary">
+      🕒 2025-11-27 20:03 UTC
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="./report-ubuntu-latest-webkit/playwright-report/index.html" target="_blank">📄 HTML</a>
+      <a class="link-pill" href="./report-ubuntu-latest-webkit/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
+      <a class="link-pill" href="./report-ubuntu-latest-webkit/junit/test-results.xml" target="_blank">📑 XML</a>
+      <a class="link-pill" href="./report-ubuntu-latest-webkit/playwright-report.zip" download>📦 ZIP</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19746759005" target="_blank">📘 Logs</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer>
+    Generated automatically by GitHub Actions.
+  </footer>
+
+  <!-- Dashboard behavior scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Theme toggle setup
+      const body = document.body;
+      const themeToggle = document.getElementById('theme-toggle');
+      const savedTheme = localStorage.getItem('pw-theme');
+
+      // Apply saved theme
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (themeToggle) themeToggle.textContent = '☀️ Light mode';
+      }
+
+      // Theme toggle click
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          body.classList.toggle('dark-mode');
+          const isDark = body.classList.contains('dark-mode');
+          localStorage.setItem('pw-theme', isDark ? 'dark' : 'light');
+          themeToggle.textContent = isDark ? '☀️ Light mode' : '🌙 Dark mode';
+        });
+      }
+
+      // Filter system
+      const filterButtons = document.querySelectorAll('.filter-btn');
+
+      function applyFilter(filter) {
+        const rows = document.querySelectorAll('.summary-row');
+        const blocks = document.querySelectorAll('.report-block');
+
+        rows.forEach(row => {
+          const status = (row.dataset.status || '').toLowerCase();
+          row.style.display = (filter === 'all' || status === filter) ? '' : 'none';
+        });
+
+        blocks.forEach(block => {
+          const status = (block.dataset.status || '').toLowerCase();
+          block.style.display = (filter === 'all' || status === filter) ? '' : 'none';
+        });
+      }
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          applyFilter(btn.dataset.filter);
+        });
+      });
+
+      // Collapsible blocks
+      const reportBlocks = document.querySelectorAll('.report-block');
+      reportBlocks.forEach(block => {
+        const header = block.querySelector('.report-header');
+        const caret = block.querySelector('.caret');
+        const status = (block.dataset.status || '').toLowerCase();
+
+        // Default collapsed state
+        if (status === 'pass' || status === 'none') {
+          block.classList.add('collapsed');
+          if (caret) caret.textContent = '▶';
+        } else {
+          if (caret) caret.textContent = '▼';
+        }
+
+        // Toggle collapsed state
+        if (header) {
+          header.addEventListener('click', () => {
+            const collapsed = block.classList.toggle('collapsed');
+            if (caret) caret.textContent = collapsed ? '▶' : '▼';
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
