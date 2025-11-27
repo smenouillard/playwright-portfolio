@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-        "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-        "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
+        "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c4776d92e2ce65e9295cbea74fc07614738797",
+        "commitHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+        "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19746997435"
       },
       "gitCommit": {
-        "shortHash": "ad5a082",
-        "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-        "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
-        "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
+        "shortHash": "76c4776",
+        "hash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+        "subject": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures",
+        "body": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures\n",
         "author": {
           "name": "Sylvain Menouillard",
           "email": "smenouillard@gmail.com",
-          "time": 1764265250000
+          "time": 1764273552000
         },
         "committer": {
           "name": "Sylvain Menouillard",
           "email": "smenouillard@gmail.com",
-          "time": 1764265250000
+          "time": 1764273552000
         },
         "branch": "main"
       },
@@ -77,24 +77,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c4776d92e2ce65e9295cbea74fc07614738797",
+            "commitHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19746997435"
           },
           "gitCommit": {
-            "shortHash": "ad5a082",
-            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
-            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
+            "shortHash": "76c4776",
+            "hash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "subject": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures",
+            "body": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "branch": "main"
           },
@@ -115,24 +115,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c4776d92e2ce65e9295cbea74fc07614738797",
+            "commitHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19746997435"
           },
           "gitCommit": {
-            "shortHash": "ad5a082",
-            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
-            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
+            "shortHash": "76c4776",
+            "hash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "subject": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures",
+            "body": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "branch": "main"
           },
@@ -153,24 +153,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c4776d92e2ce65e9295cbea74fc07614738797",
+            "commitHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19746997435"
           },
           "gitCommit": {
-            "shortHash": "ad5a082",
-            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
-            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
+            "shortHash": "76c4776",
+            "hash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "subject": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures",
+            "body": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "branch": "main"
           },
@@ -191,24 +191,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c4776d92e2ce65e9295cbea74fc07614738797",
+            "commitHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19746997435"
           },
           "gitCommit": {
-            "shortHash": "ad5a082",
-            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
-            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
+            "shortHash": "76c4776",
+            "hash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "subject": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures",
+            "body": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "branch": "main"
           },
@@ -229,24 +229,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c4776d92e2ce65e9295cbea74fc07614738797",
+            "commitHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19746997435"
           },
           "gitCommit": {
-            "shortHash": "ad5a082",
-            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
-            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
+            "shortHash": "76c4776",
+            "hash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "subject": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures",
+            "body": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "branch": "main"
           },
@@ -267,24 +267,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c4776d92e2ce65e9295cbea74fc07614738797",
+            "commitHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19746997435"
           },
           "gitCommit": {
-            "shortHash": "ad5a082",
-            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
-            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
+            "shortHash": "76c4776",
+            "hash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "subject": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures",
+            "body": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "branch": "main"
           },
@@ -305,24 +305,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c4776d92e2ce65e9295cbea74fc07614738797",
+            "commitHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19746997435"
           },
           "gitCommit": {
-            "shortHash": "ad5a082",
-            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
-            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
-            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
+            "shortHash": "76c4776",
+            "hash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "subject": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures",
+            "body": "refactor(structure): reorganize project by application, add appUrls, update POMs, tests and fixtures\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764265250000
+              "time": 1764273552000
             },
             "branch": "main"
           },
@@ -347,16 +347,92 @@
   },
   "suites": [
     {
-      "title": "specs/login.spec.ts",
-      "file": "specs/login.spec.ts",
+      "title": "specs/lambdatest/simpleFormDemo.spec.ts",
+      "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Single Input Field",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5388,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-27T20:15:37.032Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "70431784ff4ba5f698f2-50ed4f2c0be6ef4389b9",
+          "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+          "line": 9,
+          "column": 5
+        },
+        {
+          "title": "Two Input Fields",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2430,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-27T20:15:43.262Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "70431784ff4ba5f698f2-620eeba9265e6e7c30cc",
+          "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+          "line": 20,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "specs/the-internet/login.spec.ts",
+      "file": "specs/the-internet/login.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
           "title": "Login tests",
-          "file": "specs/login.spec.ts",
-          "line": 16,
+          "file": "specs/the-internet/login.spec.ts",
+          "line": 19,
           "column": 6,
           "specs": [
             {
@@ -372,15 +448,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4284,
+                      "duration": 5539,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-27T17:54:35.107Z",
+                      "startTime": "2025-11-27T20:15:37.037Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -388,9 +464,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "e7da2f3a65ad9cd8e037-90765e06830c58986cc8",
-              "file": "specs/login.spec.ts",
-              "line": 17,
+              "id": "e6e13815b79f712d56aa-15ba5467f8697f2e0bab",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 20,
               "column": 7
             },
             {
@@ -406,15 +482,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1683,
+                      "duration": 2095,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-27T17:54:40.170Z",
+                      "startTime": "2025-11-27T20:15:43.409Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -422,9 +498,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "e7da2f3a65ad9cd8e037-8e4617834c3edb9f7bfb",
-              "file": "specs/login.spec.ts",
-              "line": 29,
+              "id": "e6e13815b79f712d56aa-dcaa0ff096bae839f336",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 32,
               "column": 9
             },
             {
@@ -440,15 +516,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1849,
+                      "duration": 1833,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-27T17:54:41.881Z",
+                      "startTime": "2025-11-27T20:15:45.532Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -456,9 +532,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "e7da2f3a65ad9cd8e037-376412092f67c526a3f3",
-              "file": "specs/login.spec.ts",
-              "line": 29,
+              "id": "e6e13815b79f712d56aa-2c936a29e01582a26a4f",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 32,
               "column": 9
             },
             {
@@ -474,15 +550,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1434,
+                      "duration": 1759,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-27T17:54:43.769Z",
+                      "startTime": "2025-11-27T20:15:47.394Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -490,9 +566,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "e7da2f3a65ad9cd8e037-0e1262a35157c8f3091f",
-              "file": "specs/login.spec.ts",
-              "line": 29,
+              "id": "e6e13815b79f712d56aa-e4575d5d2269e254dd25",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 32,
               "column": 9
             },
             {
@@ -508,15 +584,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1298,
+                      "duration": 1740,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-27T17:54:45.221Z",
+                      "startTime": "2025-11-27T20:15:49.167Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -524,9 +600,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "e7da2f3a65ad9cd8e037-a7c29819a84aaae15e98",
-              "file": "specs/login.spec.ts",
-              "line": 29,
+              "id": "e6e13815b79f712d56aa-64928306e52fa3c9c624",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 32,
               "column": 9
             },
             {
@@ -542,66 +618,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1335,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-27T17:54:46.548Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "e7da2f3a65ad9cd8e037-42328ab82ba4f47376c3",
-              "file": "specs/login.spec.ts",
-              "line": 29,
-              "column": 9
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "specs/simpleFormDemo.spec.ts",
-      "file": "specs/simpleFormDemo.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Simple Form Demo",
-          "file": "specs/simpleFormDemo.spec.ts",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "Single Input Field: valid text and empty value",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4954,
+                      "duration": 1722,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-27T17:54:35.105Z",
+                      "startTime": "2025-11-27T20:15:50.920Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -609,44 +634,10 @@
                   "status": "expected"
                 }
               ],
-              "id": "b06d49e97e70612ef21b-ebde93acc23bd75e6e5c",
-              "file": "specs/simpleFormDemo.spec.ts",
-              "line": 20,
-              "column": 7
-            },
-            {
-              "title": "Two Input Fields: numeric validation and sum (randomized)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 3223,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-27T17:54:40.844Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "b06d49e97e70612ef21b-ec20cd18a5994bf29738",
-              "file": "specs/simpleFormDemo.spec.ts",
+              "id": "e6e13815b79f712d56aa-6ca5bbe890c0b79c926d",
+              "file": "specs/the-internet/login.spec.ts",
               "line": 32,
-              "column": 7
+              "column": 9
             }
           ]
         }
@@ -655,8 +646,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-27T17:54:34.394Z",
-    "duration": 13568.342,
+    "startTime": "2025-11-27T20:15:36.276Z",
+    "duration": 16451.411,
     "expected": 8,
     "skipped": 0,
     "unexpected": 0,
