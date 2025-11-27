@@ -1,22 +1,54 @@
-<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="13.540734">
-<testsuite name="specs/login.spec.ts" timestamp="2025-11-27T16:14:40.505Z" hostname="firefox" tests="6" failures="0" skipped="0" time="9.337" errors="0">
-<testcase name="Login tests › valid login redirects to secure area" classname="specs/login.spec.ts" time="2.898">
+<testsuites id="" name="" tests="11" failures="1" skipped="1" errors="0" time="11.579666">
+<testsuite name="specs/diagnostic.spec.ts" timestamp="2025-11-27T17:28:17.575Z" hostname="firefox" tests="3" failures="1" skipped="1" time="0.009" errors="0">
+<testcase name="diagnostic: pass" classname="specs/diagnostic.spec.ts" time="0.005">
 </testcase>
-<testcase name="Login tests › invalid login - invalid username" classname="specs/login.spec.ts" time="1.498">
+<testcase name="diagnostic: fail" classname="specs/diagnostic.spec.ts" time="0.004">
+<failure message="diagnostic.spec.ts:12:5 diagnostic: fail" type="FAILURE">
+<![CDATA[  [firefox] › specs/diagnostic.spec.ts:12:5 › diagnostic: fail ─────────────────────────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 1
+
+      11 | // FAIL scenario (real fail)
+      12 | test('diagnostic: fail', async () => {
+    > 13 |   expect(1).toBe(2);
+         |             ^
+      14 | });
+      15 |
+      16 | // SKIP scenario
+        at /home/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/diagnostic.spec.ts:13:13
+]]>
+</failure>
 </testcase>
-<testcase name="Login tests › invalid login - invalid password" classname="specs/login.spec.ts" time="1.332">
-</testcase>
-<testcase name="Login tests › invalid login - empty username" classname="specs/login.spec.ts" time="1.155">
-</testcase>
-<testcase name="Login tests › invalid login - empty password" classname="specs/login.spec.ts" time="1.143">
-</testcase>
-<testcase name="Login tests › invalid login - both fields empty" classname="specs/login.spec.ts" time="1.311">
+<testcase name="diagnostic: skip" classname="specs/diagnostic.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="specs/simpleFormDemo.spec.ts" timestamp="2025-11-27T16:14:40.505Z" hostname="firefox" tests="2" failures="0" skipped="0" time="5.436" errors="0">
-<testcase name="Simple Form Demo › Single Input Field: valid text and empty value" classname="specs/simpleFormDemo.spec.ts" time="3.137">
+<testsuite name="specs/login.spec.ts" timestamp="2025-11-27T17:28:17.575Z" hostname="firefox" tests="6" failures="0" skipped="0" time="8.758" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs/login.spec.ts" time="2.575">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields: numeric validation and sum (randomized)" classname="specs/simpleFormDemo.spec.ts" time="2.299">
+<testcase name="Login tests › invalid login - invalid username" classname="specs/login.spec.ts" time="1.439">
+</testcase>
+<testcase name="Login tests › invalid login - invalid password" classname="specs/login.spec.ts" time="1.414">
+</testcase>
+<testcase name="Login tests › invalid login - empty username" classname="specs/login.spec.ts" time="1.164">
+</testcase>
+<testcase name="Login tests › invalid login - empty password" classname="specs/login.spec.ts" time="1.072">
+</testcase>
+<testcase name="Login tests › invalid login - both fields empty" classname="specs/login.spec.ts" time="1.094">
+</testcase>
+</testsuite>
+<testsuite name="specs/simpleFormDemo.spec.ts" timestamp="2025-11-27T17:28:17.575Z" hostname="firefox" tests="2" failures="0" skipped="0" time="5.27" errors="0">
+<testcase name="Simple Form Demo › Single Input Field: valid text and empty value" classname="specs/simpleFormDemo.spec.ts" time="2.991">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields: numeric validation and sum (randomized)" classname="specs/simpleFormDemo.spec.ts" time="2.279">
 </testcase>
 </testsuite>
 </testsuites>
