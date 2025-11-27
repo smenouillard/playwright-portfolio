@@ -173,8 +173,8 @@ jobs:
           cd reports
           for dir in report-*; do
             if [ -d "$dir" ] && [ -f "$dir/playwright-report.zip" ]; then
-              mkdir -p "$dir/playwright-report"
-              unzip -q "$dir/playwright-report.zip" -d "$dir/playwright-report"
+              unzip -q "$dir/playwright-report.zip" -d "$dir"
+              rm "$dir/playwright-report.zip"
             fi
           done
 
@@ -222,8 +222,8 @@ jobs:
           cd reports
           for dir in report-*; do
             if [ -d "$dir" ] && [ -f "$dir/playwright-report.zip" ]; then
-              mkdir -p "$dir/playwright-report"
-              unzip -q "$dir/playwright-report.zip" -d "$dir/playwright-report"
+              unzip -q "$dir/playwright-report.zip" -d "$dir"
+              rm "$dir/playwright-report.zip"
             fi
           done
 

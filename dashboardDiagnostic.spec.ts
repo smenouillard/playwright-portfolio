@@ -1,5 +1,5 @@
 // tests/specs/diagnostic/scenario-mixed.spec.ts
-// https://example.com
+// (used for testing dashboard)
 
 import { test, expect } from '@playwright/test';
 
@@ -8,7 +8,7 @@ test('diagnostic: pass', async () => {
   expect(1).toBe(1);
 });
 
-// FAIL scenario (real fail)
+// FAIL scenario
 test('diagnostic: fail', async () => {
   expect(1).toBe(2);
 });
