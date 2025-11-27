@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
-        "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-        "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+        "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+        "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+        "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
       },
       "gitCommit": {
-        "shortHash": "88e78dd",
-        "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-        "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
-        "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+        "shortHash": "ad5a082",
+        "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+        "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
+        "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
         "author": {
           "name": "Sylvain Menouillard",
           "email": "smenouillard@gmail.com",
-          "time": 1764078000000
+          "time": 1764265250000
         },
         "committer": {
           "name": "Sylvain Menouillard",
           "email": "smenouillard@gmail.com",
-          "time": 1764078000000
+          "time": 1764265250000
         },
         "branch": "main"
       },
@@ -77,24 +77,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
-            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
           },
           "gitCommit": {
-            "shortHash": "88e78dd",
-            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
-            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "shortHash": "ad5a082",
+            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
+            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "branch": "main"
           },
@@ -115,24 +115,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
-            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
           },
           "gitCommit": {
-            "shortHash": "88e78dd",
-            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
-            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "shortHash": "ad5a082",
+            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
+            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "branch": "main"
           },
@@ -153,24 +153,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
-            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
           },
           "gitCommit": {
-            "shortHash": "88e78dd",
-            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
-            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "shortHash": "ad5a082",
+            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
+            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "branch": "main"
           },
@@ -191,24 +191,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
-            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
           },
           "gitCommit": {
-            "shortHash": "88e78dd",
-            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
-            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "shortHash": "ad5a082",
+            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
+            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "branch": "main"
           },
@@ -229,24 +229,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
-            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
           },
           "gitCommit": {
-            "shortHash": "88e78dd",
-            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
-            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "shortHash": "ad5a082",
+            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
+            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "branch": "main"
           },
@@ -267,24 +267,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
-            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
           },
           "gitCommit": {
-            "shortHash": "88e78dd",
-            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
-            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "shortHash": "ad5a082",
+            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
+            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "branch": "main"
           },
@@ -305,24 +305,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/88e78dd2976c075952af2c2dd8234303e96872e6",
-            "commitHash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19671511325"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "commitHash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19744518120"
           },
           "gitCommit": {
-            "shortHash": "88e78dd",
-            "hash": "88e78dd2976c075952af2c2dd8234303e96872e6",
-            "subject": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing",
-            "body": "fix(dashboard): restore full UI and enable HTML report extraction for online viewing\n",
+            "shortHash": "ad5a082",
+            "hash": "ad5a0826c598cb2d41de4fca24178d35d839aeaa",
+            "subject": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder",
+            "body": "fix(ci): unzip HTML reports at correct level to remove nested playwright-report folder\n",
             "author": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "committer": {
               "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1764078000000
+              "time": 1764265250000
             },
             "branch": "main"
           },
@@ -375,12 +375,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2604,
+                      "duration": 3509,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-25T13:41:20.854Z",
+                      "startTime": "2025-11-27T17:54:59.595Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -409,12 +409,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1641,
+                      "duration": 2308,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-25T13:41:25.567Z",
+                      "startTime": "2025-11-27T17:55:06.427Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -443,12 +443,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1607,
+                      "duration": 2169,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-25T13:41:27.232Z",
+                      "startTime": "2025-11-27T17:55:08.748Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -477,12 +477,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1401,
+                      "duration": 2141,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-25T13:41:28.864Z",
+                      "startTime": "2025-11-27T17:55:10.929Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -511,12 +511,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1358,
+                      "duration": 2123,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-25T13:41:30.278Z",
+                      "startTime": "2025-11-27T17:55:13.081Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -545,12 +545,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1394,
+                      "duration": 2112,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-25T13:41:31.647Z",
+                      "startTime": "2025-11-27T17:55:15.216Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -596,12 +596,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3106,
+                      "duration": 2556,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-25T13:41:20.845Z",
+                      "startTime": "2025-11-27T17:54:59.592Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -630,12 +630,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2078,
+                      "duration": 1932,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-25T13:41:26.560Z",
+                      "startTime": "2025-11-27T17:55:05.929Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -655,8 +655,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-25T13:41:20.101Z",
-    "duration": 13509.099,
+    "startTime": "2025-11-27T17:54:58.856Z",
+    "duration": 19002.521,
     "expected": 8,
     "skipped": 0,
     "unexpected": 0,
