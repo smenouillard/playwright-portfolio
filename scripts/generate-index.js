@@ -243,15 +243,15 @@ function buildReportBlocks(entries) {
 
     const timestamp = formatUtcTimestamp(e.metadata.timestamp);
 
-    // Build compact summary line
+    // Compact visual summary (UPDATED skipped/failed symbols)
     const summaryLine = `
       📊 ${e.stats.totalTests} tests • 
-      ⚠ ${e.stats.totalFailures} failed • 
-      ➖ ${e.stats.totalSkipped} skipped • 
+      🔴 ${e.stats.totalFailures} failed • 
+      🟡 ${e.stats.totalSkipped} skipped • 
       ⏱ ${Math.round(e.stats.totalTimeSec)}s
     `.replace(/\s+/g, " ").trim();
 
-    // Build timestamp line
+    // Visual timestamp
     const timestampLine = `🕒 ${timestamp}`;
 
     blocks += `
