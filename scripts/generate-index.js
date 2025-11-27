@@ -1,10 +1,10 @@
 // /scripts/generate-index.js
-// generate dashboard
+// Generates the Playwright dashboard from collected reports
 
 const fs = require("fs");
 const path = require("path");
 
-// Utility: format UTC timestamps
+// Format UTC timestamps as YYYY-MM-DD HH:MM UTC
 function formatUtcTimestamp(raw) {
   if (!raw) return "N/A";
   const date = new Date(raw);
@@ -17,12 +17,12 @@ function formatUtcTimestamp(raw) {
   return `${yyyy}-${mm}-${dd} ${hh}:${min} UTC`;
 }
 
-// Setup paths
+// Setup dashboard paths
 const REPORTS_DIR = path.join(process.cwd(), "reports");
 const TEMPLATE_PATH = path.join(__dirname, "templates", "index.html");
 let template = fs.readFileSync(TEMPLATE_PATH, "utf8");
 
-// Load global metadata
+// Load global metadata injected by the workflow
 let globalMeta = {};
 try {
   globalMeta = JSON.parse(process.env.METADATA_JSON || "{}");
@@ -30,14 +30,14 @@ try {
   globalMeta = {};
 }
 
-// OS badges
+// OS metadata used for badges
 const osBadges = {
   "ubuntu-latest": { emoji: "🐧", label: "Ubuntu" },
   "windows-latest": { emoji: "🪟", label: "Windows" },
   "macos-latest": { emoji: "🍎", label: "macOS" },
 };
 
-// Browser badges
+// Browser metadata used for badges
 const browserBadges = {
   chromium: { emoji: "🌐", label: "Chromium" },
   firefox: { emoji: "🦊", label: "Firefox" },
@@ -45,7 +45,7 @@ const browserBadges = {
   edge: { emoji: "🟦", label: "Edge" },
 };
 
-// Parse Playwright JSON stats
+// Parse Playwright JSON summary
 function parseJsonStats(filePath) {
   if (!fs.existsSync(filePath)) return null;
   try {
@@ -66,7 +66,7 @@ function parseJsonStats(filePath) {
   }
 }
 
-// Parse JUnit XML
+// Parse JUnit XML summary
 function parseJUnitSummary(xml) {
   if (!xml) return null;
   const suiteRegex = /<testsuite\b([^>]*)>/g;
@@ -95,7 +95,7 @@ function parseJUnitSummary(xml) {
   };
 }
 
-// Status pill logic
+// Build status pill metadata
 function statusInfo(summary) {
   if (!summary)
     return { text: "NO TESTS", emoji: "⚪", css: "pill-none", code: "none" };
@@ -108,20 +108,23 @@ function statusInfo(summary) {
   return { text: "NO TESTS", emoji: "⚪", css: "pill-none", code: "none" };
 }
 
-// Load one report folder
+// Load metadata and stats for a single report folder
 function loadRunEntry(dirName) {
   const folder = path.join(REPORTS_DIR, dirName);
   const metadataPath = path.join(folder, "metadata", "metadata.json");
   if (!fs.existsSync(metadataPath)) return null;
+
   let metadata;
   try {
     metadata = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
   } catch {
     return null;
   }
+
   const jsonStats = parseJsonStats(
     path.join(folder, "jsonReports", "jsonReport.json")
   );
+
   let junitStats = null;
   const junitPath = path.join(folder, "junit", "test-results.xml");
   if (fs.existsSync(junitPath)) {
@@ -130,12 +133,14 @@ function loadRunEntry(dirName) {
       junitStats = parseJUnitSummary(xml);
     } catch { }
   }
+
   const finalStats = jsonStats || junitStats || {
     totalTests: 0,
     totalFailures: 0,
     totalSkipped: 0,
     totalTimeSec: 0,
   };
+
   const status = statusInfo(finalStats);
   const osMeta = osBadges[metadata.os] || {
     emoji: "❓",
@@ -145,6 +150,7 @@ function loadRunEntry(dirName) {
     emoji: "❓",
     label: metadata.browser || "Unknown",
   };
+
   return {
     name: dirName,
     metadata,
@@ -155,7 +161,7 @@ function loadRunEntry(dirName) {
   };
 }
 
-// Load entries
+// Load all report entries
 function loadEntries() {
   if (!fs.existsSync(REPORTS_DIR)) return [];
   return fs
@@ -165,28 +171,25 @@ function loadEntries() {
     .filter(Boolean);
 }
 
-// OS sorting priority
+// Sort entries consistently by OS, browser, and status
 const OS_ORDER = ["windows-latest", "macos-latest", "ubuntu-latest"];
-
-// Sort entries
 function sortEntries(entries) {
   return entries.sort((a, b) => {
     const aOs = OS_ORDER.indexOf(a.metadata.os);
     const bOs = OS_ORDER.indexOf(b.metadata.os);
     if (aOs !== bOs) return aOs - bOs;
     if (a.metadata.browser !== b.metadata.browser) {
-      return (a.metadata.browser || "").localeCompare(
-        b.metadata.browser || ""
-      );
+      return (a.metadata.browser || "").localeCompare(b.metadata.browser || "");
     }
     const order = { fail: 0, skip: 1, pass: 2, none: 3 };
     return order[a.status.code] - order[b.status.code];
   });
 }
 
-// Build summary table
+// Build the summary table displayed at the top
 function buildSummaryTable(entries) {
   if (entries.length === 0) return "<p>No reports available.</p>";
+
   let html = `
 <table class="summary">
   <thead>
@@ -202,6 +205,7 @@ function buildSummaryTable(entries) {
   </thead>
   <tbody>
 `;
+
   for (const e of entries) {
     html += `
 <tr class="summary-row" data-status="${e.status.code}">
@@ -210,14 +214,20 @@ function buildSummaryTable(entries) {
       ${e.status.emoji} ${e.status.text}
     </span>
   </td>
-  <td>${e.os.emoji} ${e.os.label}</td>
-  <td>${e.browser.emoji} ${e.browser.label}</td>
+
+  <!-- OS cell -->
+  <td class="os-cell">${e.os.emoji} ${e.os.label}</td>
+
+  <!-- Browser cell -->
+  <td class="browser-cell">${e.browser.emoji} ${e.browser.label}</td>
+
   <td class="num-cell">${e.stats.totalTests}</td>
   <td class="num-cell">${e.stats.totalFailures}</td>
   <td class="num-cell">${e.stats.totalSkipped}</td>
-  <td>${Math.round(e.stats.totalTimeSec)}s</td>
+  <td class="time-cell">${Math.round(e.stats.totalTimeSec)}s</td>
 </tr>`;
   }
+
   html += `
   </tbody>
 </table>
@@ -225,9 +235,8 @@ function buildSummaryTable(entries) {
   return html;
 }
 
-// Build hybrid blocks
+// Build collapsible report detail blocks
 function buildReportBlocks(entries) {
-  if (entries.length === 0) return "<p>No reports available.</p>";
   let blocks = "";
   for (const e of entries) {
     const timestamp = formatUtcTimestamp(e.metadata.timestamp);
@@ -277,11 +286,12 @@ function buildReportBlocks(entries) {
   return blocks;
 }
 
-// Generate final HTML
+// Build dashboard sections
 const entries = sortEntries(loadEntries());
 const summaryTable = buildSummaryTable(entries);
 const reportBlocks = buildReportBlocks(entries);
 
+// Apply template replacements
 template = template
   .replace("{{PUBLISH_TIMESTAMP}}", formatUtcTimestamp(globalMeta.publishTimestamp))
   .replace("{{COMMIT_SHA}}", globalMeta.commitSha || "N/A")
@@ -290,7 +300,7 @@ template = template
   .replace("{{SUMMARY_TABLE}}", summaryTable)
   .replace("{{REPORT_LIST}}", reportBlocks);
 
-// Write dashboard
+// Write output dashboard
 fs.writeFileSync(path.join(REPORTS_DIR, "index.html"), template, "utf8");
 
-console.log("Super Dashboard (Hybrid Version) generated successfully.");
+console.log("Super Dashboard generated successfully.");

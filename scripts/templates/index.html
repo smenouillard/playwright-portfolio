@@ -6,7 +6,9 @@
   <meta charset="UTF-8">
   <title>Playwright Reports</title>
 
+  <!-- Global theme and layout -->
   <style>
+    /* Global theme variables */
     :root {
       --bg-color: #ffffff;
       --text-color: #111111;
@@ -14,8 +16,13 @@
       --border-color: #cccccc;
       --table-header-bg: #eeeeee;
       --link-color: #0066cc;
+      --stripe-bg: rgba(0, 0, 0, 0.03);
+      /* Zebra striping light */
+      --hover-bg: rgba(0, 0, 0, 0.08);
+      /* Hover highlight light */
     }
 
+    /* Dark mode variables */
     body.dark-mode {
       --bg-color: #111827;
       --text-color: #e5e7eb;
@@ -23,8 +30,13 @@
       --border-color: #374151;
       --table-header-bg: #374151;
       --link-color: #60a5fa;
+      --stripe-bg: rgba(255, 255, 255, 0.05);
+      /* Zebra striping dark */
+      --hover-bg: rgba(255, 255, 255, 0.10);
+      /* Hover highlight dark */
     }
 
+    /* Base layout */
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
@@ -36,14 +48,17 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
+    /* Page title spacing */
     h1 {
       margin-bottom: 5px;
     }
 
+    /* Link styling */
     a {
       color: var(--link-color);
     }
 
+    /* Badge base style */
     .badge {
       display: inline-block;
       padding: 3px 8px;
@@ -53,14 +68,17 @@
       margin-right: 6px;
     }
 
+    /* OS badge */
     .os-badge {
       background: #555;
     }
 
+    /* Browser badge */
     .browser-badge {
       background: #777;
     }
 
+    /* Status pill base style */
     .status-pill {
       display: inline-block;
       padding: 3px 10px;
@@ -69,26 +87,31 @@
       font-size: 12px;
     }
 
+    /* PASS pill */
     .pill-pass {
       background: #d6f5d6;
       color: #0a4;
     }
 
+    /* FAIL pill */
     .pill-fail {
       background: #ffd6d6;
       color: #a00;
     }
 
+    /* SKIP pill */
     .pill-skip {
       background: #fff2b3;
       color: #a68b00;
     }
 
+    /* NONE pill */
     .pill-none {
       background: #e3e3e3;
       color: #555;
     }
 
+    /* Dark mode pills */
     body.dark-mode .pill-pass {
       background: #14532d;
       color: #bbf7d0;
@@ -109,6 +132,7 @@
       color: #e5e7eb;
     }
 
+    /* Report block container */
     .report-block {
       border: 1px solid var(--border-color);
       padding: 12px;
@@ -123,11 +147,13 @@
         border-color 0.2s ease;
     }
 
+    /* Report block hover */
     .report-block:hover {
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
       transform: translateY(-1px);
     }
 
+    /* Report header layout */
     .report-header {
       display: flex;
       align-items: center;
@@ -136,6 +162,7 @@
       gap: 10px;
     }
 
+    /* Report header main badges */
     .report-header-main {
       display: flex;
       align-items: center;
@@ -143,20 +170,24 @@
       flex-wrap: wrap;
     }
 
+    /* Caret icon */
     .caret {
       font-size: 14px;
       margin-left: 10px;
       opacity: 0.7;
     }
 
+    /* Report content container */
     .report-content {
       margin-top: 10px;
     }
 
+    /* Collapsed report content */
     .report-block.collapsed .report-content {
       display: none;
     }
 
+    /* Metadata grid layout */
     .report-meta-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -164,31 +195,37 @@
       margin-bottom: 8px;
     }
 
+    /* Metadata row */
     .meta-row {
       display: flex;
       justify-content: space-between;
       font-size: 13px;
     }
 
+    /* Metadata label */
     .meta-label {
       font-weight: 600;
       margin-right: 6px;
     }
 
+    /* Metadata value */
     .meta-value {
       text-align: right;
       opacity: 0.9;
     }
 
+    /* Quick summary line */
     .quick-summary {
       font-size: 13px;
       margin: 6px 0 10px;
     }
 
+    /* Quick summary emphasis */
     .quick-summary strong {
       font-weight: 600;
     }
 
+    /* Links container */
     .links {
       display: flex;
       flex-wrap: wrap;
@@ -196,6 +233,7 @@
       margin-top: 4px;
     }
 
+    /* Link pill */
     .link-pill {
       display: inline-block;
       padding: 4px 10px;
@@ -208,11 +246,13 @@
       white-space: nowrap;
     }
 
+    /* Link pill hover */
     .link-pill:hover {
       background: var(--table-header-bg);
       border-color: var(--link-color);
     }
 
+    /* Summary table container */
     table.summary {
       border-collapse: collapse;
       margin-top: 10px;
@@ -224,6 +264,17 @@
       overflow: hidden;
     }
 
+    /* Summary table zebra striping */
+    table.summary tbody tr:nth-child(even) {
+      background: var(--stripe-bg);
+    }
+
+    /* Summary table hover highlight */
+    table.summary tbody tr:hover {
+      background: var(--hover-bg);
+    }
+
+    /* Summary table cells */
     table.summary th,
     table.summary td {
       border-bottom: 1px solid var(--border-color);
@@ -231,19 +282,37 @@
       font-size: 14px;
     }
 
+    /* Summary header row */
     table.summary th {
       background: var(--table-header-bg);
     }
 
+    /* Status column */
     .summary td.status-cell {
       text-align: center;
       width: 140px;
     }
 
+    /* Centered numeric cells */
     .summary td.num-cell {
-      text-align: right;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
     }
 
+    /* Centered duration cell */
+    .summary td.time-cell {
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* OS and Browser cells alignment */
+    .summary td.os-cell,
+    .summary td.browser-cell {
+      padding-left: 20px;
+      text-indent: -10px;
+    }
+
+    /* Toolbar container */
     .toolbar {
       display: flex;
       align-items: center;
@@ -253,6 +322,7 @@
       margin: 10px 0 20px;
     }
 
+    /* Toolbar buttons */
     .toggle-btn,
     .filter-btn {
       border: 1px solid var(--border-color);
@@ -268,11 +338,13 @@
         color 0.15s ease;
     }
 
+    /* Toolbar buttons hover */
     .toggle-btn:hover,
     .filter-btn:hover {
       background: var(--table-header-bg);
     }
 
+    /* Filter group layout */
     .filter-group {
       display: flex;
       align-items: center;
@@ -280,21 +352,25 @@
       flex-wrap: wrap;
     }
 
+    /* Filter label */
     .filter-label {
       font-size: 13px;
       opacity: 0.8;
     }
 
+    /* Active filter button */
     .filter-btn.active {
       border-color: #2563eb;
       color: #2563eb;
     }
 
+    /* Active filter in dark mode */
     body.dark-mode .filter-btn.active {
       border-color: #60a5fa;
       color: #60a5fa;
     }
 
+    /* Footer styling */
     footer {
       margin-top: 40px;
       font-size: 12px;
@@ -302,6 +378,7 @@
       text-align: center;
     }
 
+    /* Footer dark mode */
     body.dark-mode footer {
       color: #9ca3af;
     }
@@ -310,16 +387,26 @@
 
 <body>
 
+  <!-- Page title -->
   <h1>Playwright Reports</h1>
 
-  <p><strong>Published (UTC):</strong> {{PUBLISH_TIMESTAMP}}</p>
+  <!-- Publish timestamp -->
+  <p><strong>Published:</strong> {{PUBLISH_TIMESTAMP}}</p>
+
+  <!-- Commit SHA -->
   <p><strong>Commit:</strong> {{COMMIT_SHA}}</p>
+
+  <!-- Run number -->
   <p><strong>Run:</strong> #{{RUN_NUMBER}}</p>
+
+  <!-- Link to GitHub Actions logs -->
   <p><a href="{{RUN_URL}}">View Full Run Logs</a></p>
 
+  <!-- Toolbar: theme toggle and status filters -->
   <div class="toolbar">
     <button id="theme-toggle" class="toggle-btn">🌙 Dark mode</button>
 
+    <!-- Status filters -->
     <div class="filter-group">
       <span class="filter-label">Filter by status:</span>
       <button class="filter-btn active" data-filter="all">All</button>
@@ -331,30 +418,37 @@
 
   <hr>
 
+  <!-- Summary section -->
   <h2>Summary</h2>
   {{SUMMARY_TABLE}}
 
   <hr>
 
+  <!-- Report list section -->
   <h2>Report List</h2>
   {{REPORT_LIST}}
 
+  <!-- Footer -->
   <footer>
     Generated automatically by GitHub Actions.
   </footer>
 
+  <!-- Dashboard behavior scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+      // Theme toggle setup
       const body = document.body;
       const themeToggle = document.getElementById('theme-toggle');
-
-      // THEME
       const savedTheme = localStorage.getItem('pw-theme');
+
+      // Apply saved theme
       if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
         if (themeToggle) themeToggle.textContent = '☀️ Light mode';
       }
 
+      // Handle theme toggle click
       if (themeToggle) {
         themeToggle.addEventListener('click', () => {
           body.classList.toggle('dark-mode');
@@ -364,9 +458,10 @@
         });
       }
 
-      // FILTERS
+      // Status filter buttons
       const filterButtons = document.querySelectorAll('.filter-btn');
 
+      // Apply filter to summary rows and report blocks
       function applyFilter(filter) {
         const rows = document.querySelectorAll('.summary-row');
         const blocks = document.querySelectorAll('.report-block');
@@ -382,6 +477,7 @@
         });
       }
 
+      // Handle filter button clicks
       filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           filterButtons.forEach(b => b.classList.remove('active'));
@@ -390,14 +486,14 @@
         });
       });
 
-      // COLLAPSIBLE REPORT BLOCKS
+      // Collapsible report blocks
       const reportBlocks = document.querySelectorAll('.report-block');
       reportBlocks.forEach(block => {
         const header = block.querySelector('.report-header');
         const caret = block.querySelector('.caret');
         const status = (block.dataset.status || '').toLowerCase();
 
-        // Default: PASS + NONE collapsed, FAIL + SKIP expanded
+        // Default collapsed state based on status
         if (status === 'pass' || status === 'none') {
           block.classList.add('collapsed');
           if (caret) caret.textContent = '▶';
@@ -405,6 +501,7 @@
           if (caret) caret.textContent = '▼';
         }
 
+        // Toggle collapsed state on header click
         if (header) {
           header.addEventListener('click', () => {
             const isCollapsed = block.classList.toggle('collapsed');
