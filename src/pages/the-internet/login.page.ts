@@ -1,4 +1,4 @@
-// src/pages/login.page.ts
+// src/pages/theInternet/login.page.ts
 // https://the-internet.herokuapp.com
 
 import { Page, Locator } from '@playwright/test';
@@ -36,7 +36,6 @@ export class LoginPage {
     await this.page.waitForLoadState("domcontentloaded");
     await this.page.waitForLoadState("networkidle");
   }
-
 
   // Perform valid login
   async login(username: string, password: string) {

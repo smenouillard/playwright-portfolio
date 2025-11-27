@@ -7,16 +7,15 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default defineConfig({
-  // Set tests root directory
+  // Root folder for all tests
   testDir: './tests',
 
-  // Configure global timeouts
+  // Timeouts
   timeout: 30_000,
   expect: { timeout: 5_000 },
 
-  // Configure default test behavior
+  // Default test settings
   use: {
-    baseURL: 'https://the-internet.herokuapp.com',
     headless: !!process.env.CI,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
@@ -24,7 +23,7 @@ export default defineConfig({
     actionTimeout: 10_000,
   },
 
-  // Configure reporters for dashboard generation
+  // Reporters
   reporter: [
     ['github'],
     ['list'],
@@ -33,7 +32,7 @@ export default defineConfig({
     ['junit', { outputFile: 'junit/test-results.xml' }],
   ],
 
-  // Define browser matrix (aligned with workflow)
+  // Browser matrix
   projects: [
     // Windows
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
@@ -49,6 +48,5 @@ export default defineConfig({
     { name: 'webkit-linux', use: { ...devices['Desktop Safari'] } },
   ],
 
-  // Limit workers in CI
   workers: process.env.CI ? 2 : undefined,
 });

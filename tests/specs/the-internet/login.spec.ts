@@ -1,15 +1,18 @@
-// tests/specs/login.spec.ts
+// tests/specs/the-internet/login.spec.ts
 // https://the-internet.herokuapp.com
 
-import { test, expect } from '../fixtures/base';
-import { env } from '../../src/utils/env';
+import { test, expect } from '../../fixtures/base';
+import { secrets } from '../../../src/config/secrets';
+import { appUrls } from '../../../src/config/appUrls';
+
+test.use({ baseURL: appUrls.theInternet });
 
 // Define invalid scenarios
 const invalidLoginScenarios = [
-  { name: 'invalid username', username: 'wrongUser', password: env.password, expectedMessage: 'Your username is invalid' },
-  { name: 'invalid password', username: env.username, password: 'wrongPassword', expectedMessage: 'Your password is invalid' },
-  { name: 'empty username', username: '', password: env.password, expectedMessage: 'Your username is invalid' },
-  { name: 'empty password', username: env.username, password: '', expectedMessage: 'Your password is invalid' },
+  { name: 'invalid username', username: 'wrongUser', password: secrets.internet.password, expectedMessage: 'Your username is invalid' },
+  { name: 'invalid password', username: secrets.internet.username, password: 'wrongPassword', expectedMessage: 'Your password is invalid' },
+  { name: 'empty username', username: '', password: secrets.internet.password, expectedMessage: 'Your username is invalid' },
+  { name: 'empty password', username: secrets.internet.username, password: '', expectedMessage: 'Your password is invalid' },
   { name: 'both fields empty', username: '', password: '', expectedMessage: 'Your username is invalid' },
 ];
 
@@ -19,7 +22,7 @@ test.describe('Login tests', () => {
     await loginPage.goto();
 
     // Login
-    await loginPage.login(env.username, env.password);
+    await loginPage.login(secrets.internet.username, secrets.internet.password);
 
     // Check secure area
     expect(await loginPage.isOnSecureArea()).toBe(true);
