@@ -17,9 +17,7 @@
       --table-header-bg: #eeeeee;
       --link-color: #0066cc;
       --stripe-bg: rgba(0, 0, 0, 0.03);
-      /* Zebra striping light */
       --hover-bg: rgba(0, 0, 0, 0.08);
-      /* Hover highlight light */
     }
 
     /* Dark mode variables */
@@ -31,9 +29,7 @@
       --table-header-bg: #374151;
       --link-color: #60a5fa;
       --stripe-bg: rgba(255, 255, 255, 0.05);
-      /* Zebra striping dark */
       --hover-bg: rgba(255, 255, 255, 0.10);
-      /* Hover highlight dark */
     }
 
     /* Base layout */
@@ -140,11 +136,7 @@
       border-radius: 8px;
       background: var(--card-bg);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-      transition:
-        box-shadow 0.15s ease,
-        transform 0.15s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
+      transition: box-shadow .15s ease, transform .15s ease, background .2s ease, border-color .2s ease;
     }
 
     /* Report block hover */
@@ -162,7 +154,7 @@
       gap: 10px;
     }
 
-    /* Report header main badges */
+    /* Header main badge zone */
     .report-header-main {
       display: flex;
       align-items: center;
@@ -170,24 +162,21 @@
       flex-wrap: wrap;
     }
 
-    /* Caret icon */
+    /* Caret arrow */
     .caret {
       font-size: 14px;
-      margin-left: 10px;
       opacity: 0.7;
     }
 
-    /* Report content container */
     .report-content {
       margin-top: 10px;
     }
 
-    /* Collapsed report content */
     .report-block.collapsed .report-content {
       display: none;
     }
 
-    /* Metadata grid layout */
+    /* Metadata grid */
     .report-meta-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -195,37 +184,31 @@
       margin-bottom: 8px;
     }
 
-    /* Metadata row */
     .meta-row {
       display: flex;
       justify-content: space-between;
       font-size: 13px;
     }
 
-    /* Metadata label */
     .meta-label {
       font-weight: 600;
       margin-right: 6px;
     }
 
-    /* Metadata value */
     .meta-value {
       text-align: right;
       opacity: 0.9;
     }
 
-    /* Quick summary line */
     .quick-summary {
       font-size: 13px;
       margin: 6px 0 10px;
     }
 
-    /* Quick summary emphasis */
     .quick-summary strong {
       font-weight: 600;
     }
 
-    /* Links container */
     .links {
       display: flex;
       flex-wrap: wrap;
@@ -233,7 +216,6 @@
       margin-top: 4px;
     }
 
-    /* Link pill */
     .link-pill {
       display: inline-block;
       padding: 4px 10px;
@@ -242,11 +224,10 @@
       font-size: 12px;
       text-decoration: none;
       background: var(--card-bg);
-      transition: background 0.15s ease, border-color 0.15s ease;
+      transition: background .15s ease, border-color .15s ease;
       white-space: nowrap;
     }
 
-    /* Link pill hover */
     .link-pill:hover {
       background: var(--table-header-bg);
       border-color: var(--link-color);
@@ -262,27 +243,29 @@
       border: 1px solid var(--border-color);
       border-radius: 8px;
       overflow: hidden;
+
+      /* NEW: stable table layout */
+      table-layout: fixed;
     }
 
-    /* Summary table zebra striping */
+    /* Summary zebra */
     table.summary tbody tr:nth-child(even) {
       background: var(--stripe-bg);
     }
 
-    /* Summary table hover highlight */
     table.summary tbody tr:hover {
       background: var(--hover-bg);
     }
 
-    /* Summary table cells */
+    /* Summary cell base */
     table.summary th,
     table.summary td {
       border-bottom: 1px solid var(--border-color);
       padding: 6px 8px;
       font-size: 14px;
+      overflow-wrap: break-word;
     }
 
-    /* Summary header row */
     table.summary th {
       background: var(--table-header-bg);
     }
@@ -293,36 +276,33 @@
       width: 140px;
     }
 
-    /* Centered numeric cells */
-    .summary td.num-cell {
-      text-align: center;
-      font-variant-numeric: tabular-nums;
-    }
-
-    /* Centered duration cell */
+    /* Equal-width numeric columns */
+    /* (Total, Failures, Skipped, Duration) */
+    .summary td.num-cell,
     .summary td.time-cell {
+      width: 12%;
+      /* responsive equal width */
       text-align: center;
       font-variant-numeric: tabular-nums;
     }
 
-    /* OS and Browser cells alignment */
+    /* OS / Browser alignment improved */
     .summary td.os-cell,
     .summary td.browser-cell {
-      padding-left: 20px;
-      text-indent: -10px;
+      padding-left: 28px;
+      text-indent: -14px;
     }
 
     /* Toolbar container */
     .toolbar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 10px;
       margin: 10px 0 20px;
     }
 
-    /* Toolbar buttons */
     .toggle-btn,
     .filter-btn {
       border: 1px solid var(--border-color);
@@ -332,19 +312,14 @@
       border-radius: 999px;
       cursor: pointer;
       font-size: 13px;
-      transition:
-        background 0.15s ease,
-        border-color 0.15s ease,
-        color 0.15s ease;
+      transition: background .15s ease, border-color .15s ease, color .15s ease;
     }
 
-    /* Toolbar buttons hover */
     .toggle-btn:hover,
     .filter-btn:hover {
       background: var(--table-header-bg);
     }
 
-    /* Filter group layout */
     .filter-group {
       display: flex;
       align-items: center;
@@ -352,33 +327,28 @@
       flex-wrap: wrap;
     }
 
-    /* Filter label */
     .filter-label {
       font-size: 13px;
       opacity: 0.8;
     }
 
-    /* Active filter button */
     .filter-btn.active {
       border-color: #2563eb;
       color: #2563eb;
     }
 
-    /* Active filter in dark mode */
     body.dark-mode .filter-btn.active {
       border-color: #60a5fa;
       color: #60a5fa;
     }
 
-    /* Footer styling */
     footer {
       margin-top: 40px;
       font-size: 12px;
-      color: #555;
       text-align: center;
+      color: #555;
     }
 
-    /* Footer dark mode */
     body.dark-mode footer {
       color: #9ca3af;
     }
@@ -391,16 +361,16 @@
   <h1>Playwright Reports</h1>
 
   <!-- Publish timestamp -->
-  <p><strong>Published:</strong> 2025-11-27 15:55 UTC</p>
+  <p><strong>Published:</strong> 2025-11-27 16:18 UTC</p>
 
   <!-- Commit SHA -->
-  <p><strong>Commit:</strong> e9bca0d799c77d41e516a7b9f24d87882860f98f</p>
+  <p><strong>Commit:</strong> b7a46e692fc3f47015b15a60cb2a1761d70fc74c</p>
 
   <!-- Run number -->
-  <p><strong>Run:</strong> #30</p>
+  <p><strong>Run:</strong> #31</p>
 
   <!-- Link to GitHub Actions logs -->
-  <p><a href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19741741632">View Full Run Logs</a></p>
+  <p><a href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19742325276">View Full Run Logs</a></p>
 
   <!-- Toolbar: theme toggle and status filters -->
   <div class="toolbar">
@@ -469,7 +439,7 @@
   <td class="num-cell">8</td>
   <td class="num-cell">0</td>
   <td class="num-cell">0</td>
-  <td class="time-cell">43s</td>
+  <td class="time-cell">45s</td>
 </tr>
 <tr class="summary-row" data-status="pass">
   <td class="status-cell">
@@ -487,7 +457,7 @@
   <td class="num-cell">8</td>
   <td class="num-cell">0</td>
   <td class="num-cell">0</td>
-  <td class="time-cell">13s</td>
+  <td class="time-cell">10s</td>
 </tr>
 <tr class="summary-row" data-status="pass">
   <td class="status-cell">
@@ -505,7 +475,7 @@
   <td class="num-cell">8</td>
   <td class="num-cell">0</td>
   <td class="num-cell">0</td>
-  <td class="time-cell">24s</td>
+  <td class="time-cell">18s</td>
 </tr>
 <tr class="summary-row" data-status="pass">
   <td class="status-cell">
@@ -523,7 +493,7 @@
   <td class="num-cell">8</td>
   <td class="num-cell">0</td>
   <td class="num-cell">0</td>
-  <td class="time-cell">9s</td>
+  <td class="time-cell">14s</td>
 </tr>
 <tr class="summary-row" data-status="pass">
   <td class="status-cell">
@@ -541,7 +511,7 @@
   <td class="num-cell">8</td>
   <td class="num-cell">0</td>
   <td class="num-cell">0</td>
-  <td class="time-cell">15s</td>
+  <td class="time-cell">14s</td>
 </tr>
 <tr class="summary-row" data-status="pass">
   <td class="status-cell">
@@ -584,20 +554,14 @@
 
   <div class="report-content">
 
-    <div class="report-meta-grid">
-      <div class="meta-row"><span class="meta-label">Tests:</span><span class="meta-value">8</span></div>
-      <div class="meta-row"><span class="meta-label">Failed:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Skipped:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Duration:</span><span class="meta-value">11s</span></div>
-      <div class="meta-row"><span class="meta-label">Timestamp:</span><span class="meta-value">2025-11-27 15:54 UTC</span></div>
-      <div class="meta-row"><span class="meta-label">Runner:</span><span class="meta-value">windows-latest</span></div>
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • ⚠ 0 failed • ➖ 0 skipped • ⏱ 11s
     </div>
 
+    <!-- Visual timestamp -->
     <div class="quick-summary">
-      📊 <strong>8</strong> tests •
-      ⚠ <strong>0</strong> failed •
-      ➖ <strong>0</strong> skipped •
-      ⏱ <strong>11s</strong>
+      🕒 2025-11-27 16:17 UTC
     </div>
 
     <div class="links">
@@ -605,7 +569,7 @@
       <a class="link-pill" href="./report-windows-latest-chromium/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-windows-latest-chromium/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-windows-latest-chromium/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19741741632" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19742325276" target="_blank">📘 Logs</a>
     </div>
 
   </div>
@@ -625,20 +589,14 @@
 
   <div class="report-content">
 
-    <div class="report-meta-grid">
-      <div class="meta-row"><span class="meta-label">Tests:</span><span class="meta-value">8</span></div>
-      <div class="meta-row"><span class="meta-label">Failed:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Skipped:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Duration:</span><span class="meta-value">43s</span></div>
-      <div class="meta-row"><span class="meta-label">Timestamp:</span><span class="meta-value">2025-11-27 15:54 UTC</span></div>
-      <div class="meta-row"><span class="meta-label">Runner:</span><span class="meta-value">windows-latest</span></div>
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • ⚠ 0 failed • ➖ 0 skipped • ⏱ 45s
     </div>
 
+    <!-- Visual timestamp -->
     <div class="quick-summary">
-      📊 <strong>8</strong> tests •
-      ⚠ <strong>0</strong> failed •
-      ➖ <strong>0</strong> skipped •
-      ⏱ <strong>43s</strong>
+      🕒 2025-11-27 16:18 UTC
     </div>
 
     <div class="links">
@@ -646,7 +604,7 @@
       <a class="link-pill" href="./report-windows-latest-edge/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-windows-latest-edge/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-windows-latest-edge/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19741741632" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19742325276" target="_blank">📘 Logs</a>
     </div>
 
   </div>
@@ -666,20 +624,14 @@
 
   <div class="report-content">
 
-    <div class="report-meta-grid">
-      <div class="meta-row"><span class="meta-label">Tests:</span><span class="meta-value">8</span></div>
-      <div class="meta-row"><span class="meta-label">Failed:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Skipped:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Duration:</span><span class="meta-value">13s</span></div>
-      <div class="meta-row"><span class="meta-label">Timestamp:</span><span class="meta-value">2025-11-27 15:51 UTC</span></div>
-      <div class="meta-row"><span class="meta-label">Runner:</span><span class="meta-value">macos-latest</span></div>
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • ⚠ 0 failed • ➖ 0 skipped • ⏱ 10s
     </div>
 
+    <!-- Visual timestamp -->
     <div class="quick-summary">
-      📊 <strong>8</strong> tests •
-      ⚠ <strong>0</strong> failed •
-      ➖ <strong>0</strong> skipped •
-      ⏱ <strong>13s</strong>
+      🕒 2025-11-27 16:14 UTC
     </div>
 
     <div class="links">
@@ -687,7 +639,7 @@
       <a class="link-pill" href="./report-macos-latest-chromium/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-macos-latest-chromium/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-macos-latest-chromium/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19741741632" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19742325276" target="_blank">📘 Logs</a>
     </div>
 
   </div>
@@ -707,20 +659,14 @@
 
   <div class="report-content">
 
-    <div class="report-meta-grid">
-      <div class="meta-row"><span class="meta-label">Tests:</span><span class="meta-value">8</span></div>
-      <div class="meta-row"><span class="meta-label">Failed:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Skipped:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Duration:</span><span class="meta-value">24s</span></div>
-      <div class="meta-row"><span class="meta-label">Timestamp:</span><span class="meta-value">2025-11-27 15:51 UTC</span></div>
-      <div class="meta-row"><span class="meta-label">Runner:</span><span class="meta-value">macos-latest</span></div>
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • ⚠ 0 failed • ➖ 0 skipped • ⏱ 18s
     </div>
 
+    <!-- Visual timestamp -->
     <div class="quick-summary">
-      📊 <strong>8</strong> tests •
-      ⚠ <strong>0</strong> failed •
-      ➖ <strong>0</strong> skipped •
-      ⏱ <strong>24s</strong>
+      🕒 2025-11-27 16:14 UTC
     </div>
 
     <div class="links">
@@ -728,7 +674,7 @@
       <a class="link-pill" href="./report-macos-latest-webkit/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-macos-latest-webkit/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-macos-latest-webkit/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19741741632" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19742325276" target="_blank">📘 Logs</a>
     </div>
 
   </div>
@@ -748,20 +694,14 @@
 
   <div class="report-content">
 
-    <div class="report-meta-grid">
-      <div class="meta-row"><span class="meta-label">Tests:</span><span class="meta-value">8</span></div>
-      <div class="meta-row"><span class="meta-label">Failed:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Skipped:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Duration:</span><span class="meta-value">9s</span></div>
-      <div class="meta-row"><span class="meta-label">Timestamp:</span><span class="meta-value">2025-11-27 15:51 UTC</span></div>
-      <div class="meta-row"><span class="meta-label">Runner:</span><span class="meta-value">ubuntu-latest</span></div>
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • ⚠ 0 failed • ➖ 0 skipped • ⏱ 14s
     </div>
 
+    <!-- Visual timestamp -->
     <div class="quick-summary">
-      📊 <strong>8</strong> tests •
-      ⚠ <strong>0</strong> failed •
-      ➖ <strong>0</strong> skipped •
-      ⏱ <strong>9s</strong>
+      🕒 2025-11-27 16:15 UTC
     </div>
 
     <div class="links">
@@ -769,7 +709,7 @@
       <a class="link-pill" href="./report-ubuntu-latest-chromium/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-ubuntu-latest-chromium/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-ubuntu-latest-chromium/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19741741632" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19742325276" target="_blank">📘 Logs</a>
     </div>
 
   </div>
@@ -789,20 +729,14 @@
 
   <div class="report-content">
 
-    <div class="report-meta-grid">
-      <div class="meta-row"><span class="meta-label">Tests:</span><span class="meta-value">8</span></div>
-      <div class="meta-row"><span class="meta-label">Failed:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Skipped:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Duration:</span><span class="meta-value">15s</span></div>
-      <div class="meta-row"><span class="meta-label">Timestamp:</span><span class="meta-value">2025-11-27 15:51 UTC</span></div>
-      <div class="meta-row"><span class="meta-label">Runner:</span><span class="meta-value">ubuntu-latest</span></div>
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • ⚠ 0 failed • ➖ 0 skipped • ⏱ 14s
     </div>
 
+    <!-- Visual timestamp -->
     <div class="quick-summary">
-      📊 <strong>8</strong> tests •
-      ⚠ <strong>0</strong> failed •
-      ➖ <strong>0</strong> skipped •
-      ⏱ <strong>15s</strong>
+      🕒 2025-11-27 16:14 UTC
     </div>
 
     <div class="links">
@@ -810,7 +744,7 @@
       <a class="link-pill" href="./report-ubuntu-latest-firefox/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-ubuntu-latest-firefox/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-ubuntu-latest-firefox/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19741741632" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19742325276" target="_blank">📘 Logs</a>
     </div>
 
   </div>
@@ -830,20 +764,14 @@
 
   <div class="report-content">
 
-    <div class="report-meta-grid">
-      <div class="meta-row"><span class="meta-label">Tests:</span><span class="meta-value">8</span></div>
-      <div class="meta-row"><span class="meta-label">Failed:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Skipped:</span><span class="meta-value">0</span></div>
-      <div class="meta-row"><span class="meta-label">Duration:</span><span class="meta-value">16s</span></div>
-      <div class="meta-row"><span class="meta-label">Timestamp:</span><span class="meta-value">2025-11-27 15:51 UTC</span></div>
-      <div class="meta-row"><span class="meta-label">Runner:</span><span class="meta-value">ubuntu-latest</span></div>
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 8 tests • ⚠ 0 failed • ➖ 0 skipped • ⏱ 16s
     </div>
 
+    <!-- Visual timestamp -->
     <div class="quick-summary">
-      📊 <strong>8</strong> tests •
-      ⚠ <strong>0</strong> failed •
-      ➖ <strong>0</strong> skipped •
-      ⏱ <strong>16s</strong>
+      🕒 2025-11-27 16:14 UTC
     </div>
 
     <div class="links">
@@ -851,7 +779,7 @@
       <a class="link-pill" href="./report-ubuntu-latest-webkit/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-ubuntu-latest-webkit/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-ubuntu-latest-webkit/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19741741632" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/19742325276" target="_blank">📘 Logs</a>
     </div>
 
   </div>
@@ -878,7 +806,7 @@
         if (themeToggle) themeToggle.textContent = '☀️ Light mode';
       }
 
-      // Handle theme toggle click
+      // Theme toggle click
       if (themeToggle) {
         themeToggle.addEventListener('click', () => {
           body.classList.toggle('dark-mode');
@@ -888,10 +816,9 @@
         });
       }
 
-      // Status filter buttons
+      // Filter system
       const filterButtons = document.querySelectorAll('.filter-btn');
 
-      // Apply filter to summary rows and report blocks
       function applyFilter(filter) {
         const rows = document.querySelectorAll('.summary-row');
         const blocks = document.querySelectorAll('.report-block');
@@ -907,7 +834,6 @@
         });
       }
 
-      // Handle filter button clicks
       filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           filterButtons.forEach(b => b.classList.remove('active'));
@@ -916,14 +842,14 @@
         });
       });
 
-      // Collapsible report blocks
+      // Collapsible blocks
       const reportBlocks = document.querySelectorAll('.report-block');
       reportBlocks.forEach(block => {
         const header = block.querySelector('.report-header');
         const caret = block.querySelector('.caret');
         const status = (block.dataset.status || '').toLowerCase();
 
-        // Default collapsed state based on status
+        // Default collapsed state
         if (status === 'pass' || status === 'none') {
           block.classList.add('collapsed');
           if (caret) caret.textContent = '▶';
@@ -931,11 +857,11 @@
           if (caret) caret.textContent = '▼';
         }
 
-        // Toggle collapsed state on header click
+        // Toggle collapsed state
         if (header) {
           header.addEventListener('click', () => {
-            const isCollapsed = block.classList.toggle('collapsed');
-            if (caret) caret.textContent = isCollapsed ? '▶' : '▼';
+            const collapsed = block.classList.toggle('collapsed');
+            if (caret) caret.textContent = collapsed ? '▶' : '▼';
           });
         }
       });
