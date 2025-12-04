@@ -1,4 +1,4 @@
-// tests/specs/diagnostic/scenario-mixed.spec.ts
+// dashboard-check/scenario-mixed.spec.ts
 // (used for testing dashboard)
 
 import { test, expect } from '@playwright/test';
