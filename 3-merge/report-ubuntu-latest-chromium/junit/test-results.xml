@@ -1,0 +1,38 @@
+<testsuites id="" name="" tests="15" failures="0" skipped="0" errors="0" time="10.944319">
+<testsuite name="specs/lambdatest/simpleFormDemo.spec.ts" timestamp="2025-12-04T14:57:26.510Z" hostname="chromium" tests="8" failures="0" skipped="0" time="4.627" errors="0">
+<testcase name="Simple Form Demo › Single Input Field" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.588">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.576">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.633">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.499">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.626">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.534">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.536">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.635">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/login.spec.ts" timestamp="2025-12-04T14:57:26.510Z" hostname="chromium" tests="6" failures="0" skipped="0" time="8.604" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs/the-internet/login.spec.ts" time="1.578">
+</testcase>
+<testcase name="Login tests › invalid login - invalid username" classname="specs/the-internet/login.spec.ts" time="1.449">
+</testcase>
+<testcase name="Login tests › invalid login - invalid password" classname="specs/the-internet/login.spec.ts" time="1.467">
+</testcase>
+<testcase name="Login tests › invalid login - empty username" classname="specs/the-internet/login.spec.ts" time="1.412">
+</testcase>
+<testcase name="Login tests › invalid login - empty password" classname="specs/the-internet/login.spec.ts" time="1.373">
+</testcase>
+<testcase name="Login tests › invalid login - both fields empty" classname="specs/the-internet/login.spec.ts" time="1.325">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/logout.spec.ts" timestamp="2025-12-04T14:57:26.510Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.603" errors="0">
+<testcase name="Logout and verify redirect" classname="specs/the-internet/logout.spec.ts" time="1.603">
+</testcase>
+</testsuite>
+</testsuites>

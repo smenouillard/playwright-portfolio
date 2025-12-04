@@ -1,0 +1,38 @@
+<testsuites id="" name="" tests="15" failures="0" skipped="0" errors="0" time="47.38431">
+<testsuite name="specs\lambdatest\simpleFormDemo.spec.ts" timestamp="2025-12-04T14:59:54.822Z" hostname="edge" tests="8" failures="0" skipped="0" time="12.211" errors="0">
+<testcase name="Simple Form Demo › Single Input Field" classname="specs\lambdatest\simpleFormDemo.spec.ts" time="5.07">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs\lambdatest\simpleFormDemo.spec.ts" time="1.153">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs\lambdatest\simpleFormDemo.spec.ts" time="1.116">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs\lambdatest\simpleFormDemo.spec.ts" time="0.983">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs\lambdatest\simpleFormDemo.spec.ts" time="1.1">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs\lambdatest\simpleFormDemo.spec.ts" time="0.87">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs\lambdatest\simpleFormDemo.spec.ts" time="0.994">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs\lambdatest\simpleFormDemo.spec.ts" time="0.925">
+</testcase>
+</testsuite>
+<testsuite name="specs\the-internet\login.spec.ts" timestamp="2025-12-04T14:59:54.822Z" hostname="edge" tests="6" failures="0" skipped="0" time="14.817" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs\the-internet\login.spec.ts" time="5.157">
+</testcase>
+<testcase name="Login tests › invalid login - invalid username" classname="specs\the-internet\login.spec.ts" time="2.2">
+</testcase>
+<testcase name="Login tests › invalid login - invalid password" classname="specs\the-internet\login.spec.ts" time="2.138">
+</testcase>
+<testcase name="Login tests › invalid login - empty username" classname="specs\the-internet\login.spec.ts" time="2.007">
+</testcase>
+<testcase name="Login tests › invalid login - empty password" classname="specs\the-internet\login.spec.ts" time="1.72">
+</testcase>
+<testcase name="Login tests › invalid login - both fields empty" classname="specs\the-internet\login.spec.ts" time="1.595">
+</testcase>
+</testsuite>
+<testsuite name="specs\the-internet\logout.spec.ts" timestamp="2025-12-04T14:59:54.822Z" hostname="edge" tests="1" failures="0" skipped="0" time="1.896" errors="0">
+<testcase name="Logout and verify redirect" classname="specs\the-internet\logout.spec.ts" time="1.896">
+</testcase>
+</testsuite>
+</testsuites>

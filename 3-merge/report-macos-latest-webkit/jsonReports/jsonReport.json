@@ -1,0 +1,943 @@
+{
+  "config": {
+    "configFile": "/Users/runner/work/playwright-portfolio/playwright-portfolio/playwright.config.ts",
+    "rootDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c7634ec79a73b4702108bc5b3456e1761e9838",
+        "commitHash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+        "prHref": "https://github.com/smenouillard/playwright-portfolio/pull/3",
+        "prTitle": "test(tests): add logout test + improve login POM and simple form demo",
+        "prBaseHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+        "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19933276622"
+      },
+      "gitCommit": {
+        "shortHash": "76c7634",
+        "hash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+        "subject": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797",
+        "body": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797\n",
+        "author": {
+          "name": "smenouillard",
+          "email": "smenouillard@gmail.com",
+          "time": 1764860160000
+        },
+        "committer": {
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "time": 1764860160000
+        },
+        "branch": "HEAD"
+      },
+      "gitDiff": "diff --git a/dashboard-check/dashboard-check.spec.ts b/dashboard-check/dashboard-check.spec.ts\nindex ba56ca6..d96b263 100644\n--- a/dashboard-check/dashboard-check.spec.ts\n+++ b/dashboard-check/dashboard-check.spec.ts\n@@ -1,4 +1,4 @@\n-// tests/specs/diagnostic/scenario-mixed.spec.ts\n+// dashboard-check/scenario-mixed.spec.ts\n // (used for testing dashboard)\n \n import { test, expect } from '@playwright/test';\ndiff --git a/src/pages/lambdatest/simpleFormDemo.page.ts b/src/pages/lambdatest/simpleFormDemo.page.ts\nindex bf54ca5..8ee2396 100644\n--- a/src/pages/lambdatest/simpleFormDemo.page.ts\n+++ b/src/pages/lambdatest/simpleFormDemo.page.ts\n@@ -4,7 +4,6 @@\n import { Page, Locator } from \"@playwright/test\";\n \n export class SimpleFormDemoPage {\n-  // Store page instance\n   private readonly page: Page;\n \n   // Single Input Field locators\n@@ -19,34 +18,30 @@ export class SimpleFormDemoPage {\n   readonly sumResult: Locator;\n \n   constructor(page: Page) {\n-    // Assign page\n     this.page = page;\n \n-    // Map single input field\n-    this.singleInput = page.locator('input[id=\"user-message\"]');\n+    // --- Single Input Field ---\n+    this.singleInput = page.getByPlaceholder(\"Please enter your Message\");\n     this.singleButton = page.getByRole(\"button\", { name: \"Get Checked Value\" });\n     this.singleMessage = page.locator(\"#message\");\n \n-    // Map two input fields\n-    this.twoFieldA = page.locator(\"#sum1\");\n-    this.twoFieldB = page.locator(\"#sum2\");\n+    // --- Two Input Fields ---\n+    this.twoFieldA = page.getByPlaceholder(\"Please enter first value\");\n+    this.twoFieldB = page.getByPlaceholder(\"Please enter second value\");\n     this.twoButton = page.getByRole(\"button\", { name: \"Get Sum\" });\n     this.sumResult = page.locator(\"#addmessage\");\n   }\n \n-  // Open page with stable navigation\n   async goto() {\n-    await this.page.goto('simple-form-demo');\n+    await this.page.goto(\"simple-form-demo\"); // correct (pas de slash)\n     await this.page.waitForLoadState(\"domcontentloaded\");\n   }\n \n-  // Fill single field and submit\n   async enterSingleValue(value: string) {\n     await this.singleInput.fill(value);\n     await this.singleButton.click();\n   }\n \n-  // Fill two fields and submit\n   async enterTwoValues(a: string, b: string) {\n     await this.twoFieldA.fill(a);\n     await this.twoFieldB.fill(b);\ndiff --git a/src/pages/the-internet/login.page.ts b/src/pages/the-internet/login.page.ts\nindex 09a87de..be364dd 100644\n--- a/src/pages/the-internet/login.page.ts\n+++ b/src/pages/the-internet/login.page.ts\n@@ -34,7 +34,6 @@ export class LoginPage {\n   async goto() {\n     await this.page.goto('/login');\n     await this.page.waitForLoadState(\"domcontentloaded\");\n-    await this.page.waitForLoadState(\"networkidle\");\n   }\n \n   // Perform valid login\ndiff --git a/tests/specs/lambdatest/simpleFormDemo.spec.ts b/tests/specs/lambdatest/simpleFormDemo.spec.ts\nindex 696e0df..c33db4b 100644\n--- a/tests/specs/lambdatest/simpleFormDemo.spec.ts\n+++ b/tests/specs/lambdatest/simpleFormDemo.spec.ts\n@@ -6,24 +6,48 @@ import { appUrls } from '../../../src/config/appUrls';\n \n test.use({ baseURL: appUrls.lambdaTest });\n \n-test('Single Input Field', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+// generate random valid values\n+const randomA = Math.floor(Math.random() * 50) + 1;\n+const randomB = Math.floor(Math.random() * 50) + 1;\n+const randomSum = String(randomA + randomB);\n \n-  // Enter value\n-  await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+// data-driven scenarios\n+const sumScenarios = [\n+  { name: \"valid random numbers\", a: String(randomA), b: String(randomB), expected: randomSum },\n+  { name: 'invalid first value', a: 'abc', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'invalid second value', a: '5', b: 'xyz', expected: 'Entered value is not a number' },\n+  { name: 'both invalid', a: 'aaa', b: 'bbb', expected: 'Entered value is not a number' },\n+  { name: 'empty first value', a: '', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'empty second value', a: '5', b: '', expected: 'Entered value is not a number' },\n+  { name: 'both empty', a: '', b: '', expected: 'Entered value is not a number' }\n+];\n \n-  // Check result\n-  await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n-});\n+test.describe('Simple Form Demo', () => {\n+\n+  test('Single Input Field', async ({ simpleFormDemoPage }) => {\n+\n+    // open page\n+    await simpleFormDemoPage.goto();\n+\n+    // enter value\n+    await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+\n+    // check result\n+    await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n+  });\n+\n+  sumScenarios.forEach(({ name, a, b, expected }) => {\n+    test(`Two Input Fields - ${name}`, async ({ simpleFormDemoPage }) => {\n+\n+      // open page\n+      await simpleFormDemoPage.goto();\n \n-test('Two Input Fields', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+      // enter values\n+      await simpleFormDemoPage.enterTwoValues(a, b);\n \n-  // Enter values\n-  await simpleFormDemoPage.enterTwoValues('5', '7');\n+      // check result\n+      await expect(simpleFormDemoPage.sumResult).toHaveText(expected);\n+    });\n+  });\n \n-  // Check sum\n-  await expect(simpleFormDemoPage.sumResult).toHaveText('12');\n });\ndiff --git a/tests/specs/the-internet/logout.spec.ts b/tests/specs/the-internet/logout.spec.ts\nnew file mode 100644\nindex 0000000..8f2d376\n--- /dev/null\n+++ b/tests/specs/the-internet/logout.spec.ts\n@@ -0,0 +1,27 @@\n+// tests/specs/the-internet/logout.spec.ts\n+// https://the-internet.herokuapp.com\n+\n+import { test, expect } from '../../fixtures/base';\n+import { secrets } from '../../../src/config/secrets';\n+import { appUrls } from '../../../src/config/appUrls';\n+\n+test.use({ baseURL: appUrls.theInternet });\n+\n+test('Logout and verify redirect', async ({ page, loginPage }) => {\n+  // open login page\n+  await loginPage.goto();\n+\n+  // login\n+  await loginPage.login(secrets.internet.username, secrets.internet.password);\n+\n+  // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)\n+\n+  // logout\n+  await page.locator('a[href=\"/logout\"]').click();\n+\n+  // check redirect back to login\n+  await expect(page).toHaveURL(/.*login/);\n+\n+  // verify flash message\n+  await expect(page.locator('#flash')).toContainText('logged out');\n+});\ndiff --git a/tsconfig.zip b/tsconfig.zip\nnew file mode 100644\nindex 0000000..ab833e4\nBinary files /dev/null and b/tsconfig.zip differ",
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "github",
+        null
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "jsonReports/jsonReport.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "junit/test-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "commitHash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "prHref": "https://github.com/smenouillard/playwright-portfolio/pull/3",
+            "prTitle": "test(tests): add logout test + improve login POM and simple form demo",
+            "prBaseHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19933276622"
+          },
+          "gitCommit": {
+            "shortHash": "76c7634",
+            "hash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "subject": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797",
+            "body": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797\n",
+            "author": {
+              "name": "smenouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764860160000
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1764860160000
+            },
+            "branch": "HEAD"
+          },
+          "gitDiff": "diff --git a/dashboard-check/dashboard-check.spec.ts b/dashboard-check/dashboard-check.spec.ts\nindex ba56ca6..d96b263 100644\n--- a/dashboard-check/dashboard-check.spec.ts\n+++ b/dashboard-check/dashboard-check.spec.ts\n@@ -1,4 +1,4 @@\n-// tests/specs/diagnostic/scenario-mixed.spec.ts\n+// dashboard-check/scenario-mixed.spec.ts\n // (used for testing dashboard)\n \n import { test, expect } from '@playwright/test';\ndiff --git a/src/pages/lambdatest/simpleFormDemo.page.ts b/src/pages/lambdatest/simpleFormDemo.page.ts\nindex bf54ca5..8ee2396 100644\n--- a/src/pages/lambdatest/simpleFormDemo.page.ts\n+++ b/src/pages/lambdatest/simpleFormDemo.page.ts\n@@ -4,7 +4,6 @@\n import { Page, Locator } from \"@playwright/test\";\n \n export class SimpleFormDemoPage {\n-  // Store page instance\n   private readonly page: Page;\n \n   // Single Input Field locators\n@@ -19,34 +18,30 @@ export class SimpleFormDemoPage {\n   readonly sumResult: Locator;\n \n   constructor(page: Page) {\n-    // Assign page\n     this.page = page;\n \n-    // Map single input field\n-    this.singleInput = page.locator('input[id=\"user-message\"]');\n+    // --- Single Input Field ---\n+    this.singleInput = page.getByPlaceholder(\"Please enter your Message\");\n     this.singleButton = page.getByRole(\"button\", { name: \"Get Checked Value\" });\n     this.singleMessage = page.locator(\"#message\");\n \n-    // Map two input fields\n-    this.twoFieldA = page.locator(\"#sum1\");\n-    this.twoFieldB = page.locator(\"#sum2\");\n+    // --- Two Input Fields ---\n+    this.twoFieldA = page.getByPlaceholder(\"Please enter first value\");\n+    this.twoFieldB = page.getByPlaceholder(\"Please enter second value\");\n     this.twoButton = page.getByRole(\"button\", { name: \"Get Sum\" });\n     this.sumResult = page.locator(\"#addmessage\");\n   }\n \n-  // Open page with stable navigation\n   async goto() {\n-    await this.page.goto('simple-form-demo');\n+    await this.page.goto(\"simple-form-demo\"); // correct (pas de slash)\n     await this.page.waitForLoadState(\"domcontentloaded\");\n   }\n \n-  // Fill single field and submit\n   async enterSingleValue(value: string) {\n     await this.singleInput.fill(value);\n     await this.singleButton.click();\n   }\n \n-  // Fill two fields and submit\n   async enterTwoValues(a: string, b: string) {\n     await this.twoFieldA.fill(a);\n     await this.twoFieldB.fill(b);\ndiff --git a/src/pages/the-internet/login.page.ts b/src/pages/the-internet/login.page.ts\nindex 09a87de..be364dd 100644\n--- a/src/pages/the-internet/login.page.ts\n+++ b/src/pages/the-internet/login.page.ts\n@@ -34,7 +34,6 @@ export class LoginPage {\n   async goto() {\n     await this.page.goto('/login');\n     await this.page.waitForLoadState(\"domcontentloaded\");\n-    await this.page.waitForLoadState(\"networkidle\");\n   }\n \n   // Perform valid login\ndiff --git a/tests/specs/lambdatest/simpleFormDemo.spec.ts b/tests/specs/lambdatest/simpleFormDemo.spec.ts\nindex 696e0df..c33db4b 100644\n--- a/tests/specs/lambdatest/simpleFormDemo.spec.ts\n+++ b/tests/specs/lambdatest/simpleFormDemo.spec.ts\n@@ -6,24 +6,48 @@ import { appUrls } from '../../../src/config/appUrls';\n \n test.use({ baseURL: appUrls.lambdaTest });\n \n-test('Single Input Field', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+// generate random valid values\n+const randomA = Math.floor(Math.random() * 50) + 1;\n+const randomB = Math.floor(Math.random() * 50) + 1;\n+const randomSum = String(randomA + randomB);\n \n-  // Enter value\n-  await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+// data-driven scenarios\n+const sumScenarios = [\n+  { name: \"valid random numbers\", a: String(randomA), b: String(randomB), expected: randomSum },\n+  { name: 'invalid first value', a: 'abc', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'invalid second value', a: '5', b: 'xyz', expected: 'Entered value is not a number' },\n+  { name: 'both invalid', a: 'aaa', b: 'bbb', expected: 'Entered value is not a number' },\n+  { name: 'empty first value', a: '', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'empty second value', a: '5', b: '', expected: 'Entered value is not a number' },\n+  { name: 'both empty', a: '', b: '', expected: 'Entered value is not a number' }\n+];\n \n-  // Check result\n-  await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n-});\n+test.describe('Simple Form Demo', () => {\n+\n+  test('Single Input Field', async ({ simpleFormDemoPage }) => {\n+\n+    // open page\n+    await simpleFormDemoPage.goto();\n+\n+    // enter value\n+    await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+\n+    // check result\n+    await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n+  });\n+\n+  sumScenarios.forEach(({ name, a, b, expected }) => {\n+    test(`Two Input Fields - ${name}`, async ({ simpleFormDemoPage }) => {\n+\n+      // open page\n+      await simpleFormDemoPage.goto();\n \n-test('Two Input Fields', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+      // enter values\n+      await simpleFormDemoPage.enterTwoValues(a, b);\n \n-  // Enter values\n-  await simpleFormDemoPage.enterTwoValues('5', '7');\n+      // check result\n+      await expect(simpleFormDemoPage.sumResult).toHaveText(expected);\n+    });\n+  });\n \n-  // Check sum\n-  await expect(simpleFormDemoPage.sumResult).toHaveText('12');\n });\ndiff --git a/tests/specs/the-internet/logout.spec.ts b/tests/specs/the-internet/logout.spec.ts\nnew file mode 100644\nindex 0000000..8f2d376\n--- /dev/null\n+++ b/tests/specs/the-internet/logout.spec.ts\n@@ -0,0 +1,27 @@\n+// tests/specs/the-internet/logout.spec.ts\n+// https://the-internet.herokuapp.com\n+\n+import { test, expect } from '../../fixtures/base';\n+import { secrets } from '../../../src/config/secrets';\n+import { appUrls } from '../../../src/config/appUrls';\n+\n+test.use({ baseURL: appUrls.theInternet });\n+\n+test('Logout and verify redirect', async ({ page, loginPage }) => {\n+  // open login page\n+  await loginPage.goto();\n+\n+  // login\n+  await loginPage.login(secrets.internet.username, secrets.internet.password);\n+\n+  // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)\n+\n+  // logout\n+  await page.locator('a[href=\"/logout\"]').click();\n+\n+  // check redirect back to login\n+  await expect(page).toHaveURL(/.*login/);\n+\n+  // verify flash message\n+  await expect(page.locator('#flash')).toContainText('logged out');\n+});\ndiff --git a/tsconfig.zip b/tsconfig.zip\nnew file mode 100644\nindex 0000000..ab833e4\nBinary files /dev/null and b/tsconfig.zip differ",
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "commitHash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "prHref": "https://github.com/smenouillard/playwright-portfolio/pull/3",
+            "prTitle": "test(tests): add logout test + improve login POM and simple form demo",
+            "prBaseHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19933276622"
+          },
+          "gitCommit": {
+            "shortHash": "76c7634",
+            "hash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "subject": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797",
+            "body": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797\n",
+            "author": {
+              "name": "smenouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764860160000
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1764860160000
+            },
+            "branch": "HEAD"
+          },
+          "gitDiff": "diff --git a/dashboard-check/dashboard-check.spec.ts b/dashboard-check/dashboard-check.spec.ts\nindex ba56ca6..d96b263 100644\n--- a/dashboard-check/dashboard-check.spec.ts\n+++ b/dashboard-check/dashboard-check.spec.ts\n@@ -1,4 +1,4 @@\n-// tests/specs/diagnostic/scenario-mixed.spec.ts\n+// dashboard-check/scenario-mixed.spec.ts\n // (used for testing dashboard)\n \n import { test, expect } from '@playwright/test';\ndiff --git a/src/pages/lambdatest/simpleFormDemo.page.ts b/src/pages/lambdatest/simpleFormDemo.page.ts\nindex bf54ca5..8ee2396 100644\n--- a/src/pages/lambdatest/simpleFormDemo.page.ts\n+++ b/src/pages/lambdatest/simpleFormDemo.page.ts\n@@ -4,7 +4,6 @@\n import { Page, Locator } from \"@playwright/test\";\n \n export class SimpleFormDemoPage {\n-  // Store page instance\n   private readonly page: Page;\n \n   // Single Input Field locators\n@@ -19,34 +18,30 @@ export class SimpleFormDemoPage {\n   readonly sumResult: Locator;\n \n   constructor(page: Page) {\n-    // Assign page\n     this.page = page;\n \n-    // Map single input field\n-    this.singleInput = page.locator('input[id=\"user-message\"]');\n+    // --- Single Input Field ---\n+    this.singleInput = page.getByPlaceholder(\"Please enter your Message\");\n     this.singleButton = page.getByRole(\"button\", { name: \"Get Checked Value\" });\n     this.singleMessage = page.locator(\"#message\");\n \n-    // Map two input fields\n-    this.twoFieldA = page.locator(\"#sum1\");\n-    this.twoFieldB = page.locator(\"#sum2\");\n+    // --- Two Input Fields ---\n+    this.twoFieldA = page.getByPlaceholder(\"Please enter first value\");\n+    this.twoFieldB = page.getByPlaceholder(\"Please enter second value\");\n     this.twoButton = page.getByRole(\"button\", { name: \"Get Sum\" });\n     this.sumResult = page.locator(\"#addmessage\");\n   }\n \n-  // Open page with stable navigation\n   async goto() {\n-    await this.page.goto('simple-form-demo');\n+    await this.page.goto(\"simple-form-demo\"); // correct (pas de slash)\n     await this.page.waitForLoadState(\"domcontentloaded\");\n   }\n \n-  // Fill single field and submit\n   async enterSingleValue(value: string) {\n     await this.singleInput.fill(value);\n     await this.singleButton.click();\n   }\n \n-  // Fill two fields and submit\n   async enterTwoValues(a: string, b: string) {\n     await this.twoFieldA.fill(a);\n     await this.twoFieldB.fill(b);\ndiff --git a/src/pages/the-internet/login.page.ts b/src/pages/the-internet/login.page.ts\nindex 09a87de..be364dd 100644\n--- a/src/pages/the-internet/login.page.ts\n+++ b/src/pages/the-internet/login.page.ts\n@@ -34,7 +34,6 @@ export class LoginPage {\n   async goto() {\n     await this.page.goto('/login');\n     await this.page.waitForLoadState(\"domcontentloaded\");\n-    await this.page.waitForLoadState(\"networkidle\");\n   }\n \n   // Perform valid login\ndiff --git a/tests/specs/lambdatest/simpleFormDemo.spec.ts b/tests/specs/lambdatest/simpleFormDemo.spec.ts\nindex 696e0df..c33db4b 100644\n--- a/tests/specs/lambdatest/simpleFormDemo.spec.ts\n+++ b/tests/specs/lambdatest/simpleFormDemo.spec.ts\n@@ -6,24 +6,48 @@ import { appUrls } from '../../../src/config/appUrls';\n \n test.use({ baseURL: appUrls.lambdaTest });\n \n-test('Single Input Field', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+// generate random valid values\n+const randomA = Math.floor(Math.random() * 50) + 1;\n+const randomB = Math.floor(Math.random() * 50) + 1;\n+const randomSum = String(randomA + randomB);\n \n-  // Enter value\n-  await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+// data-driven scenarios\n+const sumScenarios = [\n+  { name: \"valid random numbers\", a: String(randomA), b: String(randomB), expected: randomSum },\n+  { name: 'invalid first value', a: 'abc', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'invalid second value', a: '5', b: 'xyz', expected: 'Entered value is not a number' },\n+  { name: 'both invalid', a: 'aaa', b: 'bbb', expected: 'Entered value is not a number' },\n+  { name: 'empty first value', a: '', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'empty second value', a: '5', b: '', expected: 'Entered value is not a number' },\n+  { name: 'both empty', a: '', b: '', expected: 'Entered value is not a number' }\n+];\n \n-  // Check result\n-  await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n-});\n+test.describe('Simple Form Demo', () => {\n+\n+  test('Single Input Field', async ({ simpleFormDemoPage }) => {\n+\n+    // open page\n+    await simpleFormDemoPage.goto();\n+\n+    // enter value\n+    await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+\n+    // check result\n+    await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n+  });\n+\n+  sumScenarios.forEach(({ name, a, b, expected }) => {\n+    test(`Two Input Fields - ${name}`, async ({ simpleFormDemoPage }) => {\n+\n+      // open page\n+      await simpleFormDemoPage.goto();\n \n-test('Two Input Fields', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+      // enter values\n+      await simpleFormDemoPage.enterTwoValues(a, b);\n \n-  // Enter values\n-  await simpleFormDemoPage.enterTwoValues('5', '7');\n+      // check result\n+      await expect(simpleFormDemoPage.sumResult).toHaveText(expected);\n+    });\n+  });\n \n-  // Check sum\n-  await expect(simpleFormDemoPage.sumResult).toHaveText('12');\n });\ndiff --git a/tests/specs/the-internet/logout.spec.ts b/tests/specs/the-internet/logout.spec.ts\nnew file mode 100644\nindex 0000000..8f2d376\n--- /dev/null\n+++ b/tests/specs/the-internet/logout.spec.ts\n@@ -0,0 +1,27 @@\n+// tests/specs/the-internet/logout.spec.ts\n+// https://the-internet.herokuapp.com\n+\n+import { test, expect } from '../../fixtures/base';\n+import { secrets } from '../../../src/config/secrets';\n+import { appUrls } from '../../../src/config/appUrls';\n+\n+test.use({ baseURL: appUrls.theInternet });\n+\n+test('Logout and verify redirect', async ({ page, loginPage }) => {\n+  // open login page\n+  await loginPage.goto();\n+\n+  // login\n+  await loginPage.login(secrets.internet.username, secrets.internet.password);\n+\n+  // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)\n+\n+  // logout\n+  await page.locator('a[href=\"/logout\"]').click();\n+\n+  // check redirect back to login\n+  await expect(page).toHaveURL(/.*login/);\n+\n+  // verify flash message\n+  await expect(page.locator('#flash')).toContainText('logged out');\n+});\ndiff --git a/tsconfig.zip b/tsconfig.zip\nnew file mode 100644\nindex 0000000..ab833e4\nBinary files /dev/null and b/tsconfig.zip differ",
+          "actualWorkers": 2
+        },
+        "id": "edge",
+        "name": "edge",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "commitHash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "prHref": "https://github.com/smenouillard/playwright-portfolio/pull/3",
+            "prTitle": "test(tests): add logout test + improve login POM and simple form demo",
+            "prBaseHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19933276622"
+          },
+          "gitCommit": {
+            "shortHash": "76c7634",
+            "hash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "subject": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797",
+            "body": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797\n",
+            "author": {
+              "name": "smenouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764860160000
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1764860160000
+            },
+            "branch": "HEAD"
+          },
+          "gitDiff": "diff --git a/dashboard-check/dashboard-check.spec.ts b/dashboard-check/dashboard-check.spec.ts\nindex ba56ca6..d96b263 100644\n--- a/dashboard-check/dashboard-check.spec.ts\n+++ b/dashboard-check/dashboard-check.spec.ts\n@@ -1,4 +1,4 @@\n-// tests/specs/diagnostic/scenario-mixed.spec.ts\n+// dashboard-check/scenario-mixed.spec.ts\n // (used for testing dashboard)\n \n import { test, expect } from '@playwright/test';\ndiff --git a/src/pages/lambdatest/simpleFormDemo.page.ts b/src/pages/lambdatest/simpleFormDemo.page.ts\nindex bf54ca5..8ee2396 100644\n--- a/src/pages/lambdatest/simpleFormDemo.page.ts\n+++ b/src/pages/lambdatest/simpleFormDemo.page.ts\n@@ -4,7 +4,6 @@\n import { Page, Locator } from \"@playwright/test\";\n \n export class SimpleFormDemoPage {\n-  // Store page instance\n   private readonly page: Page;\n \n   // Single Input Field locators\n@@ -19,34 +18,30 @@ export class SimpleFormDemoPage {\n   readonly sumResult: Locator;\n \n   constructor(page: Page) {\n-    // Assign page\n     this.page = page;\n \n-    // Map single input field\n-    this.singleInput = page.locator('input[id=\"user-message\"]');\n+    // --- Single Input Field ---\n+    this.singleInput = page.getByPlaceholder(\"Please enter your Message\");\n     this.singleButton = page.getByRole(\"button\", { name: \"Get Checked Value\" });\n     this.singleMessage = page.locator(\"#message\");\n \n-    // Map two input fields\n-    this.twoFieldA = page.locator(\"#sum1\");\n-    this.twoFieldB = page.locator(\"#sum2\");\n+    // --- Two Input Fields ---\n+    this.twoFieldA = page.getByPlaceholder(\"Please enter first value\");\n+    this.twoFieldB = page.getByPlaceholder(\"Please enter second value\");\n     this.twoButton = page.getByRole(\"button\", { name: \"Get Sum\" });\n     this.sumResult = page.locator(\"#addmessage\");\n   }\n \n-  // Open page with stable navigation\n   async goto() {\n-    await this.page.goto('simple-form-demo');\n+    await this.page.goto(\"simple-form-demo\"); // correct (pas de slash)\n     await this.page.waitForLoadState(\"domcontentloaded\");\n   }\n \n-  // Fill single field and submit\n   async enterSingleValue(value: string) {\n     await this.singleInput.fill(value);\n     await this.singleButton.click();\n   }\n \n-  // Fill two fields and submit\n   async enterTwoValues(a: string, b: string) {\n     await this.twoFieldA.fill(a);\n     await this.twoFieldB.fill(b);\ndiff --git a/src/pages/the-internet/login.page.ts b/src/pages/the-internet/login.page.ts\nindex 09a87de..be364dd 100644\n--- a/src/pages/the-internet/login.page.ts\n+++ b/src/pages/the-internet/login.page.ts\n@@ -34,7 +34,6 @@ export class LoginPage {\n   async goto() {\n     await this.page.goto('/login');\n     await this.page.waitForLoadState(\"domcontentloaded\");\n-    await this.page.waitForLoadState(\"networkidle\");\n   }\n \n   // Perform valid login\ndiff --git a/tests/specs/lambdatest/simpleFormDemo.spec.ts b/tests/specs/lambdatest/simpleFormDemo.spec.ts\nindex 696e0df..c33db4b 100644\n--- a/tests/specs/lambdatest/simpleFormDemo.spec.ts\n+++ b/tests/specs/lambdatest/simpleFormDemo.spec.ts\n@@ -6,24 +6,48 @@ import { appUrls } from '../../../src/config/appUrls';\n \n test.use({ baseURL: appUrls.lambdaTest });\n \n-test('Single Input Field', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+// generate random valid values\n+const randomA = Math.floor(Math.random() * 50) + 1;\n+const randomB = Math.floor(Math.random() * 50) + 1;\n+const randomSum = String(randomA + randomB);\n \n-  // Enter value\n-  await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+// data-driven scenarios\n+const sumScenarios = [\n+  { name: \"valid random numbers\", a: String(randomA), b: String(randomB), expected: randomSum },\n+  { name: 'invalid first value', a: 'abc', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'invalid second value', a: '5', b: 'xyz', expected: 'Entered value is not a number' },\n+  { name: 'both invalid', a: 'aaa', b: 'bbb', expected: 'Entered value is not a number' },\n+  { name: 'empty first value', a: '', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'empty second value', a: '5', b: '', expected: 'Entered value is not a number' },\n+  { name: 'both empty', a: '', b: '', expected: 'Entered value is not a number' }\n+];\n \n-  // Check result\n-  await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n-});\n+test.describe('Simple Form Demo', () => {\n+\n+  test('Single Input Field', async ({ simpleFormDemoPage }) => {\n+\n+    // open page\n+    await simpleFormDemoPage.goto();\n+\n+    // enter value\n+    await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+\n+    // check result\n+    await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n+  });\n+\n+  sumScenarios.forEach(({ name, a, b, expected }) => {\n+    test(`Two Input Fields - ${name}`, async ({ simpleFormDemoPage }) => {\n+\n+      // open page\n+      await simpleFormDemoPage.goto();\n \n-test('Two Input Fields', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+      // enter values\n+      await simpleFormDemoPage.enterTwoValues(a, b);\n \n-  // Enter values\n-  await simpleFormDemoPage.enterTwoValues('5', '7');\n+      // check result\n+      await expect(simpleFormDemoPage.sumResult).toHaveText(expected);\n+    });\n+  });\n \n-  // Check sum\n-  await expect(simpleFormDemoPage.sumResult).toHaveText('12');\n });\ndiff --git a/tests/specs/the-internet/logout.spec.ts b/tests/specs/the-internet/logout.spec.ts\nnew file mode 100644\nindex 0000000..8f2d376\n--- /dev/null\n+++ b/tests/specs/the-internet/logout.spec.ts\n@@ -0,0 +1,27 @@\n+// tests/specs/the-internet/logout.spec.ts\n+// https://the-internet.herokuapp.com\n+\n+import { test, expect } from '../../fixtures/base';\n+import { secrets } from '../../../src/config/secrets';\n+import { appUrls } from '../../../src/config/appUrls';\n+\n+test.use({ baseURL: appUrls.theInternet });\n+\n+test('Logout and verify redirect', async ({ page, loginPage }) => {\n+  // open login page\n+  await loginPage.goto();\n+\n+  // login\n+  await loginPage.login(secrets.internet.username, secrets.internet.password);\n+\n+  // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)\n+\n+  // logout\n+  await page.locator('a[href=\"/logout\"]').click();\n+\n+  // check redirect back to login\n+  await expect(page).toHaveURL(/.*login/);\n+\n+  // verify flash message\n+  await expect(page.locator('#flash')).toContainText('logged out');\n+});\ndiff --git a/tsconfig.zip b/tsconfig.zip\nnew file mode 100644\nindex 0000000..ab833e4\nBinary files /dev/null and b/tsconfig.zip differ",
+          "actualWorkers": 2
+        },
+        "id": "chromium-mac",
+        "name": "chromium-mac",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "commitHash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "prHref": "https://github.com/smenouillard/playwright-portfolio/pull/3",
+            "prTitle": "test(tests): add logout test + improve login POM and simple form demo",
+            "prBaseHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19933276622"
+          },
+          "gitCommit": {
+            "shortHash": "76c7634",
+            "hash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "subject": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797",
+            "body": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797\n",
+            "author": {
+              "name": "smenouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764860160000
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1764860160000
+            },
+            "branch": "HEAD"
+          },
+          "gitDiff": "diff --git a/dashboard-check/dashboard-check.spec.ts b/dashboard-check/dashboard-check.spec.ts\nindex ba56ca6..d96b263 100644\n--- a/dashboard-check/dashboard-check.spec.ts\n+++ b/dashboard-check/dashboard-check.spec.ts\n@@ -1,4 +1,4 @@\n-// tests/specs/diagnostic/scenario-mixed.spec.ts\n+// dashboard-check/scenario-mixed.spec.ts\n // (used for testing dashboard)\n \n import { test, expect } from '@playwright/test';\ndiff --git a/src/pages/lambdatest/simpleFormDemo.page.ts b/src/pages/lambdatest/simpleFormDemo.page.ts\nindex bf54ca5..8ee2396 100644\n--- a/src/pages/lambdatest/simpleFormDemo.page.ts\n+++ b/src/pages/lambdatest/simpleFormDemo.page.ts\n@@ -4,7 +4,6 @@\n import { Page, Locator } from \"@playwright/test\";\n \n export class SimpleFormDemoPage {\n-  // Store page instance\n   private readonly page: Page;\n \n   // Single Input Field locators\n@@ -19,34 +18,30 @@ export class SimpleFormDemoPage {\n   readonly sumResult: Locator;\n \n   constructor(page: Page) {\n-    // Assign page\n     this.page = page;\n \n-    // Map single input field\n-    this.singleInput = page.locator('input[id=\"user-message\"]');\n+    // --- Single Input Field ---\n+    this.singleInput = page.getByPlaceholder(\"Please enter your Message\");\n     this.singleButton = page.getByRole(\"button\", { name: \"Get Checked Value\" });\n     this.singleMessage = page.locator(\"#message\");\n \n-    // Map two input fields\n-    this.twoFieldA = page.locator(\"#sum1\");\n-    this.twoFieldB = page.locator(\"#sum2\");\n+    // --- Two Input Fields ---\n+    this.twoFieldA = page.getByPlaceholder(\"Please enter first value\");\n+    this.twoFieldB = page.getByPlaceholder(\"Please enter second value\");\n     this.twoButton = page.getByRole(\"button\", { name: \"Get Sum\" });\n     this.sumResult = page.locator(\"#addmessage\");\n   }\n \n-  // Open page with stable navigation\n   async goto() {\n-    await this.page.goto('simple-form-demo');\n+    await this.page.goto(\"simple-form-demo\"); // correct (pas de slash)\n     await this.page.waitForLoadState(\"domcontentloaded\");\n   }\n \n-  // Fill single field and submit\n   async enterSingleValue(value: string) {\n     await this.singleInput.fill(value);\n     await this.singleButton.click();\n   }\n \n-  // Fill two fields and submit\n   async enterTwoValues(a: string, b: string) {\n     await this.twoFieldA.fill(a);\n     await this.twoFieldB.fill(b);\ndiff --git a/src/pages/the-internet/login.page.ts b/src/pages/the-internet/login.page.ts\nindex 09a87de..be364dd 100644\n--- a/src/pages/the-internet/login.page.ts\n+++ b/src/pages/the-internet/login.page.ts\n@@ -34,7 +34,6 @@ export class LoginPage {\n   async goto() {\n     await this.page.goto('/login');\n     await this.page.waitForLoadState(\"domcontentloaded\");\n-    await this.page.waitForLoadState(\"networkidle\");\n   }\n \n   // Perform valid login\ndiff --git a/tests/specs/lambdatest/simpleFormDemo.spec.ts b/tests/specs/lambdatest/simpleFormDemo.spec.ts\nindex 696e0df..c33db4b 100644\n--- a/tests/specs/lambdatest/simpleFormDemo.spec.ts\n+++ b/tests/specs/lambdatest/simpleFormDemo.spec.ts\n@@ -6,24 +6,48 @@ import { appUrls } from '../../../src/config/appUrls';\n \n test.use({ baseURL: appUrls.lambdaTest });\n \n-test('Single Input Field', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+// generate random valid values\n+const randomA = Math.floor(Math.random() * 50) + 1;\n+const randomB = Math.floor(Math.random() * 50) + 1;\n+const randomSum = String(randomA + randomB);\n \n-  // Enter value\n-  await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+// data-driven scenarios\n+const sumScenarios = [\n+  { name: \"valid random numbers\", a: String(randomA), b: String(randomB), expected: randomSum },\n+  { name: 'invalid first value', a: 'abc', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'invalid second value', a: '5', b: 'xyz', expected: 'Entered value is not a number' },\n+  { name: 'both invalid', a: 'aaa', b: 'bbb', expected: 'Entered value is not a number' },\n+  { name: 'empty first value', a: '', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'empty second value', a: '5', b: '', expected: 'Entered value is not a number' },\n+  { name: 'both empty', a: '', b: '', expected: 'Entered value is not a number' }\n+];\n \n-  // Check result\n-  await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n-});\n+test.describe('Simple Form Demo', () => {\n+\n+  test('Single Input Field', async ({ simpleFormDemoPage }) => {\n+\n+    // open page\n+    await simpleFormDemoPage.goto();\n+\n+    // enter value\n+    await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+\n+    // check result\n+    await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n+  });\n+\n+  sumScenarios.forEach(({ name, a, b, expected }) => {\n+    test(`Two Input Fields - ${name}`, async ({ simpleFormDemoPage }) => {\n+\n+      // open page\n+      await simpleFormDemoPage.goto();\n \n-test('Two Input Fields', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+      // enter values\n+      await simpleFormDemoPage.enterTwoValues(a, b);\n \n-  // Enter values\n-  await simpleFormDemoPage.enterTwoValues('5', '7');\n+      // check result\n+      await expect(simpleFormDemoPage.sumResult).toHaveText(expected);\n+    });\n+  });\n \n-  // Check sum\n-  await expect(simpleFormDemoPage.sumResult).toHaveText('12');\n });\ndiff --git a/tests/specs/the-internet/logout.spec.ts b/tests/specs/the-internet/logout.spec.ts\nnew file mode 100644\nindex 0000000..8f2d376\n--- /dev/null\n+++ b/tests/specs/the-internet/logout.spec.ts\n@@ -0,0 +1,27 @@\n+// tests/specs/the-internet/logout.spec.ts\n+// https://the-internet.herokuapp.com\n+\n+import { test, expect } from '../../fixtures/base';\n+import { secrets } from '../../../src/config/secrets';\n+import { appUrls } from '../../../src/config/appUrls';\n+\n+test.use({ baseURL: appUrls.theInternet });\n+\n+test('Logout and verify redirect', async ({ page, loginPage }) => {\n+  // open login page\n+  await loginPage.goto();\n+\n+  // login\n+  await loginPage.login(secrets.internet.username, secrets.internet.password);\n+\n+  // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)\n+\n+  // logout\n+  await page.locator('a[href=\"/logout\"]').click();\n+\n+  // check redirect back to login\n+  await expect(page).toHaveURL(/.*login/);\n+\n+  // verify flash message\n+  await expect(page.locator('#flash')).toContainText('logged out');\n+});\ndiff --git a/tsconfig.zip b/tsconfig.zip\nnew file mode 100644\nindex 0000000..ab833e4\nBinary files /dev/null and b/tsconfig.zip differ",
+          "actualWorkers": 2
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "commitHash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "prHref": "https://github.com/smenouillard/playwright-portfolio/pull/3",
+            "prTitle": "test(tests): add logout test + improve login POM and simple form demo",
+            "prBaseHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19933276622"
+          },
+          "gitCommit": {
+            "shortHash": "76c7634",
+            "hash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "subject": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797",
+            "body": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797\n",
+            "author": {
+              "name": "smenouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764860160000
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1764860160000
+            },
+            "branch": "HEAD"
+          },
+          "gitDiff": "diff --git a/dashboard-check/dashboard-check.spec.ts b/dashboard-check/dashboard-check.spec.ts\nindex ba56ca6..d96b263 100644\n--- a/dashboard-check/dashboard-check.spec.ts\n+++ b/dashboard-check/dashboard-check.spec.ts\n@@ -1,4 +1,4 @@\n-// tests/specs/diagnostic/scenario-mixed.spec.ts\n+// dashboard-check/scenario-mixed.spec.ts\n // (used for testing dashboard)\n \n import { test, expect } from '@playwright/test';\ndiff --git a/src/pages/lambdatest/simpleFormDemo.page.ts b/src/pages/lambdatest/simpleFormDemo.page.ts\nindex bf54ca5..8ee2396 100644\n--- a/src/pages/lambdatest/simpleFormDemo.page.ts\n+++ b/src/pages/lambdatest/simpleFormDemo.page.ts\n@@ -4,7 +4,6 @@\n import { Page, Locator } from \"@playwright/test\";\n \n export class SimpleFormDemoPage {\n-  // Store page instance\n   private readonly page: Page;\n \n   // Single Input Field locators\n@@ -19,34 +18,30 @@ export class SimpleFormDemoPage {\n   readonly sumResult: Locator;\n \n   constructor(page: Page) {\n-    // Assign page\n     this.page = page;\n \n-    // Map single input field\n-    this.singleInput = page.locator('input[id=\"user-message\"]');\n+    // --- Single Input Field ---\n+    this.singleInput = page.getByPlaceholder(\"Please enter your Message\");\n     this.singleButton = page.getByRole(\"button\", { name: \"Get Checked Value\" });\n     this.singleMessage = page.locator(\"#message\");\n \n-    // Map two input fields\n-    this.twoFieldA = page.locator(\"#sum1\");\n-    this.twoFieldB = page.locator(\"#sum2\");\n+    // --- Two Input Fields ---\n+    this.twoFieldA = page.getByPlaceholder(\"Please enter first value\");\n+    this.twoFieldB = page.getByPlaceholder(\"Please enter second value\");\n     this.twoButton = page.getByRole(\"button\", { name: \"Get Sum\" });\n     this.sumResult = page.locator(\"#addmessage\");\n   }\n \n-  // Open page with stable navigation\n   async goto() {\n-    await this.page.goto('simple-form-demo');\n+    await this.page.goto(\"simple-form-demo\"); // correct (pas de slash)\n     await this.page.waitForLoadState(\"domcontentloaded\");\n   }\n \n-  // Fill single field and submit\n   async enterSingleValue(value: string) {\n     await this.singleInput.fill(value);\n     await this.singleButton.click();\n   }\n \n-  // Fill two fields and submit\n   async enterTwoValues(a: string, b: string) {\n     await this.twoFieldA.fill(a);\n     await this.twoFieldB.fill(b);\ndiff --git a/src/pages/the-internet/login.page.ts b/src/pages/the-internet/login.page.ts\nindex 09a87de..be364dd 100644\n--- a/src/pages/the-internet/login.page.ts\n+++ b/src/pages/the-internet/login.page.ts\n@@ -34,7 +34,6 @@ export class LoginPage {\n   async goto() {\n     await this.page.goto('/login');\n     await this.page.waitForLoadState(\"domcontentloaded\");\n-    await this.page.waitForLoadState(\"networkidle\");\n   }\n \n   // Perform valid login\ndiff --git a/tests/specs/lambdatest/simpleFormDemo.spec.ts b/tests/specs/lambdatest/simpleFormDemo.spec.ts\nindex 696e0df..c33db4b 100644\n--- a/tests/specs/lambdatest/simpleFormDemo.spec.ts\n+++ b/tests/specs/lambdatest/simpleFormDemo.spec.ts\n@@ -6,24 +6,48 @@ import { appUrls } from '../../../src/config/appUrls';\n \n test.use({ baseURL: appUrls.lambdaTest });\n \n-test('Single Input Field', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+// generate random valid values\n+const randomA = Math.floor(Math.random() * 50) + 1;\n+const randomB = Math.floor(Math.random() * 50) + 1;\n+const randomSum = String(randomA + randomB);\n \n-  // Enter value\n-  await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+// data-driven scenarios\n+const sumScenarios = [\n+  { name: \"valid random numbers\", a: String(randomA), b: String(randomB), expected: randomSum },\n+  { name: 'invalid first value', a: 'abc', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'invalid second value', a: '5', b: 'xyz', expected: 'Entered value is not a number' },\n+  { name: 'both invalid', a: 'aaa', b: 'bbb', expected: 'Entered value is not a number' },\n+  { name: 'empty first value', a: '', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'empty second value', a: '5', b: '', expected: 'Entered value is not a number' },\n+  { name: 'both empty', a: '', b: '', expected: 'Entered value is not a number' }\n+];\n \n-  // Check result\n-  await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n-});\n+test.describe('Simple Form Demo', () => {\n+\n+  test('Single Input Field', async ({ simpleFormDemoPage }) => {\n+\n+    // open page\n+    await simpleFormDemoPage.goto();\n+\n+    // enter value\n+    await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+\n+    // check result\n+    await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n+  });\n+\n+  sumScenarios.forEach(({ name, a, b, expected }) => {\n+    test(`Two Input Fields - ${name}`, async ({ simpleFormDemoPage }) => {\n+\n+      // open page\n+      await simpleFormDemoPage.goto();\n \n-test('Two Input Fields', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+      // enter values\n+      await simpleFormDemoPage.enterTwoValues(a, b);\n \n-  // Enter values\n-  await simpleFormDemoPage.enterTwoValues('5', '7');\n+      // check result\n+      await expect(simpleFormDemoPage.sumResult).toHaveText(expected);\n+    });\n+  });\n \n-  // Check sum\n-  await expect(simpleFormDemoPage.sumResult).toHaveText('12');\n });\ndiff --git a/tests/specs/the-internet/logout.spec.ts b/tests/specs/the-internet/logout.spec.ts\nnew file mode 100644\nindex 0000000..8f2d376\n--- /dev/null\n+++ b/tests/specs/the-internet/logout.spec.ts\n@@ -0,0 +1,27 @@\n+// tests/specs/the-internet/logout.spec.ts\n+// https://the-internet.herokuapp.com\n+\n+import { test, expect } from '../../fixtures/base';\n+import { secrets } from '../../../src/config/secrets';\n+import { appUrls } from '../../../src/config/appUrls';\n+\n+test.use({ baseURL: appUrls.theInternet });\n+\n+test('Logout and verify redirect', async ({ page, loginPage }) => {\n+  // open login page\n+  await loginPage.goto();\n+\n+  // login\n+  await loginPage.login(secrets.internet.username, secrets.internet.password);\n+\n+  // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)\n+\n+  // logout\n+  await page.locator('a[href=\"/logout\"]').click();\n+\n+  // check redirect back to login\n+  await expect(page).toHaveURL(/.*login/);\n+\n+  // verify flash message\n+  await expect(page.locator('#flash')).toContainText('logged out');\n+});\ndiff --git a/tsconfig.zip b/tsconfig.zip\nnew file mode 100644\nindex 0000000..ab833e4\nBinary files /dev/null and b/tsconfig.zip differ",
+          "actualWorkers": 2
+        },
+        "id": "chromium-linux",
+        "name": "chromium-linux",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "commitHash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "prHref": "https://github.com/smenouillard/playwright-portfolio/pull/3",
+            "prTitle": "test(tests): add logout test + improve login POM and simple form demo",
+            "prBaseHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19933276622"
+          },
+          "gitCommit": {
+            "shortHash": "76c7634",
+            "hash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "subject": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797",
+            "body": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797\n",
+            "author": {
+              "name": "smenouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764860160000
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1764860160000
+            },
+            "branch": "HEAD"
+          },
+          "gitDiff": "diff --git a/dashboard-check/dashboard-check.spec.ts b/dashboard-check/dashboard-check.spec.ts\nindex ba56ca6..d96b263 100644\n--- a/dashboard-check/dashboard-check.spec.ts\n+++ b/dashboard-check/dashboard-check.spec.ts\n@@ -1,4 +1,4 @@\n-// tests/specs/diagnostic/scenario-mixed.spec.ts\n+// dashboard-check/scenario-mixed.spec.ts\n // (used for testing dashboard)\n \n import { test, expect } from '@playwright/test';\ndiff --git a/src/pages/lambdatest/simpleFormDemo.page.ts b/src/pages/lambdatest/simpleFormDemo.page.ts\nindex bf54ca5..8ee2396 100644\n--- a/src/pages/lambdatest/simpleFormDemo.page.ts\n+++ b/src/pages/lambdatest/simpleFormDemo.page.ts\n@@ -4,7 +4,6 @@\n import { Page, Locator } from \"@playwright/test\";\n \n export class SimpleFormDemoPage {\n-  // Store page instance\n   private readonly page: Page;\n \n   // Single Input Field locators\n@@ -19,34 +18,30 @@ export class SimpleFormDemoPage {\n   readonly sumResult: Locator;\n \n   constructor(page: Page) {\n-    // Assign page\n     this.page = page;\n \n-    // Map single input field\n-    this.singleInput = page.locator('input[id=\"user-message\"]');\n+    // --- Single Input Field ---\n+    this.singleInput = page.getByPlaceholder(\"Please enter your Message\");\n     this.singleButton = page.getByRole(\"button\", { name: \"Get Checked Value\" });\n     this.singleMessage = page.locator(\"#message\");\n \n-    // Map two input fields\n-    this.twoFieldA = page.locator(\"#sum1\");\n-    this.twoFieldB = page.locator(\"#sum2\");\n+    // --- Two Input Fields ---\n+    this.twoFieldA = page.getByPlaceholder(\"Please enter first value\");\n+    this.twoFieldB = page.getByPlaceholder(\"Please enter second value\");\n     this.twoButton = page.getByRole(\"button\", { name: \"Get Sum\" });\n     this.sumResult = page.locator(\"#addmessage\");\n   }\n \n-  // Open page with stable navigation\n   async goto() {\n-    await this.page.goto('simple-form-demo');\n+    await this.page.goto(\"simple-form-demo\"); // correct (pas de slash)\n     await this.page.waitForLoadState(\"domcontentloaded\");\n   }\n \n-  // Fill single field and submit\n   async enterSingleValue(value: string) {\n     await this.singleInput.fill(value);\n     await this.singleButton.click();\n   }\n \n-  // Fill two fields and submit\n   async enterTwoValues(a: string, b: string) {\n     await this.twoFieldA.fill(a);\n     await this.twoFieldB.fill(b);\ndiff --git a/src/pages/the-internet/login.page.ts b/src/pages/the-internet/login.page.ts\nindex 09a87de..be364dd 100644\n--- a/src/pages/the-internet/login.page.ts\n+++ b/src/pages/the-internet/login.page.ts\n@@ -34,7 +34,6 @@ export class LoginPage {\n   async goto() {\n     await this.page.goto('/login');\n     await this.page.waitForLoadState(\"domcontentloaded\");\n-    await this.page.waitForLoadState(\"networkidle\");\n   }\n \n   // Perform valid login\ndiff --git a/tests/specs/lambdatest/simpleFormDemo.spec.ts b/tests/specs/lambdatest/simpleFormDemo.spec.ts\nindex 696e0df..c33db4b 100644\n--- a/tests/specs/lambdatest/simpleFormDemo.spec.ts\n+++ b/tests/specs/lambdatest/simpleFormDemo.spec.ts\n@@ -6,24 +6,48 @@ import { appUrls } from '../../../src/config/appUrls';\n \n test.use({ baseURL: appUrls.lambdaTest });\n \n-test('Single Input Field', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+// generate random valid values\n+const randomA = Math.floor(Math.random() * 50) + 1;\n+const randomB = Math.floor(Math.random() * 50) + 1;\n+const randomSum = String(randomA + randomB);\n \n-  // Enter value\n-  await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+// data-driven scenarios\n+const sumScenarios = [\n+  { name: \"valid random numbers\", a: String(randomA), b: String(randomB), expected: randomSum },\n+  { name: 'invalid first value', a: 'abc', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'invalid second value', a: '5', b: 'xyz', expected: 'Entered value is not a number' },\n+  { name: 'both invalid', a: 'aaa', b: 'bbb', expected: 'Entered value is not a number' },\n+  { name: 'empty first value', a: '', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'empty second value', a: '5', b: '', expected: 'Entered value is not a number' },\n+  { name: 'both empty', a: '', b: '', expected: 'Entered value is not a number' }\n+];\n \n-  // Check result\n-  await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n-});\n+test.describe('Simple Form Demo', () => {\n+\n+  test('Single Input Field', async ({ simpleFormDemoPage }) => {\n+\n+    // open page\n+    await simpleFormDemoPage.goto();\n+\n+    // enter value\n+    await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+\n+    // check result\n+    await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n+  });\n+\n+  sumScenarios.forEach(({ name, a, b, expected }) => {\n+    test(`Two Input Fields - ${name}`, async ({ simpleFormDemoPage }) => {\n+\n+      // open page\n+      await simpleFormDemoPage.goto();\n \n-test('Two Input Fields', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+      // enter values\n+      await simpleFormDemoPage.enterTwoValues(a, b);\n \n-  // Enter values\n-  await simpleFormDemoPage.enterTwoValues('5', '7');\n+      // check result\n+      await expect(simpleFormDemoPage.sumResult).toHaveText(expected);\n+    });\n+  });\n \n-  // Check sum\n-  await expect(simpleFormDemoPage.sumResult).toHaveText('12');\n });\ndiff --git a/tests/specs/the-internet/logout.spec.ts b/tests/specs/the-internet/logout.spec.ts\nnew file mode 100644\nindex 0000000..8f2d376\n--- /dev/null\n+++ b/tests/specs/the-internet/logout.spec.ts\n@@ -0,0 +1,27 @@\n+// tests/specs/the-internet/logout.spec.ts\n+// https://the-internet.herokuapp.com\n+\n+import { test, expect } from '../../fixtures/base';\n+import { secrets } from '../../../src/config/secrets';\n+import { appUrls } from '../../../src/config/appUrls';\n+\n+test.use({ baseURL: appUrls.theInternet });\n+\n+test('Logout and verify redirect', async ({ page, loginPage }) => {\n+  // open login page\n+  await loginPage.goto();\n+\n+  // login\n+  await loginPage.login(secrets.internet.username, secrets.internet.password);\n+\n+  // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)\n+\n+  // logout\n+  await page.locator('a[href=\"/logout\"]').click();\n+\n+  // check redirect back to login\n+  await expect(page).toHaveURL(/.*login/);\n+\n+  // verify flash message\n+  await expect(page.locator('#flash')).toContainText('logged out');\n+});\ndiff --git a/tsconfig.zip b/tsconfig.zip\nnew file mode 100644\nindex 0000000..ab833e4\nBinary files /dev/null and b/tsconfig.zip differ",
+          "actualWorkers": 2
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "commitHash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "prHref": "https://github.com/smenouillard/playwright-portfolio/pull/3",
+            "prTitle": "test(tests): add logout test + improve login POM and simple form demo",
+            "prBaseHash": "76c4776d92e2ce65e9295cbea74fc07614738797",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/19933276622"
+          },
+          "gitCommit": {
+            "shortHash": "76c7634",
+            "hash": "76c7634ec79a73b4702108bc5b3456e1761e9838",
+            "subject": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797",
+            "body": "Merge a6e2ef277936f944d3d08c50ca63751909183396 into 76c4776d92e2ce65e9295cbea74fc07614738797\n",
+            "author": {
+              "name": "smenouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1764860160000
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1764860160000
+            },
+            "branch": "HEAD"
+          },
+          "gitDiff": "diff --git a/dashboard-check/dashboard-check.spec.ts b/dashboard-check/dashboard-check.spec.ts\nindex ba56ca6..d96b263 100644\n--- a/dashboard-check/dashboard-check.spec.ts\n+++ b/dashboard-check/dashboard-check.spec.ts\n@@ -1,4 +1,4 @@\n-// tests/specs/diagnostic/scenario-mixed.spec.ts\n+// dashboard-check/scenario-mixed.spec.ts\n // (used for testing dashboard)\n \n import { test, expect } from '@playwright/test';\ndiff --git a/src/pages/lambdatest/simpleFormDemo.page.ts b/src/pages/lambdatest/simpleFormDemo.page.ts\nindex bf54ca5..8ee2396 100644\n--- a/src/pages/lambdatest/simpleFormDemo.page.ts\n+++ b/src/pages/lambdatest/simpleFormDemo.page.ts\n@@ -4,7 +4,6 @@\n import { Page, Locator } from \"@playwright/test\";\n \n export class SimpleFormDemoPage {\n-  // Store page instance\n   private readonly page: Page;\n \n   // Single Input Field locators\n@@ -19,34 +18,30 @@ export class SimpleFormDemoPage {\n   readonly sumResult: Locator;\n \n   constructor(page: Page) {\n-    // Assign page\n     this.page = page;\n \n-    // Map single input field\n-    this.singleInput = page.locator('input[id=\"user-message\"]');\n+    // --- Single Input Field ---\n+    this.singleInput = page.getByPlaceholder(\"Please enter your Message\");\n     this.singleButton = page.getByRole(\"button\", { name: \"Get Checked Value\" });\n     this.singleMessage = page.locator(\"#message\");\n \n-    // Map two input fields\n-    this.twoFieldA = page.locator(\"#sum1\");\n-    this.twoFieldB = page.locator(\"#sum2\");\n+    // --- Two Input Fields ---\n+    this.twoFieldA = page.getByPlaceholder(\"Please enter first value\");\n+    this.twoFieldB = page.getByPlaceholder(\"Please enter second value\");\n     this.twoButton = page.getByRole(\"button\", { name: \"Get Sum\" });\n     this.sumResult = page.locator(\"#addmessage\");\n   }\n \n-  // Open page with stable navigation\n   async goto() {\n-    await this.page.goto('simple-form-demo');\n+    await this.page.goto(\"simple-form-demo\"); // correct (pas de slash)\n     await this.page.waitForLoadState(\"domcontentloaded\");\n   }\n \n-  // Fill single field and submit\n   async enterSingleValue(value: string) {\n     await this.singleInput.fill(value);\n     await this.singleButton.click();\n   }\n \n-  // Fill two fields and submit\n   async enterTwoValues(a: string, b: string) {\n     await this.twoFieldA.fill(a);\n     await this.twoFieldB.fill(b);\ndiff --git a/src/pages/the-internet/login.page.ts b/src/pages/the-internet/login.page.ts\nindex 09a87de..be364dd 100644\n--- a/src/pages/the-internet/login.page.ts\n+++ b/src/pages/the-internet/login.page.ts\n@@ -34,7 +34,6 @@ export class LoginPage {\n   async goto() {\n     await this.page.goto('/login');\n     await this.page.waitForLoadState(\"domcontentloaded\");\n-    await this.page.waitForLoadState(\"networkidle\");\n   }\n \n   // Perform valid login\ndiff --git a/tests/specs/lambdatest/simpleFormDemo.spec.ts b/tests/specs/lambdatest/simpleFormDemo.spec.ts\nindex 696e0df..c33db4b 100644\n--- a/tests/specs/lambdatest/simpleFormDemo.spec.ts\n+++ b/tests/specs/lambdatest/simpleFormDemo.spec.ts\n@@ -6,24 +6,48 @@ import { appUrls } from '../../../src/config/appUrls';\n \n test.use({ baseURL: appUrls.lambdaTest });\n \n-test('Single Input Field', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+// generate random valid values\n+const randomA = Math.floor(Math.random() * 50) + 1;\n+const randomB = Math.floor(Math.random() * 50) + 1;\n+const randomSum = String(randomA + randomB);\n \n-  // Enter value\n-  await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+// data-driven scenarios\n+const sumScenarios = [\n+  { name: \"valid random numbers\", a: String(randomA), b: String(randomB), expected: randomSum },\n+  { name: 'invalid first value', a: 'abc', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'invalid second value', a: '5', b: 'xyz', expected: 'Entered value is not a number' },\n+  { name: 'both invalid', a: 'aaa', b: 'bbb', expected: 'Entered value is not a number' },\n+  { name: 'empty first value', a: '', b: '5', expected: 'Entered value is not a number' },\n+  { name: 'empty second value', a: '5', b: '', expected: 'Entered value is not a number' },\n+  { name: 'both empty', a: '', b: '', expected: 'Entered value is not a number' }\n+];\n \n-  // Check result\n-  await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n-});\n+test.describe('Simple Form Demo', () => {\n+\n+  test('Single Input Field', async ({ simpleFormDemoPage }) => {\n+\n+    // open page\n+    await simpleFormDemoPage.goto();\n+\n+    // enter value\n+    await simpleFormDemoPage.enterSingleValue('Hello Playwright');\n+\n+    // check result\n+    await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');\n+  });\n+\n+  sumScenarios.forEach(({ name, a, b, expected }) => {\n+    test(`Two Input Fields - ${name}`, async ({ simpleFormDemoPage }) => {\n+\n+      // open page\n+      await simpleFormDemoPage.goto();\n \n-test('Two Input Fields', async ({ simpleFormDemoPage }) => {\n-  // Open page\n-  await simpleFormDemoPage.goto();\n+      // enter values\n+      await simpleFormDemoPage.enterTwoValues(a, b);\n \n-  // Enter values\n-  await simpleFormDemoPage.enterTwoValues('5', '7');\n+      // check result\n+      await expect(simpleFormDemoPage.sumResult).toHaveText(expected);\n+    });\n+  });\n \n-  // Check sum\n-  await expect(simpleFormDemoPage.sumResult).toHaveText('12');\n });\ndiff --git a/tests/specs/the-internet/logout.spec.ts b/tests/specs/the-internet/logout.spec.ts\nnew file mode 100644\nindex 0000000..8f2d376\n--- /dev/null\n+++ b/tests/specs/the-internet/logout.spec.ts\n@@ -0,0 +1,27 @@\n+// tests/specs/the-internet/logout.spec.ts\n+// https://the-internet.herokuapp.com\n+\n+import { test, expect } from '../../fixtures/base';\n+import { secrets } from '../../../src/config/secrets';\n+import { appUrls } from '../../../src/config/appUrls';\n+\n+test.use({ baseURL: appUrls.theInternet });\n+\n+test('Logout and verify redirect', async ({ page, loginPage }) => {\n+  // open login page\n+  await loginPage.goto();\n+\n+  // login\n+  await loginPage.login(secrets.internet.username, secrets.internet.password);\n+\n+  // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)\n+\n+  // logout\n+  await page.locator('a[href=\"/logout\"]').click();\n+\n+  // check redirect back to login\n+  await expect(page).toHaveURL(/.*login/);\n+\n+  // verify flash message\n+  await expect(page.locator('#flash')).toContainText('logged out');\n+});\ndiff --git a/tsconfig.zip b/tsconfig.zip\nnew file mode 100644\nindex 0000000..ab833e4\nBinary files /dev/null and b/tsconfig.zip differ",
+          "actualWorkers": 2
+        },
+        "id": "webkit-linux",
+        "name": "webkit-linux",
+        "testDir": "/Users/runner/work/playwright-portfolio/playwright-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "specs/lambdatest/simpleFormDemo.spec.ts",
+      "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Simple Form Demo",
+          "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+          "line": 25,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Single Input Field",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5843,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:56:56.569Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "70431784ff4ba5f698f2-8b63d73dae892b583060",
+              "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "Two Input Fields - valid random numbers",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1550,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:03.939Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "70431784ff4ba5f698f2-b2061162c7086b4cdc36",
+              "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+              "line": 40,
+              "column": 9
+            },
+            {
+              "title": "Two Input Fields - invalid first value",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1549,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:05.504Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "70431784ff4ba5f698f2-418b79a91ee6182cc790",
+              "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+              "line": 40,
+              "column": 9
+            },
+            {
+              "title": "Two Input Fields - invalid second value",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1366,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:07.072Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "70431784ff4ba5f698f2-ae255330df95c34bc579",
+              "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+              "line": 40,
+              "column": 9
+            },
+            {
+              "title": "Two Input Fields - both invalid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1274,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:08.448Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "70431784ff4ba5f698f2-54432d452259a5b81b18",
+              "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+              "line": 40,
+              "column": 9
+            },
+            {
+              "title": "Two Input Fields - empty first value",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1436,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:09.732Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "70431784ff4ba5f698f2-a55191603256733e6623",
+              "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+              "line": 40,
+              "column": 9
+            },
+            {
+              "title": "Two Input Fields - empty second value",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1441,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:11.179Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "70431784ff4ba5f698f2-003130ad4b2bde3672b7",
+              "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+              "line": 40,
+              "column": 9
+            },
+            {
+              "title": "Two Input Fields - both empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1383,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:12.633Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "70431784ff4ba5f698f2-922d4bc85eb2b19ed526",
+              "file": "specs/lambdatest/simpleFormDemo.spec.ts",
+              "line": 40,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/the-internet/login.spec.ts",
+      "file": "specs/the-internet/login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Login tests",
+          "file": "specs/the-internet/login.spec.ts",
+          "line": 19,
+          "column": 6,
+          "specs": [
+            {
+              "title": "valid login redirects to secure area",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5854,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:56:56.576Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e6e13815b79f712d56aa-15ba5467f8697f2e0bab",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "invalid login - invalid username",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2580,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:03.953Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e6e13815b79f712d56aa-dcaa0ff096bae839f336",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 32,
+              "column": 9
+            },
+            {
+              "title": "invalid login - invalid password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1978,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:06.550Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e6e13815b79f712d56aa-2c936a29e01582a26a4f",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 32,
+              "column": 9
+            },
+            {
+              "title": "invalid login - empty username",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2101,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:08.544Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e6e13815b79f712d56aa-e4575d5d2269e254dd25",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 32,
+              "column": 9
+            },
+            {
+              "title": "invalid login - empty password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2067,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:10.654Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e6e13815b79f712d56aa-64928306e52fa3c9c624",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 32,
+              "column": 9
+            },
+            {
+              "title": "invalid login - both fields empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1875,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-04T14:57:12.734Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e6e13815b79f712d56aa-6ca5bbe890c0b79c926d",
+              "file": "specs/the-internet/login.spec.ts",
+              "line": 32,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/the-internet/logout.spec.ts",
+      "file": "specs/the-internet/logout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Logout and verify redirect",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2077,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-12-04T14:57:14.071Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d93db7014e2c713fb60c-d822283fa688b448e328",
+          "file": "specs/the-internet/logout.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-12-04T14:56:55.431Z",
+    "duration": 20763.486,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
