@@ -1,5 +1,4 @@
 // tests/fixtures/base.ts
-// https://the-internet.herokuapp.com
 
 import { test as base } from '@playwright/test';
 import { LoginPage } from '../../src/pages/the-internet/login.page';

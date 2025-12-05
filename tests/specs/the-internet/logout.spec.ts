@@ -5,23 +5,28 @@ import { test, expect } from '../../fixtures/base';
 import { secrets } from '../../../src/config/secrets';
 import { appUrls } from '../../../src/config/appUrls';
 
+// Set baseURL for The Internet
 test.use({ baseURL: appUrls.theInternet });
 
-test('Logout and verify redirect', async ({ page, loginPage }) => {
-  // open login page
-  await loginPage.goto();
+test.describe('Logout tests', () => {
 
-  // login
-  await loginPage.login(secrets.internet.username, secrets.internet.password);
+  test('Logout and verify redirect', async ({ page, loginPage }) => {
+    // open login page
+    await loginPage.goto();
 
-  // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)
+    // login
+    await loginPage.login(secrets.internet.username, secrets.internet.password);
 
-  // logout
-  await page.locator('a[href="/logout"]').click();
+    // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)
 
-  // check redirect back to login
-  await expect(page).toHaveURL(/.*login/);
+    // logout
+    await page.locator('a[href="/logout"]').click();
 
-  // verify flash message
-  await expect(page.locator('#flash')).toContainText('logged out');
+    // check redirect back to login
+    await expect(page).toHaveURL(/.*login/);
+
+    // verify flash message
+    await expect(page.locator('#flash')).toContainText('logged out');
+  });
+
 });
