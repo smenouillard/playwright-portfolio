@@ -1,38 +1,154 @@
-<testsuites id="" name="" tests="15" failures="0" skipped="0" errors="0" time="18.342808">
-<testsuite name="specs/lambdatest/simpleFormDemo.spec.ts" timestamp="2025-12-04T14:57:44.347Z" hostname="firefox" tests="8" failures="0" skipped="0" time="11.266" errors="0">
-<testcase name="Simple Form Demo › Single Input Field" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="3.107">
+<testsuites id="" name="" tests="62" failures="0" skipped="0" errors="0" time="58.616852">
+<testsuite name="specs/lambdatest/checkboxDemo.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="3" failures="0" skipped="0" time="6.57" errors="0">
+<testcase name="Lambdatest Checkbox Demo › Single checkbox displays the correct message" classname="specs/lambdatest/checkboxDemo.spec.ts" time="3.361">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.212">
+<testcase name="Lambdatest Checkbox Demo › Disabled checkbox demo behaves correctly" classname="specs/lambdatest/checkboxDemo.spec.ts" time="1.107">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.128">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.286">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.978">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.069">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.165">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.321">
+<testcase name="Lambdatest Checkbox Demo › Check All toggles all multiple checkbox options" classname="specs/lambdatest/checkboxDemo.spec.ts" time="2.102">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/login.spec.ts" timestamp="2025-12-04T14:57:44.347Z" hostname="firefox" tests="6" failures="0" skipped="0" time="10.928" errors="0">
-<testcase name="Login tests › valid login redirects to secure area" classname="specs/the-internet/login.spec.ts" time="2.984">
+<testsuite name="specs/lambdatest/inputFormDemo.errors.email.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="7" failures="0" skipped="0" time="18.984" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;test&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.691">
 </testcase>
-<testcase name="Login tests › invalid login - invalid username" classname="specs/the-internet/login.spec.ts" time="1.535">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;test@&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.585">
 </testcase>
-<testcase name="Login tests › invalid login - invalid password" classname="specs/the-internet/login.spec.ts" time="1.551">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;john@.com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.472">
 </testcase>
-<testcase name="Login tests › invalid login - empty username" classname="specs/the-internet/login.spec.ts" time="1.509">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;@domain.com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.66">
 </testcase>
-<testcase name="Login tests › invalid login - empty password" classname="specs/the-internet/login.spec.ts" time="1.749">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;john@@example.com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.796">
 </testcase>
-<testcase name="Login tests › invalid login - both fields empty" classname="specs/the-internet/login.spec.ts" time="1.6">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;john@domain..com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.365">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Valid email passes HTML5 validation" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.415">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/logout.spec.ts" timestamp="2025-12-04T14:57:44.347Z" hostname="firefox" tests="1" failures="0" skipped="0" time="1.745" errors="0">
-<testcase name="Logout and verify redirect" classname="specs/the-internet/logout.spec.ts" time="1.745">
+<testsuite name="specs/lambdatest/inputFormDemo.errors.order.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="4" failures="0" skipped="0" time="7.645" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Empty submit shows error on first required field (Name)" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="1.143">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name moves error to Email" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="1.865">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name + Email moves error to Password" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="2.095">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Fixing an invalid field makes it valid on next submit" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="2.542">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="10" failures="0" skipped="0" time="19.666" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Required fields › Name is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.252">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Email is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.222">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Password is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.335">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Company is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.302">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Website is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.226">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › City is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.743">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Address1 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.059">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Address2 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.359">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › State is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.303">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Zip is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.865">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/inputFormDemo.rules.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="10" failures="0" skipped="0" time="13.19" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Name accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.035">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Email must follow HTML5 format rules" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.26">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Password accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.147">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Company accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.396">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Website accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.237">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Country is optional and any selected value is valid" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.054">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › City accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.317">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Address1 and Address2 accept any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.664">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › State accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.763">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Zip accepts any non-empty string (required, no pattern)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.317">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/inputFormDemo.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="1" failures="0" skipped="0" time="2.847" errors="0">
+<testcase name="LambdaTest – Input Form Demo › Submit full form successfully (happy path)" classname="specs/lambdatest/inputFormDemo.spec.ts" time="2.847">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/radioButtonDemo.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="3" failures="0" skipped="0" time="7.664" errors="0">
+<testcase name="LambdaTest – Radio Button Demo › Test 1 – Get selected value" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="2.569">
+</testcase>
+<testcase name="LambdaTest – Radio Button Demo › Test 2 – Disabled radio button behavior" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="2.862">
+</testcase>
+<testcase name="LambdaTest – Radio Button Demo › Test 3 – Random selection for gender and age" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="2.233">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/selectDropdown.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="2" failures="0" skipped="0" time="5.515" errors="0">
+<testcase name="Lambdatest – Select Dropdown Demo › Select multiple options then verify full list and first selected" classname="specs/lambdatest/selectDropdown.spec.ts" time="2.575">
+</testcase>
+<testcase name="Lambdatest – Select Dropdown Demo › Select multiple options then verify first selected then full list" classname="specs/lambdatest/selectDropdown.spec.ts" time="2.94">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/simpleFormDemo.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="8" failures="0" skipped="0" time="11.49" errors="0">
+<testcase name="Simple Form Demo › Single Input Field" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.3">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.066">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.124">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.958">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.047">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.523">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.196">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.276">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/addRemoveElements.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="3" failures="0" skipped="0" time="4.016" errors="0">
+<testcase name="The Internet – Add/Remove Elements › Initial state contains no delete buttons" classname="specs/the-internet/addRemoveElements.spec.ts" time="0.679">
+</testcase>
+<testcase name="The Internet – Add/Remove Elements › Add multiple delete buttons (random between 3 and 10)" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.533">
+</testcase>
+<testcase name="The Internet – Add/Remove Elements › Remove delete buttons one by one until none remain" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.804">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/checkboxes.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="1" failures="0" skipped="0" time="0.886" errors="0">
+<testcase name="Checkboxes tests – state machine validation › Validate all checkbox state transitions" classname="specs/the-internet/checkboxes.spec.ts" time="0.886">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/dropdown.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="3" failures="0" skipped="0" time="2.067" errors="0">
+<testcase name="The Internet – Dropdown List › Initial state shows placeholder text" classname="specs/the-internet/dropdown.spec.ts" time="0.584">
+</testcase>
+<testcase name="The Internet – Dropdown List › Selecting Option 1 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.724">
+</testcase>
+<testcase name="The Internet – Dropdown List › Selecting Option 2 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.759">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/login.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="6" failures="0" skipped="0" time="5.771" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs/the-internet/login.spec.ts" time="1.392">
+</testcase>
+<testcase name="Login tests › invalid login - invalid username" classname="specs/the-internet/login.spec.ts" time="0.994">
+</testcase>
+<testcase name="Login tests › invalid login - invalid password" classname="specs/the-internet/login.spec.ts" time="0.869">
+</testcase>
+<testcase name="Login tests › invalid login - empty username" classname="specs/the-internet/login.spec.ts" time="0.925">
+</testcase>
+<testcase name="Login tests › invalid login - empty password" classname="specs/the-internet/login.spec.ts" time="0.775">
+</testcase>
+<testcase name="Login tests › invalid login - both fields empty" classname="specs/the-internet/login.spec.ts" time="0.816">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/logout.spec.ts" timestamp="2025-12-08T17:28:07.732Z" hostname="firefox" tests="1" failures="0" skipped="0" time="1.299" errors="0">
+<testcase name="Logout tests › Logout and verify redirect" classname="specs/the-internet/logout.spec.ts" time="1.299">
 </testcase>
 </testsuite>
 </testsuites>
