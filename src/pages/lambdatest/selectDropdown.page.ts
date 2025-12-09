@@ -38,16 +38,20 @@ export class SelectDropdownPage {
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  // Select options using CTRL + click (since selectOption does not work here)
+  // Select options using CTRL + click (CI-safe, stable for WebKit/Chromium)
   async ctrlSelect(options: string[]) {
     await this.multiSelect.focus();
+    await this.page.waitForTimeout(120);
 
     await this.page.keyboard.down('Control');
+    await this.page.waitForTimeout(120);
 
     for (const option of options) {
       await this.multiSelect.locator(`option[value="${option}"]`).click();
+      await this.page.waitForTimeout(120);
     }
 
     await this.page.keyboard.up('Control');
+    await this.page.waitForTimeout(120);
   }
 }
