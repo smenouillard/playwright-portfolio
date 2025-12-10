@@ -41,7 +41,10 @@ export class SelectDropdownPage {
   // Use real CTRL-clicks because selectOption() does not trigger this demo's JS logic
   async ctrlSelect(options: string[]) {
     await this.multiSelect.focus();
-    await this.page.keyboard.down('Control');
+
+    // Use Meta on macOS, Control elsewhere
+    const modifier = process.platform === 'darwin' ? 'Meta' : 'Control';
+    await this.page.keyboard.down(modifier);
 
     for (const option of options) {
       await this.multiSelect.locator(`option[value="${option}"]`).click();
@@ -50,6 +53,6 @@ export class SelectDropdownPage {
       await this.page.waitForTimeout(50);
     }
 
-    await this.page.keyboard.up('Control');
+    await this.page.keyboard.up(modifier);
   }
 }
