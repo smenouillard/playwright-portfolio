@@ -9,6 +9,11 @@ test.use({ baseURL: appUrls.lambdaTest });
 
 test.describe('Lambdatest – Select Dropdown Demo', () => {
 
+  // Skip suite on WebKit: this demo's multi-select widget does not support multi-selection on WebKit (Meta-click included)
+  test.skip(({ browserName }) => browserName === 'webkit',
+    'This demo page does not support multi-select behavior on WebKit.'
+  );
+
   test('Select multiple options then verify full list and first selected', async ({ page }) => {
     const d = new SelectDropdownPage(page);
     await d.goto();
@@ -33,6 +38,7 @@ test.describe('Lambdatest – Select Dropdown Demo', () => {
 
     const options = ['California', 'Texas', 'New Jersey'];
 
+    // Select options using custom ctrl-select helper
     await d.ctrlSelect(options);
 
     // First selected
