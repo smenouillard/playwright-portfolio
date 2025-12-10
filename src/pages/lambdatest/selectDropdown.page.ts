@@ -41,11 +41,13 @@ export class SelectDropdownPage {
   // Use real CTRL-clicks because selectOption() does not trigger this demo's JS logic
   async ctrlSelect(options: string[]) {
     await this.multiSelect.focus();
-
     await this.page.keyboard.down('Control');
 
     for (const option of options) {
       await this.multiSelect.locator(`option[value="${option}"]`).click();
+
+      // Small delay required in CI to ensure multi-select registers correctly
+      await this.page.waitForTimeout(50);
     }
 
     await this.page.keyboard.up('Control');
