@@ -1,430 +1,166 @@
-<testsuites id="" name="" tests="62" failures="2" skipped="0" errors="0" time="107.826004">
-<testsuite name="specs/lambdatest/checkboxDemo.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="3" failures="0" skipped="0" time="5.892" errors="0">
-<testcase name="Lambdatest Checkbox Demo › Single checkbox displays the correct message" classname="specs/lambdatest/checkboxDemo.spec.ts" time="3.754">
+<testsuites id="" name="" tests="62" failures="0" skipped="2" errors="0" time="39.825655">
+<testsuite name="specs/lambdatest/checkboxDemo.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="3" failures="0" skipped="0" time="3.62" errors="0">
+<testcase name="Lambdatest Checkbox Demo › Single checkbox displays the correct message" classname="specs/lambdatest/checkboxDemo.spec.ts" time="1.884">
 </testcase>
-<testcase name="Lambdatest Checkbox Demo › Disabled checkbox demo behaves correctly" classname="specs/lambdatest/checkboxDemo.spec.ts" time="1.158">
+<testcase name="Lambdatest Checkbox Demo › Disabled checkbox demo behaves correctly" classname="specs/lambdatest/checkboxDemo.spec.ts" time="0.798">
 </testcase>
-<testcase name="Lambdatest Checkbox Demo › Check All toggles all multiple checkbox options" classname="specs/lambdatest/checkboxDemo.spec.ts" time="0.98">
-</testcase>
-</testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.errors.email.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="7" failures="0" skipped="0" time="17.914" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;test&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="4.054">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;test@&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="1.313">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;john@.com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="1.642">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;@domain.com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="1.356">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;john@@example.com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.153">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;john@domain..com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.617">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Valid email passes HTML5 validation" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.779">
+<testcase name="Lambdatest Checkbox Demo › Check All toggles all multiple checkbox options" classname="specs/lambdatest/checkboxDemo.spec.ts" time="0.938">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.errors.order.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="4" failures="0" skipped="0" time="8.607" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Empty submit shows error on first required field (Name)" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="1.554">
+<testsuite name="specs/lambdatest/inputFormDemo.errors.email.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="7" failures="0" skipped="0" time="9.622" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;test&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.169">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name moves error to Email" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="1.645">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;test@&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="1.49">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name + Email moves error to Password" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="2.666">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;john@.com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="1.484">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Fixing an invalid field makes it valid on next submit" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="2.742">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;@domain.com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="1.051">
 </testcase>
-</testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="10" failures="0" skipped="0" time="25.596" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Required fields › Name is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.284">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;john@@example.com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="1.177">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Email is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.505">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email &quot;john@domain..com&quot; is invalid" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="1.147">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Password is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.491">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Company is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.258">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Website is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.102">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › City is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.003">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Address1 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.898">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Address2 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.887">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › State is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.392">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Zip is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="4.776">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Valid email passes HTML5 validation" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="1.104">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.rules.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="10" failures="0" skipped="0" time="16.232" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Business rules › Name accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.246">
+<testsuite name="specs/lambdatest/inputFormDemo.errors.order.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="4" failures="0" skipped="0" time="4.689" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Empty submit shows error on first required field (Name)" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="1.238">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Email must follow HTML5 format rules" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.549">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name moves error to Email" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="1.14">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Password accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.19">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name + Email moves error to Password" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="1.169">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Company accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.659">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Website accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.53">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Country is optional and any selected value is valid" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.31">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › City accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.528">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Address1 and Address2 accept any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.4">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › State accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.286">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Zip accepts any non-empty string (required, no pattern)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.534">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Fixing an invalid field makes it valid on next submit" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="1.142">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="1" failures="0" skipped="0" time="4.781" errors="0">
-<testcase name="LambdaTest – Input Form Demo › Submit full form successfully (happy path)" classname="specs/lambdatest/inputFormDemo.spec.ts" time="4.781">
+<testsuite name="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="10" failures="0" skipped="0" time="10.236" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Required fields › Name is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="0.781">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Email is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.07">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Password is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="0.934">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Company is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.11">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Website is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.06">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › City is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.218">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Address1 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="0.901">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Address2 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="0.985">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › State is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="0.974">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Zip is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.203">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/radioButtonDemo.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="3" failures="0" skipped="0" time="7.092" errors="0">
-<testcase name="LambdaTest – Radio Button Demo › Test 1 – Get selected value" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="3.498">
+<testsuite name="specs/lambdatest/inputFormDemo.rules.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="10" failures="0" skipped="0" time="9.661" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Name accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="0.768">
 </testcase>
-<testcase name="LambdaTest – Radio Button Demo › Test 2 – Disabled radio button behavior" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="1.098">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Email must follow HTML5 format rules" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="0.989">
 </testcase>
-<testcase name="LambdaTest – Radio Button Demo › Test 3 – Random selection for gender and age" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="2.496">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Password accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.196">
 </testcase>
-</testsuite>
-<testsuite name="specs/lambdatest/selectDropdown.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="2" failures="2" skipped="0" time="53.895" errors="0">
-<testcase name="Lambdatest – Select Dropdown Demo › Select multiple options then verify full list and first selected" classname="specs/lambdatest/selectDropdown.spec.ts" time="27.247">
-<failure message="selectDropdown.spec.ts:17:7 Select multiple options then verify full list and first selected" type="FAILURE">
-<![CDATA[  [chromium] › specs/lambdatest/selectDropdown.spec.ts:17:7 › Lambdatest – Select Dropdown Demo › Select multiple options then verify full list and first selected 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  locator('span.groupradiobutton')
-    Expected: "California,Texas,New Jersey"
-    Received: "New Jersey"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toHaveText" with timeout 5000ms
-      - waiting for locator('span.groupradiobutton')
-        8 × locator resolved to <span class="groupradiobutton block break-words">New Jersey</span>
-          - unexpected value "New Jersey"
-
-
-      26 |     // Check full list
-      27 |     await d.getAllSelectedBtn.click();
-    > 28 |     await expect(d.allSelectedOutput).toHaveText('California,Texas,New Jersey');
-         |                                       ^
-      29 |
-      30 |     // Check first selected
-      31 |     await d.firstSelectedBtn.click();
-        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/lambdatest/selectDropdown.spec.ts:28:39
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium/error-context.md
-
-    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  locator('span.groupradiobutton')
-    Expected: "California,Texas,New Jersey"
-    Received: "New Jersey"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toHaveText" with timeout 5000ms
-      - waiting for locator('span.groupradiobutton')
-        9 × locator resolved to <span class="groupradiobutton block break-words">New Jersey</span>
-          - unexpected value "New Jersey"
-
-
-      26 |     // Check full list
-      27 |     await d.getAllSelectedBtn.click();
-    > 28 |     await expect(d.allSelectedOutput).toHaveText('California,Texas,New Jersey');
-         |                                       ^
-      29 |
-      30 |     // Check first selected
-      31 |     await d.firstSelectedBtn.click();
-        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/lambdatest/selectDropdown.spec.ts:28:39
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry1/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry1/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry1/error-context.md
-
-    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry1/trace.zip
-    Usage:
-
-        npx playwright show-trace ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry1/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  locator('span.groupradiobutton')
-    Expected: "California,Texas,New Jersey"
-    Received: "New Jersey"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toHaveText" with timeout 5000ms
-      - waiting for locator('span.groupradiobutton')
-        8 × locator resolved to <span class="groupradiobutton block break-words">New Jersey</span>
-          - unexpected value "New Jersey"
-
-
-      26 |     // Check full list
-      27 |     await d.getAllSelectedBtn.click();
-    > 28 |     await expect(d.allSelectedOutput).toHaveText('California,Texas,New Jersey');
-         |                                       ^
-      29 |
-      30 |     // Check first selected
-      31 |     await d.firstSelectedBtn.click();
-        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/lambdatest/selectDropdown.spec.ts:28:39
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry2/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry2/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry2/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium/video.webm]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium/error-context.md]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry1/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry1/video.webm]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry1/error-context.md]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry1/trace.zip]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry2/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry2/video.webm]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-329df-ull-list-and-first-selected-chromium-retry2/error-context.md]]
-]]>
-</system-out>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Company accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.091">
 </testcase>
-<testcase name="Lambdatest – Select Dropdown Demo › Select multiple options then verify first selected then full list" classname="specs/lambdatest/selectDropdown.spec.ts" time="26.648">
-<failure message="selectDropdown.spec.ts:35:7 Select multiple options then verify first selected then full list" type="FAILURE">
-<![CDATA[  [chromium] › specs/lambdatest/selectDropdown.spec.ts:35:7 › Lambdatest – Select Dropdown Demo › Select multiple options then verify first selected then full list 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  locator('span.genderbutton')
-    Expected: "California"
-    Received: "New Jersey"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toHaveText" with timeout 5000ms
-      - waiting for locator('span.genderbutton')
-        9 × locator resolved to <span class="genderbutton">New Jersey</span>
-          - unexpected value "New Jersey"
-
-
-      44 |     // First selected
-      45 |     await d.firstSelectedBtn.click();
-    > 46 |     await expect(d.firstSelectedOutput).toHaveText('California');
-         |                                         ^
-      47 |
-      48 |     // Full list
-      49 |     await d.getAllSelectedBtn.click();
-        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/lambdatest/selectDropdown.spec.ts:46:41
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium/error-context.md
-
-    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  locator('span.genderbutton')
-    Expected: "California"
-    Received: "New Jersey"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toHaveText" with timeout 5000ms
-      - waiting for locator('span.genderbutton')
-        9 × locator resolved to <span class="genderbutton">New Jersey</span>
-          - unexpected value "New Jersey"
-
-
-      44 |     // First selected
-      45 |     await d.firstSelectedBtn.click();
-    > 46 |     await expect(d.firstSelectedOutput).toHaveText('California');
-         |                                         ^
-      47 |
-      48 |     // Full list
-      49 |     await d.getAllSelectedBtn.click();
-        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/lambdatest/selectDropdown.spec.ts:46:41
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry1/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry1/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry1/error-context.md
-
-    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry1/trace.zip
-    Usage:
-
-        npx playwright show-trace ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry1/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  locator('span.genderbutton')
-    Expected: "California"
-    Received: "New Jersey"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toHaveText" with timeout 5000ms
-      - waiting for locator('span.genderbutton')
-        8 × locator resolved to <span class="genderbutton">New Jersey</span>
-          - unexpected value "New Jersey"
-
-
-      44 |     // First selected
-      45 |     await d.firstSelectedBtn.click();
-    > 46 |     await expect(d.firstSelectedOutput).toHaveText('California');
-         |                                         ^
-      47 |
-      48 |     // Full list
-      49 |     await d.getAllSelectedBtn.click();
-        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/lambdatest/selectDropdown.spec.ts:46:41
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry2/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry2/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry2/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium/video.webm]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium/error-context.md]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry1/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry1/video.webm]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry1/error-context.md]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry1/trace.zip]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry2/test-failed-1.png]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry2/video.webm]]
-
-[[ATTACHMENT|../test-results/specs-lambdatest-selectDro-72dfa-rst-selected-then-full-list-chromium-retry2/error-context.md]]
-]]>
-</system-out>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Website accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.006">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Country is optional and any selected value is valid" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="0.743">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › City accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="0.835">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Address1 and Address2 accept any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="0.809">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › State accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.249">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Zip accepts any non-empty string (required, no pattern)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="0.975">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/simpleFormDemo.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="8" failures="0" skipped="0" time="15.371" errors="0">
-<testcase name="Simple Form Demo › Single Input Field" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.286">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.369">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.134">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="4.218">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.279">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.322">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.165">
-</testcase>
-<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.598">
+<testsuite name="specs/lambdatest/inputFormDemo.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.028" errors="0">
+<testcase name="LambdaTest – Input Form Demo › Submit full form successfully (happy path)" classname="specs/lambdatest/inputFormDemo.spec.ts" time="1.028">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/addRemoveElements.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="3" failures="0" skipped="0" time="4.44" errors="0">
-<testcase name="The Internet – Add/Remove Elements › Initial state contains no delete buttons" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.091">
+<testsuite name="specs/lambdatest/radioButtonDemo.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="3" failures="0" skipped="0" time="3.173" errors="0">
+<testcase name="LambdaTest – Radio Button Demo › Test 1 – Get selected value" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="1.094">
 </testcase>
-<testcase name="The Internet – Add/Remove Elements › Add multiple delete buttons (random between 3 and 10)" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.591">
+<testcase name="LambdaTest – Radio Button Demo › Test 2 – Disabled radio button behavior" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="0.977">
 </testcase>
-<testcase name="The Internet – Add/Remove Elements › Remove delete buttons one by one until none remain" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.758">
-</testcase>
-</testsuite>
-<testsuite name="specs/the-internet/checkboxes.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.968" errors="0">
-<testcase name="Checkboxes tests – state machine validation › Validate all checkbox state transitions" classname="specs/the-internet/checkboxes.spec.ts" time="1.968">
+<testcase name="LambdaTest – Radio Button Demo › Test 3 – Random selection for gender and age" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="1.102">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/dropdown.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="3" failures="0" skipped="0" time="2.508" errors="0">
-<testcase name="The Internet – Dropdown List › Initial state shows placeholder text" classname="specs/the-internet/dropdown.spec.ts" time="0.899">
+<testsuite name="specs/lambdatest/selectDropdown.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="Lambdatest – Select Dropdown Demo › Select multiple options then verify full list and first selected" classname="specs/lambdatest/selectDropdown.spec.ts" time="0">
+<properties>
+<property name="skip" value="Chromium on macOS does not support multi-select behavior in headless mode.">
+</property>
+</properties>
+<skipped>
+</skipped>
 </testcase>
-<testcase name="The Internet – Dropdown List › Selecting Option 1 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.743">
-</testcase>
-<testcase name="The Internet – Dropdown List › Selecting Option 2 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.866">
-</testcase>
-</testsuite>
-<testsuite name="specs/the-internet/login.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="6" failures="0" skipped="0" time="9.078" errors="0">
-<testcase name="Login tests › valid login redirects to secure area" classname="specs/the-internet/login.spec.ts" time="1.203">
-</testcase>
-<testcase name="Login tests › invalid login - invalid username" classname="specs/the-internet/login.spec.ts" time="1.598">
-</testcase>
-<testcase name="Login tests › invalid login - invalid password" classname="specs/the-internet/login.spec.ts" time="1.574">
-</testcase>
-<testcase name="Login tests › invalid login - empty username" classname="specs/the-internet/login.spec.ts" time="1.475">
-</testcase>
-<testcase name="Login tests › invalid login - empty password" classname="specs/the-internet/login.spec.ts" time="1.626">
-</testcase>
-<testcase name="Login tests › invalid login - both fields empty" classname="specs/the-internet/login.spec.ts" time="1.602">
+<testcase name="Lambdatest – Select Dropdown Demo › Select multiple options then verify first selected then full list" classname="specs/lambdatest/selectDropdown.spec.ts" time="0">
+<properties>
+<property name="skip" value="Chromium on macOS does not support multi-select behavior in headless mode.">
+</property>
+</properties>
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/logout.spec.ts" timestamp="2025-12-10T14:52:42.819Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.553" errors="0">
-<testcase name="Logout tests › Logout and verify redirect" classname="specs/the-internet/logout.spec.ts" time="1.553">
+<testsuite name="specs/lambdatest/simpleFormDemo.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="8" failures="0" skipped="0" time="8.345" errors="0">
+<testcase name="Simple Form Demo › Single Input Field" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.93">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.018">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.047">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.988">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.036">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.883">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.089">
+</testcase>
+<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.354">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/addRemoveElements.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="3" failures="0" skipped="0" time="5.034" errors="0">
+<testcase name="The Internet – Add/Remove Elements › Initial state contains no delete buttons" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.17">
+</testcase>
+<testcase name="The Internet – Add/Remove Elements › Add multiple delete buttons (random between 3 and 10)" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.498">
+</testcase>
+<testcase name="The Internet – Add/Remove Elements › Remove delete buttons one by one until none remain" classname="specs/the-internet/addRemoveElements.spec.ts" time="2.366">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/checkboxes.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.368" errors="0">
+<testcase name="Checkboxes tests – state machine validation › Validate all checkbox state transitions" classname="specs/the-internet/checkboxes.spec.ts" time="1.368">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/dropdown.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="3" failures="0" skipped="0" time="2.975" errors="0">
+<testcase name="The Internet – Dropdown List › Initial state shows placeholder text" classname="specs/the-internet/dropdown.spec.ts" time="0.97">
+</testcase>
+<testcase name="The Internet – Dropdown List › Selecting Option 1 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.987">
+</testcase>
+<testcase name="The Internet – Dropdown List › Selecting Option 2 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="1.018">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/login.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="6" failures="0" skipped="0" time="8.641" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs/the-internet/login.spec.ts" time="1.549">
+</testcase>
+<testcase name="Login tests › invalid login - invalid username" classname="specs/the-internet/login.spec.ts" time="1.404">
+</testcase>
+<testcase name="Login tests › invalid login - invalid password" classname="specs/the-internet/login.spec.ts" time="1.414">
+</testcase>
+<testcase name="Login tests › invalid login - empty username" classname="specs/the-internet/login.spec.ts" time="1.368">
+</testcase>
+<testcase name="Login tests › invalid login - empty password" classname="specs/the-internet/login.spec.ts" time="1.466">
+</testcase>
+<testcase name="Login tests › invalid login - both fields empty" classname="specs/the-internet/login.spec.ts" time="1.44">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/logout.spec.ts" timestamp="2025-12-10T15:04:26.889Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.685" errors="0">
+<testcase name="Logout tests › Logout and verify redirect" classname="specs/the-internet/logout.spec.ts" time="1.685">
 </testcase>
 </testsuite>
 </testsuites>
