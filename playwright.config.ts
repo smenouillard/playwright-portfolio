@@ -14,6 +14,9 @@ export default defineConfig({
   timeout: 30_000,
   expect: { timeout: 5_000 },
 
+  // Retries only in CI to stabilize slower browsers like Firefox
+  retries: process.env.CI ? 2 : 0,
+
   // Default test settings
   use: {
     headless: !!process.env.CI,
