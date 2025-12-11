@@ -7,34 +7,34 @@ export class SlidersPage {
   constructor(private page: Page) { }
 
   async goto() {
-    // go to sliders demo
+    // Go to sliders demo
     await this.page.goto('drag-drop-range-sliders-demo');
   }
 
   sliderDefault25() {
-    // return slider input
+    // Return slider input
     return this.page.locator('#slider3 input[type="range"]');
   }
 
   outputDefault25() {
-    // return output value element
+    // Return output value element
     return this.page.locator('#rangeSuccess');
   }
 
   async setSliderTo(value: number) {
     const slider = this.sliderDefault25();
 
-    // wait for slider
+    // Wait for slider
     await slider.waitFor({ state: 'visible' });
 
-    // scroll into view
+    // Scroll into view
     await slider.scrollIntoViewIfNeeded();
 
-    // get element handle
+    // Get element handle
     const handle = await slider.elementHandle();
     if (!handle) return;
 
-    // cast handle to HTMLElement inside evaluate
+    // Cast handle to HTMLElement inside evaluate
     await this.page.evaluate(
       ({ el, value }) => {
         const s = el as unknown as HTMLInputElement;
@@ -45,7 +45,7 @@ export class SlidersPage {
         const output = s.nextElementSibling as HTMLOutputElement | null;
         if (output) output.textContent = s.value;
       },
-      // pass both params through one object
+      // Pass both params through one object
       { el: handle, value }
     );
   }

@@ -14,21 +14,21 @@ test.describe('Logout tests', () => {
   test('Logout and verify redirect', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    // open login page
+    // Open login page
     await loginPage.goto();
 
-    // login
+    // Login
     await loginPage.login(secrets.internet.username, secrets.internet.password);
 
     // (NOTE : in a real app this would be done via API session setup, here UI login is required as we don't have API access)
 
-    // logout
+    // Logout
     await page.locator('a[href="/logout"]').click();
 
-    // check redirect back to login
+    // Check redirect back to login
     await expect(page).toHaveURL(/.*login/);
 
-    // verify flash message
+    // Verify flash message
     await expect(page.locator('#flash')).toContainText('logged out');
   });
 

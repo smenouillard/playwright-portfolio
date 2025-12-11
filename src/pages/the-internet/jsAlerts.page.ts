@@ -7,27 +7,27 @@ export class JsAlertsPage {
   constructor(private page: Page) { }
 
   async goto() {
-    // go to alerts page
+    // Go to alerts page
     await this.page.goto('/javascript_alerts');
   }
 
   jsAlertButton() {
-    // return js alert button
+    // Return JS alert button
     return this.page.getByRole('button', { name: 'Click for JS Alert' });
   }
 
   jsConfirmButton() {
-    // return js confirm button
+    // Return JS confirm button
     return this.page.getByRole('button', { name: 'Click for JS Confirm' });
   }
 
   jsPromptButton() {
-    // return js prompt button
+    // Return JS prompt button
     return this.page.getByRole('button', { name: 'Click for JS Prompt' });
   }
 
   resultText() {
-    // return result element
+    // Return result element
     return this.page.locator('#result');
   }
 }

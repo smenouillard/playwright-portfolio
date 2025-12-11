@@ -12,16 +12,16 @@ test.describe('JS Alert', () => {
   test('accept alert', async ({ page }) => {
     const alerts = new JsAlertsPage(page);
 
-    // go to page
+    // Go to page
     await alerts.goto();
 
-    // accept alert
+    // Accept alert
     page.once('dialog', dialog => dialog.accept());
 
-    // click alert button
+    // Click alert button
     await alerts.jsAlertButton().click();
 
-    // assert result
+    // Assert result
     await expect(alerts.resultText()).toHaveText('You successfully clicked an alert');
   });
 });
@@ -31,32 +31,32 @@ test.describe('JS Confirm', () => {
   test('accept confirm', async ({ page }) => {
     const alerts = new JsAlertsPage(page);
 
-    // go to page
+    // Go to page
     await alerts.goto();
 
-    // accept confirm
+    // Accept confirm
     page.once('dialog', dialog => dialog.accept());
 
-    // click confirm button
+    // Click confirm button
     await alerts.jsConfirmButton().click();
 
-    // assert result
+    // Assert result
     await expect(alerts.resultText()).toHaveText('You clicked: Ok');
   });
 
   test('dismiss confirm', async ({ page }) => {
     const alerts = new JsAlertsPage(page);
 
-    // go to page
+    // Go to page
     await alerts.goto();
 
-    // dismiss confirm
+    // Dismiss confirm
     page.once('dialog', dialog => dialog.dismiss());
 
-    // click confirm button
+    // Click confirm button
     await alerts.jsConfirmButton().click();
 
-    // assert result
+    // Assert result
     await expect(alerts.resultText()).toHaveText('You clicked: Cancel');
   });
 });
@@ -66,50 +66,50 @@ test.describe('JS Prompt', () => {
   test('dismiss prompt returns null', async ({ page }) => {
     const alerts = new JsAlertsPage(page);
 
-    // go to page
+    // Go to page
     await alerts.goto();
 
-    // dismiss prompt
+    // Dismiss prompt
     page.once('dialog', dialog => dialog.dismiss());
 
-    // click prompt button
+    // Click prompt button
     await alerts.jsPromptButton().click();
 
-    // assert result
+    // Assert result
     await expect(alerts.resultText()).toHaveText('You entered: null');
   });
 
   test('accept empty input', async ({ page }) => {
     const alerts = new JsAlertsPage(page);
 
-    // go to page
+    // Go to page
     await alerts.goto();
 
-    // accept prompt with empty string
+    // Accept prompt with empty string
     page.once('dialog', dialog => dialog.accept(''));
 
-    // click prompt button
+    // Click prompt button
     await alerts.jsPromptButton().click();
 
-    // assert result
+    // Assert result
     await expect(alerts.resultText()).toHaveText('You entered:');
   });
 
   test('accept custom text', async ({ page }) => {
     const alerts = new JsAlertsPage(page);
 
-    // go to page
+    // Go to page
     await alerts.goto();
 
-    // accept prompt with custom text
+    // Accept prompt with custom text
     page.once('dialog', dialog =>
       dialog.accept('Portfolio Playwright Sylvain Menouillard')
     );
 
-    // click prompt button
+    // Click prompt button
     await alerts.jsPromptButton().click();
 
-    // assert result
+    // Assert result
     await expect(alerts.resultText()).toHaveText(
       'You entered: Portfolio Playwright Sylvain Menouillard'
     );

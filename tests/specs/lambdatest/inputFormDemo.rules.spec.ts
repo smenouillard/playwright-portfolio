@@ -23,13 +23,13 @@ import { appUrls } from '../../../src/config/appUrls';
 // If the site adds new constraints or removes existing ones, tests must fail
 // -------------------------------------------------------
 
-// helper to assert HTML5 validity = true
+// Helper to assert HTML5 validity = true
 const expectValid = async (loc: Locator) => {
   const valid = await loc.evaluate(el => (el as HTMLInputElement | HTMLSelectElement).checkValidity());
   await expect(valid).toBe(true);
 };
 
-// helper to assert HTML5 validity = false
+// Helper to assert HTML5 validity = false
 const expectInvalid = async (loc: Locator) => {
   const valid = await loc.evaluate(el => (el as HTMLInputElement | HTMLSelectElement).checkValidity());
   await expect(valid).toBe(false);
