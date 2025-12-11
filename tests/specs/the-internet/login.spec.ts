@@ -1,9 +1,10 @@
 // tests/specs/the-internet/login.spec.ts
 // https://the-internet.herokuapp.com
 
-import { test, expect } from '../../fixtures/base';
+import { test, expect } from '@playwright/test';
 import { secrets } from '../../../src/config/secrets';
 import { appUrls } from '../../../src/config/appUrls';
+import { LoginPage } from '../../../src/pages/the-internet/login.page';
 
 test.use({ baseURL: appUrls.theInternet });
 
@@ -17,7 +18,9 @@ const invalidLoginScenarios = [
 ];
 
 test.describe('Login tests', () => {
-  test('valid login redirects to secure area', async ({ loginPage }) => {
+  test('valid login redirects to secure area', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+
     // Open page
     await loginPage.goto();
 
@@ -29,7 +32,9 @@ test.describe('Login tests', () => {
   });
 
   invalidLoginScenarios.forEach(({ name, username, password, expectedMessage }) => {
-    test(`invalid login - ${name}`, async ({ loginPage }) => {
+    test(`invalid login - ${name}`, async ({ page }) => {
+      const loginPage = new LoginPage(page);
+
       // Open page
       await loginPage.goto();
 

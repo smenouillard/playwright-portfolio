@@ -1,16 +1,19 @@
 // tests/specs/the-internet/logout.spec.ts
 // https://the-internet.herokuapp.com
 
-import { test, expect } from '../../fixtures/base';
+import { test, expect } from '@playwright/test';
 import { secrets } from '../../../src/config/secrets';
 import { appUrls } from '../../../src/config/appUrls';
+import { LoginPage } from '../../../src/pages/the-internet/login.page';
 
 // Set baseURL for The Internet
 test.use({ baseURL: appUrls.theInternet });
 
 test.describe('Logout tests', () => {
 
-  test('Logout and verify redirect', async ({ page, loginPage }) => {
+  test('Logout and verify redirect', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+
     // open login page
     await loginPage.goto();
 

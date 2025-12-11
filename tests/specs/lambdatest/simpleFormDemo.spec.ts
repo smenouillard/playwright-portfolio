@@ -1,8 +1,9 @@
 // tests/specs/lambdatest/simpleFormDemo.spec.ts
 // https://www.lambdatest.com/selenium-playground/simple-form-demo
 
-import { test, expect } from '../../fixtures/base';
+import { test, expect } from '@playwright/test';
 import { appUrls } from '../../../src/config/appUrls';
+import { SimpleFormDemoPage } from '../../../src/pages/lambdatest/simpleFormDemo.page';
 
 test.use({ baseURL: appUrls.lambdaTest });
 
@@ -24,7 +25,8 @@ const sumScenarios = [
 
 test.describe('Simple Form Demo', () => {
 
-  test('Single Input Field', async ({ simpleFormDemoPage }) => {
+  test('Single Input Field', async ({ page }) => {
+    const simpleFormDemoPage = new SimpleFormDemoPage(page);
 
     // open page
     await simpleFormDemoPage.goto();
@@ -37,7 +39,8 @@ test.describe('Simple Form Demo', () => {
   });
 
   sumScenarios.forEach(({ name, a, b, expected }) => {
-    test(`Two Input Fields - ${name}`, async ({ simpleFormDemoPage }) => {
+    test(`Two Input Fields - ${name}`, async ({ page }) => {
+      const simpleFormDemoPage = new SimpleFormDemoPage(page);
 
       // open page
       await simpleFormDemoPage.goto();
