@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-        "commitHash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-        "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20103529727"
+        "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+        "commitHash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+        "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20139508753"
       },
       "gitCommit": {
-        "shortHash": "1e1de3a",
-        "hash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-        "subject": "feat(tests): add first batch of Playwright portfolio tests",
-        "body": "feat(tests): add first batch of Playwright portfolio tests\n\nThis PR introduces the first batch of Playwright portfolio tests.\n\nIncluded:\n- Initial test suites for the LambdaTest and The-Internet demo pages.\n- Page Object Models for tested pages.\n- Cross-browser support across Chromium, Firefox, and WebKit.\n- Stability adjustments for CI (OS-specific selector behavior, retries, and skip rules where required).\n",
+        "shortHash": "8745f55",
+        "hash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+        "subject": "refactor(tests): drop custom fixtures and instantiate page objects directly",
+        "body": "refactor(tests): drop custom fixtures and instantiate page objects directly\n",
         "author": {
-          "name": "smenouillard",
+          "name": "Sylvain Menouillard",
           "email": "smenouillard@gmail.com",
-          "time": 1765379767000
+          "time": 1765469275000
         },
         "committer": {
-          "name": "GitHub",
-          "email": "noreply@github.com",
-          "time": 1765379767000
+          "name": "Sylvain Menouillard",
+          "email": "smenouillard@gmail.com",
+          "time": 1765469275000
         },
         "branch": "main"
       },
@@ -77,24 +77,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "commitHash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20103529727"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "commitHash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20139508753"
           },
           "gitCommit": {
-            "shortHash": "1e1de3a",
-            "hash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "subject": "feat(tests): add first batch of Playwright portfolio tests",
-            "body": "feat(tests): add first batch of Playwright portfolio tests\n\nThis PR introduces the first batch of Playwright portfolio tests.\n\nIncluded:\n- Initial test suites for the LambdaTest and The-Internet demo pages.\n- Page Object Models for tested pages.\n- Cross-browser support across Chromium, Firefox, and WebKit.\n- Stability adjustments for CI (OS-specific selector behavior, retries, and skip rules where required).\n",
+            "shortHash": "8745f55",
+            "hash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "subject": "refactor(tests): drop custom fixtures and instantiate page objects directly",
+            "body": "refactor(tests): drop custom fixtures and instantiate page objects directly\n",
             "author": {
-              "name": "smenouillard",
+              "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1765379767000
+              "time": 1765469275000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1765379767000
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1765469275000
             },
             "branch": "main"
           },
@@ -115,24 +115,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "commitHash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20103529727"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "commitHash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20139508753"
           },
           "gitCommit": {
-            "shortHash": "1e1de3a",
-            "hash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "subject": "feat(tests): add first batch of Playwright portfolio tests",
-            "body": "feat(tests): add first batch of Playwright portfolio tests\n\nThis PR introduces the first batch of Playwright portfolio tests.\n\nIncluded:\n- Initial test suites for the LambdaTest and The-Internet demo pages.\n- Page Object Models for tested pages.\n- Cross-browser support across Chromium, Firefox, and WebKit.\n- Stability adjustments for CI (OS-specific selector behavior, retries, and skip rules where required).\n",
+            "shortHash": "8745f55",
+            "hash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "subject": "refactor(tests): drop custom fixtures and instantiate page objects directly",
+            "body": "refactor(tests): drop custom fixtures and instantiate page objects directly\n",
             "author": {
-              "name": "smenouillard",
+              "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1765379767000
+              "time": 1765469275000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1765379767000
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1765469275000
             },
             "branch": "main"
           },
@@ -153,24 +153,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "commitHash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20103529727"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "commitHash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20139508753"
           },
           "gitCommit": {
-            "shortHash": "1e1de3a",
-            "hash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "subject": "feat(tests): add first batch of Playwright portfolio tests",
-            "body": "feat(tests): add first batch of Playwright portfolio tests\n\nThis PR introduces the first batch of Playwright portfolio tests.\n\nIncluded:\n- Initial test suites for the LambdaTest and The-Internet demo pages.\n- Page Object Models for tested pages.\n- Cross-browser support across Chromium, Firefox, and WebKit.\n- Stability adjustments for CI (OS-specific selector behavior, retries, and skip rules where required).\n",
+            "shortHash": "8745f55",
+            "hash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "subject": "refactor(tests): drop custom fixtures and instantiate page objects directly",
+            "body": "refactor(tests): drop custom fixtures and instantiate page objects directly\n",
             "author": {
-              "name": "smenouillard",
+              "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1765379767000
+              "time": 1765469275000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1765379767000
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1765469275000
             },
             "branch": "main"
           },
@@ -191,24 +191,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "commitHash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20103529727"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "commitHash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20139508753"
           },
           "gitCommit": {
-            "shortHash": "1e1de3a",
-            "hash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "subject": "feat(tests): add first batch of Playwright portfolio tests",
-            "body": "feat(tests): add first batch of Playwright portfolio tests\n\nThis PR introduces the first batch of Playwright portfolio tests.\n\nIncluded:\n- Initial test suites for the LambdaTest and The-Internet demo pages.\n- Page Object Models for tested pages.\n- Cross-browser support across Chromium, Firefox, and WebKit.\n- Stability adjustments for CI (OS-specific selector behavior, retries, and skip rules where required).\n",
+            "shortHash": "8745f55",
+            "hash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "subject": "refactor(tests): drop custom fixtures and instantiate page objects directly",
+            "body": "refactor(tests): drop custom fixtures and instantiate page objects directly\n",
             "author": {
-              "name": "smenouillard",
+              "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1765379767000
+              "time": 1765469275000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1765379767000
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1765469275000
             },
             "branch": "main"
           },
@@ -229,24 +229,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "commitHash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20103529727"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "commitHash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20139508753"
           },
           "gitCommit": {
-            "shortHash": "1e1de3a",
-            "hash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "subject": "feat(tests): add first batch of Playwright portfolio tests",
-            "body": "feat(tests): add first batch of Playwright portfolio tests\n\nThis PR introduces the first batch of Playwright portfolio tests.\n\nIncluded:\n- Initial test suites for the LambdaTest and The-Internet demo pages.\n- Page Object Models for tested pages.\n- Cross-browser support across Chromium, Firefox, and WebKit.\n- Stability adjustments for CI (OS-specific selector behavior, retries, and skip rules where required).\n",
+            "shortHash": "8745f55",
+            "hash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "subject": "refactor(tests): drop custom fixtures and instantiate page objects directly",
+            "body": "refactor(tests): drop custom fixtures and instantiate page objects directly\n",
             "author": {
-              "name": "smenouillard",
+              "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1765379767000
+              "time": 1765469275000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1765379767000
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1765469275000
             },
             "branch": "main"
           },
@@ -267,24 +267,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "commitHash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20103529727"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "commitHash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20139508753"
           },
           "gitCommit": {
-            "shortHash": "1e1de3a",
-            "hash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "subject": "feat(tests): add first batch of Playwright portfolio tests",
-            "body": "feat(tests): add first batch of Playwright portfolio tests\n\nThis PR introduces the first batch of Playwright portfolio tests.\n\nIncluded:\n- Initial test suites for the LambdaTest and The-Internet demo pages.\n- Page Object Models for tested pages.\n- Cross-browser support across Chromium, Firefox, and WebKit.\n- Stability adjustments for CI (OS-specific selector behavior, retries, and skip rules where required).\n",
+            "shortHash": "8745f55",
+            "hash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "subject": "refactor(tests): drop custom fixtures and instantiate page objects directly",
+            "body": "refactor(tests): drop custom fixtures and instantiate page objects directly\n",
             "author": {
-              "name": "smenouillard",
+              "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1765379767000
+              "time": 1765469275000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1765379767000
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1765469275000
             },
             "branch": "main"
           },
@@ -305,24 +305,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "commitHash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20103529727"
+            "commitHref": "https://github.com/smenouillard/playwright-portfolio/commit/8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "commitHash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "buildHref": "https://github.com/smenouillard/playwright-portfolio/actions/runs/20139508753"
           },
           "gitCommit": {
-            "shortHash": "1e1de3a",
-            "hash": "1e1de3a7eea3453734ab88ce334bcc45a5d391fa",
-            "subject": "feat(tests): add first batch of Playwright portfolio tests",
-            "body": "feat(tests): add first batch of Playwright portfolio tests\n\nThis PR introduces the first batch of Playwright portfolio tests.\n\nIncluded:\n- Initial test suites for the LambdaTest and The-Internet demo pages.\n- Page Object Models for tested pages.\n- Cross-browser support across Chromium, Firefox, and WebKit.\n- Stability adjustments for CI (OS-specific selector behavior, retries, and skip rules where required).\n",
+            "shortHash": "8745f55",
+            "hash": "8745f55aac61ce44df34d8352ab1cab17ccc8a11",
+            "subject": "refactor(tests): drop custom fixtures and instantiate page objects directly",
+            "body": "refactor(tests): drop custom fixtures and instantiate page objects directly\n",
             "author": {
-              "name": "smenouillard",
+              "name": "Sylvain Menouillard",
               "email": "smenouillard@gmail.com",
-              "time": 1765379767000
+              "time": 1765469275000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1765379767000
+              "name": "Sylvain Menouillard",
+              "email": "smenouillard@gmail.com",
+              "time": 1765469275000
             },
             "branch": "main"
           },
@@ -375,12 +375,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5594,
+                      "duration": 8372,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:14.405Z",
+                      "startTime": "2025-12-11T16:09:18.959Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -409,12 +409,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3789,
+                      "duration": 3626,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:20.842Z",
+                      "startTime": "2025-12-11T16:09:28.676Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -443,12 +443,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3149,
+                      "duration": 3338,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:24.658Z",
+                      "startTime": "2025-12-11T16:09:32.343Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -494,12 +494,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 6195,
+                      "duration": 9381,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:14.406Z",
+                      "startTime": "2025-12-11T16:09:18.958Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -530,12 +530,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3740,
+                      "duration": 3795,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:21.447Z",
+                      "startTime": "2025-12-11T16:09:29.698Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -566,12 +566,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3639,
+                      "duration": 3596,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:25.206Z",
+                      "startTime": "2025-12-11T16:09:33.555Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -602,12 +602,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3674,
+                      "duration": 3779,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:28.861Z",
+                      "startTime": "2025-12-11T16:09:37.196Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -638,12 +638,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3935,
+                      "duration": 3707,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:32.556Z",
+                      "startTime": "2025-12-11T16:09:41.013Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -674,12 +674,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3708,
+                      "duration": 3543,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:36.514Z",
+                      "startTime": "2025-12-11T16:09:44.742Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -708,12 +708,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3686,
+                      "duration": 3565,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:40.263Z",
+                      "startTime": "2025-12-11T16:09:48.318Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -759,12 +759,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3381,
+                      "duration": 3277,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:27.835Z",
+                      "startTime": "2025-12-11T16:09:35.711Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -793,12 +793,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3294,
+                      "duration": 3334,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:31.233Z",
+                      "startTime": "2025-12-11T16:09:39.022Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -827,12 +827,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3298,
+                      "duration": 3424,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:34.570Z",
+                      "startTime": "2025-12-11T16:09:42.396Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -861,12 +861,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3608,
+                      "duration": 3477,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:37.891Z",
+                      "startTime": "2025-12-11T16:09:45.849Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -912,12 +912,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3235,
+                      "duration": 3086,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:41.563Z",
+                      "startTime": "2025-12-11T16:09:49.351Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -946,12 +946,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3308,
+                      "duration": 3021,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:44.815Z",
+                      "startTime": "2025-12-11T16:09:52.463Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -980,12 +980,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3424,
+                      "duration": 3289,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:48.140Z",
+                      "startTime": "2025-12-11T16:09:55.508Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1014,12 +1014,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3459,
+                      "duration": 3027,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:51.585Z",
+                      "startTime": "2025-12-11T16:09:58.821Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1048,12 +1048,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3170,
+                      "duration": 3313,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:55.067Z",
+                      "startTime": "2025-12-11T16:10:01.881Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1082,12 +1082,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3501,
+                      "duration": 3331,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:58.255Z",
+                      "startTime": "2025-12-11T16:10:05.215Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1116,12 +1116,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3514,
+                      "duration": 3088,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:01.771Z",
+                      "startTime": "2025-12-11T16:10:08.561Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1150,12 +1150,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3867,
+                      "duration": 3526,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:05.309Z",
+                      "startTime": "2025-12-11T16:10:11.664Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1184,12 +1184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3454,
+                      "duration": 3242,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:09.188Z",
+                      "startTime": "2025-12-11T16:10:15.206Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1218,12 +1218,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3639,
+                      "duration": 3694,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:12.656Z",
+                      "startTime": "2025-12-11T16:10:18.464Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1269,12 +1269,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3113,
+                      "duration": 2394,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:43.979Z",
+                      "startTime": "2025-12-11T16:09:51.922Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1303,12 +1303,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2905,
+                      "duration": 3106,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:47.113Z",
+                      "startTime": "2025-12-11T16:09:54.341Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1337,12 +1337,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3063,
+                      "duration": 2972,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:50.039Z",
+                      "startTime": "2025-12-11T16:09:57.462Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1371,12 +1371,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2850,
+                      "duration": 3085,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:53.124Z",
+                      "startTime": "2025-12-11T16:10:00.451Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1405,12 +1405,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3090,
+                      "duration": 2848,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:55.993Z",
+                      "startTime": "2025-12-11T16:10:03.553Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1439,12 +1439,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3190,
+                      "duration": 2782,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:31:59.098Z",
+                      "startTime": "2025-12-11T16:10:06.425Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1473,12 +1473,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3349,
+                      "duration": 2587,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:02.301Z",
+                      "startTime": "2025-12-11T16:10:09.223Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1507,12 +1507,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3210,
+                      "duration": 3191,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:05.663Z",
+                      "startTime": "2025-12-11T16:10:11.824Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1541,12 +1541,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1793,
+                      "duration": 3681,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:08.888Z",
+                      "startTime": "2025-12-11T16:10:15.037Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1575,12 +1575,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3237,
+                      "duration": 3068,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:10.699Z",
+                      "startTime": "2025-12-11T16:10:18.732Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1626,12 +1626,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3573,
+                      "duration": 3588,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:13.959Z",
+                      "startTime": "2025-12-11T16:10:21.818Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1677,12 +1677,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3417,
+                      "duration": 3377,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:16.322Z",
+                      "startTime": "2025-12-11T16:10:22.179Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1711,12 +1711,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2977,
+                      "duration": 3014,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:19.753Z",
+                      "startTime": "2025-12-11T16:10:25.568Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1745,12 +1745,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3588,
+                      "duration": 3212,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:22.745Z",
+                      "startTime": "2025-12-11T16:10:28.603Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1811,7 +1811,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:17.561Z",
+                      "startTime": "2025-12-11T16:10:25.429Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -1865,7 +1865,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:17.592Z",
+                      "startTime": "2025-12-11T16:10:25.452Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -1902,7 +1902,7 @@
         {
           "title": "Simple Form Demo",
           "file": "specs/lambdatest/simpleFormDemo.spec.ts",
-          "line": 25,
+          "line": 26,
           "column": 6,
           "specs": [
             {
@@ -1921,12 +1921,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3046,
+                      "duration": 2815,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:17.610Z",
+                      "startTime": "2025-12-11T16:10:25.462Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1936,7 +1936,7 @@
               ],
               "id": "70431784ff4ba5f698f2-8b63d73dae892b583060",
               "file": "specs/lambdatest/simpleFormDemo.spec.ts",
-              "line": 27,
+              "line": 28,
               "column": 7
             },
             {
@@ -1955,12 +1955,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3062,
+                      "duration": 3192,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:20.671Z",
+                      "startTime": "2025-12-11T16:10:28.290Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1970,7 +1970,7 @@
               ],
               "id": "70431784ff4ba5f698f2-b2061162c7086b4cdc36",
               "file": "specs/lambdatest/simpleFormDemo.spec.ts",
-              "line": 40,
+              "line": 42,
               "column": 9
             },
             {
@@ -1989,12 +1989,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3271,
+                      "duration": 2748,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:23.749Z",
+                      "startTime": "2025-12-11T16:10:31.495Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2004,7 +2004,7 @@
               ],
               "id": "70431784ff4ba5f698f2-418b79a91ee6182cc790",
               "file": "specs/lambdatest/simpleFormDemo.spec.ts",
-              "line": 40,
+              "line": 42,
               "column": 9
             },
             {
@@ -2023,12 +2023,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2774,
+                      "duration": 2981,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:27.034Z",
+                      "startTime": "2025-12-11T16:10:34.256Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2038,7 +2038,7 @@
               ],
               "id": "70431784ff4ba5f698f2-ae255330df95c34bc579",
               "file": "specs/lambdatest/simpleFormDemo.spec.ts",
-              "line": 40,
+              "line": 42,
               "column": 9
             },
             {
@@ -2057,12 +2057,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3060,
+                      "duration": 2749,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:29.822Z",
+                      "startTime": "2025-12-11T16:10:37.254Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2072,7 +2072,7 @@
               ],
               "id": "70431784ff4ba5f698f2-54432d452259a5b81b18",
               "file": "specs/lambdatest/simpleFormDemo.spec.ts",
-              "line": 40,
+              "line": 42,
               "column": 9
             },
             {
@@ -2091,12 +2091,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3086,
+                      "duration": 3001,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:32.894Z",
+                      "startTime": "2025-12-11T16:10:40.024Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2106,7 +2106,7 @@
               ],
               "id": "70431784ff4ba5f698f2-a55191603256733e6623",
               "file": "specs/lambdatest/simpleFormDemo.spec.ts",
-              "line": 40,
+              "line": 42,
               "column": 9
             },
             {
@@ -2125,12 +2125,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2594,
+                      "duration": 3598,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:35.999Z",
+                      "startTime": "2025-12-11T16:10:43.043Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2140,7 +2140,7 @@
               ],
               "id": "70431784ff4ba5f698f2-003130ad4b2bde3672b7",
               "file": "specs/lambdatest/simpleFormDemo.spec.ts",
-              "line": 40,
+              "line": 42,
               "column": 9
             },
             {
@@ -2159,12 +2159,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3008,
+                      "duration": 2817,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:38.607Z",
+                      "startTime": "2025-12-11T16:10:46.658Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2174,7 +2174,7 @@
               ],
               "id": "70431784ff4ba5f698f2-922d4bc85eb2b19ed526",
               "file": "specs/lambdatest/simpleFormDemo.spec.ts",
-              "line": 40,
+              "line": 42,
               "column": 9
             }
           ]
@@ -2210,12 +2210,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1151,
+                      "duration": 843,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:26.365Z",
+                      "startTime": "2025-12-11T16:10:31.844Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2244,12 +2244,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1934,
+                      "duration": 1375,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:27.530Z",
+                      "startTime": "2025-12-11T16:10:32.713Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2278,12 +2278,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1983,
+                      "duration": 2169,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:29.479Z",
+                      "startTime": "2025-12-11T16:10:34.104Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2329,12 +2329,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1570,
+                      "duration": 1232,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:31.483Z",
+                      "startTime": "2025-12-11T16:10:36.288Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2380,12 +2380,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1136,
+                      "duration": 823,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:33.068Z",
+                      "startTime": "2025-12-11T16:10:37.536Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2414,12 +2414,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1255,
+                      "duration": 881,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:34.216Z",
+                      "startTime": "2025-12-11T16:10:38.379Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2448,12 +2448,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1045,
+                      "duration": 871,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:35.490Z",
+                      "startTime": "2025-12-11T16:10:39.290Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2480,7 +2480,7 @@
         {
           "title": "Login tests",
           "file": "specs/the-internet/login.spec.ts",
-          "line": 19,
+          "line": 20,
           "column": 6,
           "specs": [
             {
@@ -2499,12 +2499,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2239,
+                      "duration": 1843,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:36.564Z",
+                      "startTime": "2025-12-11T16:10:40.181Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2514,7 +2514,7 @@
               ],
               "id": "e6e13815b79f712d56aa-15ba5467f8697f2e0bab",
               "file": "specs/the-internet/login.spec.ts",
-              "line": 20,
+              "line": 21,
               "column": 7
             },
             {
@@ -2533,12 +2533,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1689,
+                      "duration": 1301,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:38.817Z",
+                      "startTime": "2025-12-11T16:10:42.037Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2548,7 +2548,7 @@
               ],
               "id": "e6e13815b79f712d56aa-dcaa0ff096bae839f336",
               "file": "specs/the-internet/login.spec.ts",
-              "line": 32,
+              "line": 35,
               "column": 9
             },
             {
@@ -2567,12 +2567,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1543,
+                      "duration": 1354,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:40.520Z",
+                      "startTime": "2025-12-11T16:10:43.350Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2582,7 +2582,7 @@
               ],
               "id": "e6e13815b79f712d56aa-2c936a29e01582a26a4f",
               "file": "specs/the-internet/login.spec.ts",
-              "line": 32,
+              "line": 35,
               "column": 9
             },
             {
@@ -2601,12 +2601,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1535,
+                      "duration": 1071,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:42.084Z",
+                      "startTime": "2025-12-11T16:10:44.716Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2616,7 +2616,7 @@
               ],
               "id": "e6e13815b79f712d56aa-e4575d5d2269e254dd25",
               "file": "specs/the-internet/login.spec.ts",
-              "line": 32,
+              "line": 35,
               "column": 9
             },
             {
@@ -2635,12 +2635,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1288,
+                      "duration": 1245,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:43.633Z",
+                      "startTime": "2025-12-11T16:10:45.808Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2650,7 +2650,7 @@
               ],
               "id": "e6e13815b79f712d56aa-64928306e52fa3c9c624",
               "file": "specs/the-internet/login.spec.ts",
-              "line": 32,
+              "line": 35,
               "column": 9
             },
             {
@@ -2669,12 +2669,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1360,
+                      "duration": 1358,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:44.935Z",
+                      "startTime": "2025-12-11T16:10:47.081Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2684,7 +2684,7 @@
               ],
               "id": "e6e13815b79f712d56aa-6ca5bbe890c0b79c926d",
               "file": "specs/the-internet/login.spec.ts",
-              "line": 32,
+              "line": 35,
               "column": 9
             }
           ]
@@ -2701,7 +2701,7 @@
         {
           "title": "Logout tests",
           "file": "specs/the-internet/logout.spec.ts",
-          "line": 11,
+          "line": 12,
           "column": 6,
           "specs": [
             {
@@ -2717,15 +2717,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1636,
+                      "duration": 1451,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-10T15:32:41.635Z",
+                      "startTime": "2025-12-11T16:10:48.459Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2735,7 +2735,7 @@
               ],
               "id": "d93db7014e2c713fb60c-a490a99571759789c0af",
               "file": "specs/the-internet/logout.spec.ts",
-              "line": 13,
+              "line": 14,
               "column": 7
             }
           ]
@@ -2745,8 +2745,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-10T15:31:13.454Z",
-    "duration": 92940.949,
+    "startTime": "2025-12-11T16:09:18.029Z",
+    "duration": 91985.499,
     "expected": 60,
     "skipped": 2,
     "unexpected": 0,
