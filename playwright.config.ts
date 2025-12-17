@@ -51,5 +51,5 @@ export default defineConfig({
     { name: 'webkit-linux', use: { ...devices['Desktop Safari'] } },
   ],
 
-  workers: process.env.CI ? 2 : undefined,
+  workers: process.env.CI ? 2 : 1,
 });
