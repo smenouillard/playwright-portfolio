@@ -1,6 +1,12 @@
-<testsuites id="" name="" tests="72" failures="0" skipped="5" errors="0" time="90.79696399999999">
-<testsuite name="specs/lambdatest/bootstrapModals.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="3" failures="0" skipped="3" time="2.55" errors="0">
-<testcase name="Bootstrap Modal – Windows Chromium only › open modal and verify visibility" classname="specs/lambdatest/bootstrapModals.spec.ts" time="1.588">
+<testsuites id="" name="" tests="76" failures="2" skipped="5" errors="0" time="136.223287">
+<testsuite name="specs/lambdatest/bootstrapAlertMessages.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="2" failures="0" skipped="0" time="15.364" errors="0">
+<testcase name="Bootstrap Alert Messages – Success alerts › Should display and auto-dismiss success alert without closing on clicks" classname="specs/lambdatest/bootstrapAlertMessages.spec.ts" time="11.5">
+</testcase>
+<testcase name="Bootstrap Alert Messages – Success alerts › Should display and manually close success alert without closing on clicks" classname="specs/lambdatest/bootstrapAlertMessages.spec.ts" time="3.864">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/bootstrapModals.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="3" failures="0" skipped="3" time="2.099" errors="0">
+<testcase name="Bootstrap Modal – Windows Chromium only › open modal and verify visibility" classname="specs/lambdatest/bootstrapModals.spec.ts" time="1.278">
 <properties>
 <property name="skip" value="Windows + Chromium only">
 </property>
@@ -8,7 +14,7 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Bootstrap Modal – Windows Chromium only › close modal with Close button" classname="specs/lambdatest/bootstrapModals.spec.ts" time="0.384">
+<testcase name="Bootstrap Modal – Windows Chromium only › close modal with Close button" classname="specs/lambdatest/bootstrapModals.spec.ts" time="0.457">
 <properties>
 <property name="skip" value="Windows + Chromium only">
 </property>
@@ -16,7 +22,7 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Bootstrap Modal – Windows Chromium only › close modal with Save changes" classname="specs/lambdatest/bootstrapModals.spec.ts" time="0.578">
+<testcase name="Bootstrap Modal – Windows Chromium only › close modal with Save changes" classname="specs/lambdatest/bootstrapModals.spec.ts" time="0.364">
 <properties>
 <property name="skip" value="Windows + Chromium only">
 </property>
@@ -25,97 +31,97 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/checkboxDemo.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="3" failures="0" skipped="0" time="11.955" errors="0">
-<testcase name="Lambdatest Checkbox Demo › Single checkbox displays the correct message" classname="specs/lambdatest/checkboxDemo.spec.ts" time="5.248">
+<testsuite name="specs/lambdatest/checkboxDemo.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="3" failures="0" skipped="0" time="7.454" errors="0">
+<testcase name="Lambdatest Checkbox Demo › Single checkbox displays the correct message" classname="specs/lambdatest/checkboxDemo.spec.ts" time="3.061">
 </testcase>
-<testcase name="Lambdatest Checkbox Demo › Disabled checkbox demo behaves correctly" classname="specs/lambdatest/checkboxDemo.spec.ts" time="3.58">
+<testcase name="Lambdatest Checkbox Demo › Disabled checkbox demo behaves correctly" classname="specs/lambdatest/checkboxDemo.spec.ts" time="2.22">
 </testcase>
-<testcase name="Lambdatest Checkbox Demo › Check All toggles all multiple checkbox options" classname="specs/lambdatest/checkboxDemo.spec.ts" time="3.127">
-</testcase>
-</testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.errors.email.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="7" failures="0" skipped="0" time="25.116" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – simple text" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.507">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – name with at sign" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.828">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – name at dot com" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.38">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – missing local part" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.418">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – double at sign" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.803">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – double dot in domain" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.562">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Valid email passes HTML5 validation" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.618">
+<testcase name="Lambdatest Checkbox Demo › Check All toggles all multiple checkbox options" classname="specs/lambdatest/checkboxDemo.spec.ts" time="2.173">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.errors.order.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="4" failures="0" skipped="0" time="13.337" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Empty submit shows error on first required field (Name)" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.137">
+<testsuite name="specs/lambdatest/inputFormDemo.errors.email.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="7" failures="0" skipped="0" time="24.07" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – simple text" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.07">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name moves error to Email" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="2.975">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – name with at sign" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.692">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name + Email moves error to Password" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.519">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – name at dot com" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.583">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Fixing an invalid field makes it valid on next submit" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.706">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – missing local part" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.152">
 </testcase>
-</testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="10" failures="0" skipped="0" time="32.391" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Required fields › Name is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.078">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – double at sign" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.465">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Email is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.09">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – double dot in domain" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.498">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Password is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.972">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Company is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.071">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Website is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.438">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › City is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.218">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Address1 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.238">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Address2 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.204">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › State is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.572">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Zip is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.51">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Valid email passes HTML5 validation" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.61">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.rules.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="10" failures="0" skipped="0" time="27.586" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Business rules › Name accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="3.049">
+<testsuite name="specs/lambdatest/inputFormDemo.errors.order.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="4" failures="0" skipped="0" time="13.322" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Empty submit shows error on first required field (Name)" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.418">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Email must follow HTML5 format rules" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.852">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name moves error to Email" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.377">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Password accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.615">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name + Email moves error to Password" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.235">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Company accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.287">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Website accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.895">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Country is optional and any selected value is valid" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.324">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › City accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.825">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Address1 and Address2 accept any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="3.231">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › State accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.647">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Zip accepts any non-empty string (required, no pattern)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.861">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Fixing an invalid field makes it valid on next submit" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.292">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="1" failures="0" skipped="0" time="3.646" errors="0">
-<testcase name="LambdaTest – Input Form Demo › Submit full form successfully (happy path)" classname="specs/lambdatest/inputFormDemo.spec.ts" time="3.646">
+<testsuite name="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="10" failures="0" skipped="0" time="31.648" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Required fields › Name is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.666">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Email is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.072">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Password is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.627">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Company is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.121">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Website is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.343">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › City is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.514">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Address1 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.24">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Address2 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.237">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › State is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.49">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Zip is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.338">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/radioButtonDemo.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="3" failures="0" skipped="0" time="9.624" errors="0">
-<testcase name="LambdaTest – Radio Button Demo › Test 1 – Get selected value" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="3.32">
+<testsuite name="specs/lambdatest/inputFormDemo.rules.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="10" failures="0" skipped="0" time="26.98" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Name accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.512">
 </testcase>
-<testcase name="LambdaTest – Radio Button Demo › Test 2 – Disabled radio button behavior" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="3.012">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Email must follow HTML5 format rules" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.753">
 </testcase>
-<testcase name="LambdaTest – Radio Button Demo › Test 3 – Random selection for gender and age" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="3.292">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Password accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.729">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Company accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.828">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Website accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.939">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Country is optional and any selected value is valid" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.739">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › City accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.698">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Address1 and Address2 accept any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.962">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › State accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.699">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Zip accepts any non-empty string (required, no pattern)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="3.121">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/selectDropdown.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testsuite name="specs/lambdatest/inputFormDemo.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="1" failures="0" skipped="0" time="3.61" errors="0">
+<testcase name="LambdaTest – Input Form Demo › Submit full form successfully (happy path)" classname="specs/lambdatest/inputFormDemo.spec.ts" time="3.61">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/radioButtonDemo.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="3" failures="0" skipped="0" time="9.561" errors="0">
+<testcase name="LambdaTest – Radio Button Demo › Test 1 – Get selected value" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="3.37">
+</testcase>
+<testcase name="LambdaTest – Radio Button Demo › Test 2 – Disabled radio button behavior" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="2.827">
+</testcase>
+<testcase name="LambdaTest – Radio Button Demo › Test 3 – Random selection for gender and age" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="3.364">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/selectDropdown.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="2" failures="0" skipped="2" time="0" errors="0">
 <testcase name="Lambdatest – Select Dropdown Demo › Select multiple options then verify full list and first selected" classname="specs/lambdatest/selectDropdown.spec.ts" time="0">
 <properties>
 <property name="skip" value="This demo page does not support multi-select behavior on WebKit.">
@@ -133,78 +139,466 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/simpleFormDemo.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="8" failures="0" skipped="0" time="22.737" errors="0">
-<testcase name="Simple Form Demo › Single Input Field" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.644">
+<testsuite name="specs/lambdatest/simpleFormDemo.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="8" failures="0" skipped="0" time="21.42" errors="0">
+<testcase name="Simple Form Demo › Single Input Field" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.777">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="3.002">
+<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="3.102">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.992">
+<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.828">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.958">
+<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.743">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.997">
+<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.701">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.807">
+<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.837">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.622">
+<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.36">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.715">
-</testcase>
-</testsuite>
-<testsuite name="specs/lambdatest/sliders.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="1" failures="0" skipped="0" time="2.594" errors="0">
-<testcase name="Drag &amp; Drop Sliders › move default value 25 slider to 95 and verify" classname="specs/lambdatest/sliders.spec.ts" time="2.594">
+<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.072">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/addRemoveElements.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="3" failures="0" skipped="0" time="3.911" errors="0">
-<testcase name="The Internet – Add/Remove Elements › Initial state contains no delete buttons" classname="specs/the-internet/addRemoveElements.spec.ts" time="0.867">
-</testcase>
-<testcase name="The Internet – Add/Remove Elements › Add multiple delete buttons (random between 3 and 10)" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.473">
-</testcase>
-<testcase name="The Internet – Add/Remove Elements › Remove delete buttons one by one until none remain" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.571">
+<testsuite name="specs/lambdatest/sliders.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="1" failures="0" skipped="0" time="2.638" errors="0">
+<testcase name="Drag &amp; Drop Sliders › move default value 25 slider to 95 and verify" classname="specs/lambdatest/sliders.spec.ts" time="2.638">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/checkboxes.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="1" failures="0" skipped="0" time="1.111" errors="0">
-<testcase name="Checkboxes tests – state machine validation › Validate all checkbox state transitions" classname="specs/the-internet/checkboxes.spec.ts" time="1.111">
+<testsuite name="specs/the-internet/addRemoveElements.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="3" failures="0" skipped="0" time="3.497" errors="0">
+<testcase name="The Internet – Add/Remove Elements › Initial state contains no delete buttons" classname="specs/the-internet/addRemoveElements.spec.ts" time="0.757">
+</testcase>
+<testcase name="The Internet – Add/Remove Elements › Add multiple delete buttons (random between 3 and 10)" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.387">
+</testcase>
+<testcase name="The Internet – Add/Remove Elements › Remove delete buttons one by one until none remain" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.353">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/dropdown.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="3" failures="0" skipped="0" time="2.51" errors="0">
-<testcase name="The Internet – Dropdown List › Initial state shows placeholder text" classname="specs/the-internet/dropdown.spec.ts" time="0.804">
-</testcase>
-<testcase name="The Internet – Dropdown List › Selecting Option 1 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.852">
-</testcase>
-<testcase name="The Internet – Dropdown List › Selecting Option 2 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.854">
+<testsuite name="specs/the-internet/checkboxes.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="1" failures="0" skipped="0" time="1.3" errors="0">
+<testcase name="Checkboxes tests – state machine validation › Validate all checkbox state transitions" classname="specs/the-internet/checkboxes.spec.ts" time="1.3">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/jsAlerts.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="6" failures="0" skipped="0" time="5.923" errors="0">
-<testcase name="JS Alert › accept alert" classname="specs/the-internet/jsAlerts.spec.ts" time="1.036">
+<testsuite name="specs/the-internet/dropdown.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="3" failures="0" skipped="0" time="2.503" errors="0">
+<testcase name="The Internet – Dropdown List › Initial state shows placeholder text" classname="specs/the-internet/dropdown.spec.ts" time="0.748">
 </testcase>
-<testcase name="JS Confirm › accept confirm" classname="specs/the-internet/jsAlerts.spec.ts" time="0.933">
+<testcase name="The Internet – Dropdown List › Selecting Option 1 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.83">
 </testcase>
-<testcase name="JS Confirm › dismiss confirm" classname="specs/the-internet/jsAlerts.spec.ts" time="1.158">
-</testcase>
-<testcase name="JS Prompt › dismiss prompt returns null" classname="specs/the-internet/jsAlerts.spec.ts" time="0.973">
-</testcase>
-<testcase name="JS Prompt › accept empty input" classname="specs/the-internet/jsAlerts.spec.ts" time="0.953">
-</testcase>
-<testcase name="JS Prompt › accept custom text" classname="specs/the-internet/jsAlerts.spec.ts" time="0.87">
+<testcase name="The Internet – Dropdown List › Selecting Option 2 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.925">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/login.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="6" failures="0" skipped="0" time="6.354" errors="0">
-<testcase name="Login tests › valid login redirects to secure area" classname="specs/the-internet/login.spec.ts" time="1.511">
+<testsuite name="specs/the-internet/dynamicLoading.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="2" failures="2" skipped="0" time="47.944" errors="0">
+<testcase name="Dynamic Loading – Hello World › Example 1 – hidden element becomes visible" classname="specs/the-internet/dynamicLoading.spec.ts" time="24.39">
+<failure message="dynamicLoading.spec.ts:8:7 Example 1 – hidden element becomes visible" type="FAILURE">
+<![CDATA[  [webkit] › specs/the-internet/dynamicLoading.spec.ts:8:7 › Dynamic Loading – Hello World › Example 1 – hidden element becomes visible 
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('#loading img')
+    Expected: hidden
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 5000ms
+      - waiting for locator('#loading img')
+        9 × locator resolved to <img src="/img/ajax-loader.gif"/>
+          - unexpected value "visible"
+
+
+       at ../src/pages/the-internet/dynamicLoading.page.ts:58
+
+      56 |     await expect(this.loader).toBeVisible();
+      57 |     await expect(this.loader).toBeVisible({ timeout: 300 });
+    > 58 |     await expect(this.loader).toBeHidden();
+         |                               ^
+      59 |   }
+      60 |
+      61 |   // Verify final "Hello World!" message
+        at DynamicLoadingPage.expectLoaderLifecycle (/home/runner/work/playwright-portfolio/playwright-portfolio/src/pages/the-internet/dynamicLoading.page.ts:58:31)
+        at /home/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:22:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('#loading img')
+    Expected: hidden
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 5000ms
+      - waiting for locator('#loading img')
+        9 × locator resolved to <img src="/img/ajax-loader.gif"/>
+          - unexpected value "visible"
+
+
+       at ../src/pages/the-internet/dynamicLoading.page.ts:58
+
+      56 |     await expect(this.loader).toBeVisible();
+      57 |     await expect(this.loader).toBeVisible({ timeout: 300 });
+    > 58 |     await expect(this.loader).toBeHidden();
+         |                               ^
+      59 |   }
+      60 |
+      61 |   // Verify final "Hello World!" message
+        at DynamicLoadingPage.expectLoaderLifecycle (/home/runner/work/playwright-portfolio/playwright-portfolio/src/pages/the-internet/dynamicLoading.page.ts:58:31)
+        at /home/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:22:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('#loading img')
+    Expected: hidden
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 5000ms
+      - waiting for locator('#loading img')
+        9 × locator resolved to <img src="/img/ajax-loader.gif"/>
+          - unexpected value "visible"
+
+
+       at ../src/pages/the-internet/dynamicLoading.page.ts:58
+
+      56 |     await expect(this.loader).toBeVisible();
+      57 |     await expect(this.loader).toBeVisible({ timeout: 300 });
+    > 58 |     await expect(this.loader).toBeHidden();
+         |                               ^
+      59 |   }
+      60 |
+      61 |   // Verify final "Hello World!" message
+        at DynamicLoadingPage.expectLoaderLifecycle (/home/runner/work/playwright-portfolio/playwright-portfolio/src/pages/the-internet/dynamicLoading.page.ts:58:31)
+        at /home/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:22:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry2/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry2/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry2/error-context.md
+
+    Retry #3 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('#loading img')
+    Expected: hidden
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 5000ms
+      - waiting for locator('#loading img')
+        9 × locator resolved to <img src="/img/ajax-loader.gif"/>
+          - unexpected value "visible"
+
+
+       at ../src/pages/the-internet/dynamicLoading.page.ts:58
+
+      56 |     await expect(this.loader).toBeVisible();
+      57 |     await expect(this.loader).toBeVisible({ timeout: 300 });
+    > 58 |     await expect(this.loader).toBeHidden();
+         |                               ^
+      59 |   }
+      60 |
+      61 |   // Verify final "Hello World!" message
+        at DynamicLoadingPage.expectLoaderLifecycle (/home/runner/work/playwright-portfolio/playwright-portfolio/src/pages/the-internet/dynamicLoading.page.ts:58:31)
+        at /home/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:22:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry3/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry3/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry3/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit/error-context.md]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry1/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry1/error-context.md]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry1/trace.zip]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry2/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry2/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry2/error-context.md]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry3/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry3/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-713ab-den-element-becomes-visible-webkit-retry3/error-context.md]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Login tests › invalid login - invalid username" classname="specs/the-internet/login.spec.ts" time="1.162">
-</testcase>
-<testcase name="Login tests › invalid login - invalid password" classname="specs/the-internet/login.spec.ts" time="1.01">
-</testcase>
-<testcase name="Login tests › invalid login - empty username" classname="specs/the-internet/login.spec.ts" time="0.885">
-</testcase>
-<testcase name="Login tests › invalid login - empty password" classname="specs/the-internet/login.spec.ts" time="0.926">
-</testcase>
-<testcase name="Login tests › invalid login - both fields empty" classname="specs/the-internet/login.spec.ts" time="0.86">
+<testcase name="Dynamic Loading – Hello World › Example 2 – element is rendered dynamically" classname="specs/the-internet/dynamicLoading.spec.ts" time="23.554">
+<failure message="dynamicLoading.spec.ts:28:7 Example 2 – element is rendered dynamically" type="FAILURE">
+<![CDATA[  [webkit] › specs/the-internet/dynamicLoading.spec.ts:28:7 › Dynamic Loading – Hello World › Example 2 – element is rendered dynamically 
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('#loading img')
+    Expected: hidden
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 5000ms
+      - waiting for locator('#loading img')
+        9 × locator resolved to <img src="/img/ajax-loader.gif"/>
+          - unexpected value "visible"
+
+
+       at ../src/pages/the-internet/dynamicLoading.page.ts:58
+
+      56 |     await expect(this.loader).toBeVisible();
+      57 |     await expect(this.loader).toBeVisible({ timeout: 300 });
+    > 58 |     await expect(this.loader).toBeHidden();
+         |                               ^
+      59 |   }
+      60 |
+      61 |   // Verify final "Hello World!" message
+        at DynamicLoadingPage.expectLoaderLifecycle (/home/runner/work/playwright-portfolio/playwright-portfolio/src/pages/the-internet/dynamicLoading.page.ts:58:31)
+        at /home/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:42:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit/error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('#loading img')
+    Expected: hidden
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 5000ms
+      - waiting for locator('#loading img')
+        9 × locator resolved to <img src="/img/ajax-loader.gif"/>
+          - unexpected value "visible"
+
+
+       at ../src/pages/the-internet/dynamicLoading.page.ts:58
+
+      56 |     await expect(this.loader).toBeVisible();
+      57 |     await expect(this.loader).toBeVisible({ timeout: 300 });
+    > 58 |     await expect(this.loader).toBeHidden();
+         |                               ^
+      59 |   }
+      60 |
+      61 |   // Verify final "Hello World!" message
+        at DynamicLoadingPage.expectLoaderLifecycle (/home/runner/work/playwright-portfolio/playwright-portfolio/src/pages/the-internet/dynamicLoading.page.ts:58:31)
+        at /home/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:42:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry1/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('#loading img')
+    Expected: hidden
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 5000ms
+      - waiting for locator('#loading img')
+        9 × locator resolved to <img src="/img/ajax-loader.gif"/>
+          - unexpected value "visible"
+
+
+       at ../src/pages/the-internet/dynamicLoading.page.ts:58
+
+      56 |     await expect(this.loader).toBeVisible();
+      57 |     await expect(this.loader).toBeVisible({ timeout: 300 });
+    > 58 |     await expect(this.loader).toBeHidden();
+         |                               ^
+      59 |   }
+      60 |
+      61 |   // Verify final "Hello World!" message
+        at DynamicLoadingPage.expectLoaderLifecycle (/home/runner/work/playwright-portfolio/playwright-portfolio/src/pages/the-internet/dynamicLoading.page.ts:58:31)
+        at /home/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:42:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry2/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry2/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry2/error-context.md
+
+    Retry #3 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('#loading img')
+    Expected: hidden
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 5000ms
+      - waiting for locator('#loading img')
+        9 × locator resolved to <img src="/img/ajax-loader.gif"/>
+          - unexpected value "visible"
+
+
+       at ../src/pages/the-internet/dynamicLoading.page.ts:58
+
+      56 |     await expect(this.loader).toBeVisible();
+      57 |     await expect(this.loader).toBeVisible({ timeout: 300 });
+    > 58 |     await expect(this.loader).toBeHidden();
+         |                               ^
+      59 |   }
+      60 |
+      61 |   // Verify final "Hello World!" message
+        at DynamicLoadingPage.expectLoaderLifecycle (/home/runner/work/playwright-portfolio/playwright-portfolio/src/pages/the-internet/dynamicLoading.page.ts:58:31)
+        at /home/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:42:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry3/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry3/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry3/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit/error-context.md]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry1/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry1/error-context.md]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry1/trace.zip]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry2/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry2/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry2/error-context.md]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry3/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry3/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-087ed-ent-is-rendered-dynamically-webkit-retry3/error-context.md]]
+]]>
+</system-out>
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/logout.spec.ts" timestamp="2025-12-17T18:04:08.214Z" hostname="webkit" tests="1" failures="0" skipped="0" time="1.363" errors="0">
-<testcase name="Logout tests › Logout and verify redirect" classname="specs/the-internet/logout.spec.ts" time="1.363">
+<testsuite name="specs/the-internet/jsAlerts.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="6" failures="0" skipped="0" time="4.944" errors="0">
+<testcase name="JS Alert › accept alert" classname="specs/the-internet/jsAlerts.spec.ts" time="0.76">
+</testcase>
+<testcase name="JS Confirm › accept confirm" classname="specs/the-internet/jsAlerts.spec.ts" time="0.797">
+</testcase>
+<testcase name="JS Confirm › dismiss confirm" classname="specs/the-internet/jsAlerts.spec.ts" time="0.885">
+</testcase>
+<testcase name="JS Prompt › dismiss prompt returns null" classname="specs/the-internet/jsAlerts.spec.ts" time="0.977">
+</testcase>
+<testcase name="JS Prompt › accept empty input" classname="specs/the-internet/jsAlerts.spec.ts" time="0.753">
+</testcase>
+<testcase name="JS Prompt › accept custom text" classname="specs/the-internet/jsAlerts.spec.ts" time="0.772">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/login.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="6" failures="0" skipped="0" time="6.525" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs/the-internet/login.spec.ts" time="1.229">
+</testcase>
+<testcase name="Login tests › invalid login - invalid username" classname="specs/the-internet/login.spec.ts" time="1.002">
+</testcase>
+<testcase name="Login tests › invalid login - invalid password" classname="specs/the-internet/login.spec.ts" time="1.043">
+</testcase>
+<testcase name="Login tests › invalid login - empty username" classname="specs/the-internet/login.spec.ts" time="1.056">
+</testcase>
+<testcase name="Login tests › invalid login - empty password" classname="specs/the-internet/login.spec.ts" time="1.209">
+</testcase>
+<testcase name="Login tests › invalid login - both fields empty" classname="specs/the-internet/login.spec.ts" time="0.986">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/logout.spec.ts" timestamp="2025-12-18T16:11:29.716Z" hostname="webkit" tests="1" failures="0" skipped="0" time="1.109" errors="0">
+<testcase name="Logout tests › Logout and verify redirect" classname="specs/the-internet/logout.spec.ts" time="1.109">
 </testcase>
 </testsuite>
 </testsuites>
