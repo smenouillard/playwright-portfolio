@@ -27,7 +27,7 @@ export class DynamicLoadingPage {
 
     // Dynamic loading elements
     this.startButton = page.getByRole('button', { name: 'Start' });
-    this.loader = page.locator('#loading img');
+    this.loader = page.locator('#loading img'); // Spinner image only
     this.helloWorld = page.locator('#finish h4');
   }
 
@@ -51,7 +51,7 @@ export class DynamicLoadingPage {
     await this.startButton.click();
   }
 
-  // Verify loader lifecycle (appear, stay briefly, disappear)
+  // Verify loader lifecycle (appear, stay briefly)
   async expectLoaderLifecycle(): Promise<void> {
     await expect(this.loader).toBeVisible();
     await expect(this.loader).toBeVisible({ timeout: 300 });
@@ -59,7 +59,10 @@ export class DynamicLoadingPage {
 
   // Verify final "Hello World!" message
   async expectHelloWorld(): Promise<void> {
-    await expect(this.helloWorld).toBeVisible();
+    // Wait for the element to exist with correct text
     await expect(this.helloWorld).toHaveText('Hello World!');
+
+    // Then verify it is visible to the user
+    await expect(this.helloWorld).toBeVisible();
   }
 }
