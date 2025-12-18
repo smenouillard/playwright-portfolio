@@ -1,12 +1,12 @@
-<testsuites id="" name="" tests="76" failures="0" skipped="7" errors="0" time="78.135477">
-<testsuite name="specs/lambdatest/bootstrapAlertMessages.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="2" failures="0" skipped="0" time="11.951" errors="0">
-<testcase name="Bootstrap Alert Messages – Success alerts › Should display and auto-dismiss success alert without closing on clicks" classname="specs/lambdatest/bootstrapAlertMessages.spec.ts" time="8.617">
+<testsuites id="" name="" tests="75" failures="1" skipped="5" errors="0" time="143.644633">
+<testsuite name="specs/lambdatest/bootstrapAlertMessages.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="2" failures="0" skipped="0" time="17.11" errors="0">
+<testcase name="Bootstrap Alert Messages – Success alerts › Should display and auto-dismiss success alert without closing on clicks" classname="specs/lambdatest/bootstrapAlertMessages.spec.ts" time="11.961">
 </testcase>
-<testcase name="Bootstrap Alert Messages – Success alerts › Should display and manually close success alert without closing on clicks" classname="specs/lambdatest/bootstrapAlertMessages.spec.ts" time="3.334">
+<testcase name="Bootstrap Alert Messages – Success alerts › Should display and manually close success alert without closing on clicks" classname="specs/lambdatest/bootstrapAlertMessages.spec.ts" time="5.149">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/bootstrapModals.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="3" failures="0" skipped="3" time="2.704" errors="0">
-<testcase name="Bootstrap Modal – Windows Chromium only › open modal and verify visibility" classname="specs/lambdatest/bootstrapModals.spec.ts" time="1.691">
+<testsuite name="specs/lambdatest/bootstrapModals.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="3" failures="0" skipped="3" time="5.813" errors="0">
+<testcase name="Bootstrap Modal – Windows Chromium only › open modal and verify visibility" classname="specs/lambdatest/bootstrapModals.spec.ts" time="3.451">
 <properties>
 <property name="skip" value="Windows + Chromium only">
 </property>
@@ -14,7 +14,7 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Bootstrap Modal – Windows Chromium only › close modal with Close button" classname="specs/lambdatest/bootstrapModals.spec.ts" time="0.4">
+<testcase name="Bootstrap Modal – Windows Chromium only › close modal with Close button" classname="specs/lambdatest/bootstrapModals.spec.ts" time="1.141">
 <properties>
 <property name="skip" value="Windows + Chromium only">
 </property>
@@ -22,7 +22,7 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Bootstrap Modal – Windows Chromium only › close modal with Save changes" classname="specs/lambdatest/bootstrapModals.spec.ts" time="0.613">
+<testcase name="Bootstrap Modal – Windows Chromium only › close modal with Save changes" classname="specs/lambdatest/bootstrapModals.spec.ts" time="1.221">
 <properties>
 <property name="skip" value="Windows + Chromium only">
 </property>
@@ -31,97 +31,97 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/checkboxDemo.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="3" failures="0" skipped="0" time="9.13" errors="0">
-<testcase name="Lambdatest Checkbox Demo › Single checkbox displays the correct message" classname="specs/lambdatest/checkboxDemo.spec.ts" time="2.829">
+<testsuite name="specs/lambdatest/checkboxDemo.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="3" failures="0" skipped="0" time="12.61" errors="0">
+<testcase name="Lambdatest Checkbox Demo › Single checkbox displays the correct message" classname="specs/lambdatest/checkboxDemo.spec.ts" time="3.55">
 </testcase>
-<testcase name="Lambdatest Checkbox Demo › Disabled checkbox demo behaves correctly" classname="specs/lambdatest/checkboxDemo.spec.ts" time="2.443">
+<testcase name="Lambdatest Checkbox Demo › Disabled checkbox demo behaves correctly" classname="specs/lambdatest/checkboxDemo.spec.ts" time="5.071">
 </testcase>
-<testcase name="Lambdatest Checkbox Demo › Check All toggles all multiple checkbox options" classname="specs/lambdatest/checkboxDemo.spec.ts" time="3.858">
-</testcase>
-</testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.errors.email.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="7" failures="0" skipped="0" time="21.74" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – simple text" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="4.299">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – name with at sign" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.719">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – name at dot com" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.141">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – missing local part" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.644">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – double at sign" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.163">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – double dot in domain" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.83">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Valid email passes HTML5 validation" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="2.944">
+<testcase name="Lambdatest Checkbox Demo › Check All toggles all multiple checkbox options" classname="specs/lambdatest/checkboxDemo.spec.ts" time="3.989">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.errors.order.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="4" failures="0" skipped="0" time="12.694" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Empty submit shows error on first required field (Name)" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.549">
+<testsuite name="specs/lambdatest/inputFormDemo.errors.email.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="7" failures="0" skipped="0" time="34.701" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – simple text" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="7.05">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name moves error to Email" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.127">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – name with at sign" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="4.604">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name + Email moves error to Password" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="3.025">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – name at dot com" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="4.623">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Fixing an invalid field makes it valid on next submit" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="2.993">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – missing local part" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="4.339">
 </testcase>
-</testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="10" failures="0" skipped="0" time="24.474" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Required fields › Name is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.529">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – double at sign" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="3.861">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Email is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.276">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Email invalid – double dot in domain" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="4.802">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Password is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.303">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Company is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.526">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Website is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="1.967">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › City is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.306">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Address1 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.599">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Address2 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.502">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › State is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.212">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Required fields › Zip is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="2.254">
+<testcase name="LambdaTest – Input Form Demo – Native HTML5 email validation › Valid email passes HTML5 validation" classname="specs/lambdatest/inputFormDemo.errors.email.spec.ts" time="5.422">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.rules.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="10" failures="0" skipped="0" time="22.486" errors="0">
-<testcase name="LambdaTest – Input Form Demo – Business rules › Name accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.525">
+<testsuite name="specs/lambdatest/inputFormDemo.errors.order.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="4" failures="0" skipped="0" time="18.621" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Empty submit shows error on first required field (Name)" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="5.638">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Email must follow HTML5 format rules" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.686">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name moves error to Email" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="4.129">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Password accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.268">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Correcting Name + Email moves error to Password" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="4.525">
 </testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Company accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.808">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Website accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.611">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Country is optional and any selected value is valid" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.903">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › City accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.302">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Address1 and Address2 accept any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.686">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › State accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.74">
-</testcase>
-<testcase name="LambdaTest – Input Form Demo – Business rules › Zip accepts any non-empty string (required, no pattern)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="1.957">
+<testcase name="LambdaTest – Input Form Demo – Required fields order validation › Fixing an invalid field makes it valid on next submit" classname="specs/lambdatest/inputFormDemo.errors.order.spec.ts" time="4.329">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/inputFormDemo.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="1" failures="0" skipped="0" time="2.495" errors="0">
-<testcase name="LambdaTest – Input Form Demo › Submit full form successfully (happy path)" classname="specs/lambdatest/inputFormDemo.spec.ts" time="2.495">
+<testsuite name="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="10" failures="0" skipped="0" time="42.644" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Required fields › Name is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.334">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Email is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="4.231">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Password is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="4.854">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Company is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.643">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Website is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="3.344">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › City is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="4.237">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Address1 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="5.452">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Address2 is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="4.962">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › State is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="4.585">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Required fields › Zip is required" classname="specs/lambdatest/inputFormDemo.requiredFields.spec.ts" time="4.002">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/radioButtonDemo.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="3" failures="0" skipped="0" time="7.501" errors="0">
-<testcase name="LambdaTest – Radio Button Demo › Test 1 – Get selected value" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="2.794">
+<testsuite name="specs/lambdatest/inputFormDemo.rules.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="10" failures="0" skipped="0" time="40.034" errors="0">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Name accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="4.718">
 </testcase>
-<testcase name="LambdaTest – Radio Button Demo › Test 2 – Disabled radio button behavior" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="2.13">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Email must follow HTML5 format rules" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="4.462">
 </testcase>
-<testcase name="LambdaTest – Radio Button Demo › Test 3 – Random selection for gender and age" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="2.577">
+<testcase name="LambdaTest – Input Form Demo – Business rules › Password accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="4.705">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Company accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="5.557">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Website accepts any non-empty string" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="4.133">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Country is optional and any selected value is valid" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="2.923">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › City accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="3.529">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Address1 and Address2 accept any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="3.262">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › State accepts any non-empty string (required)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="3.389">
+</testcase>
+<testcase name="LambdaTest – Input Form Demo – Business rules › Zip accepts any non-empty string (required, no pattern)" classname="specs/lambdatest/inputFormDemo.rules.spec.ts" time="3.356">
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/selectDropdown.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testsuite name="specs/lambdatest/inputFormDemo.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="1" failures="0" skipped="0" time="3.876" errors="0">
+<testcase name="LambdaTest – Input Form Demo › Submit full form successfully (happy path)" classname="specs/lambdatest/inputFormDemo.spec.ts" time="3.876">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/radioButtonDemo.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="3" failures="0" skipped="0" time="12.518" errors="0">
+<testcase name="LambdaTest – Radio Button Demo › Test 1 – Get selected value" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="4.309">
+</testcase>
+<testcase name="LambdaTest – Radio Button Demo › Test 2 – Disabled radio button behavior" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="3.382">
+</testcase>
+<testcase name="LambdaTest – Radio Button Demo › Test 3 – Random selection for gender and age" classname="specs/lambdatest/radioButtonDemo.spec.ts" time="4.827">
+</testcase>
+</testsuite>
+<testsuite name="specs/lambdatest/selectDropdown.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="2" failures="0" skipped="2" time="0" errors="0">
 <testcase name="Lambdatest – Select Dropdown Demo › Select multiple options then verify full list and first selected" classname="specs/lambdatest/selectDropdown.spec.ts" time="0">
 <properties>
 <property name="skip" value="This demo page does not support multi-select behavior on WebKit.">
@@ -139,96 +139,221 @@
 </skipped>
 </testcase>
 </testsuite>
-<testsuite name="specs/lambdatest/simpleFormDemo.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="8" failures="0" skipped="0" time="14.545" errors="0">
-<testcase name="Simple Form Demo › Single Input Field" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.637">
+<testsuite name="specs/lambdatest/simpleFormDemo.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="8" failures="0" skipped="0" time="25.75" errors="0">
+<testcase name="Simple Form Demo › Single Input Field" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="4.733">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.642">
+<testcase name="Simple Form Demo › Two Input Fields - valid random numbers" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="5.523">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.221">
+<testcase name="Simple Form Demo › Two Input Fields - invalid first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="3.179">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="0.869">
+<testcase name="Simple Form Demo › Two Input Fields - invalid second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.399">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.207">
+<testcase name="Simple Form Demo › Two Input Fields - both invalid" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.18">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.206">
+<testcase name="Simple Form Demo › Two Input Fields - empty first value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.131">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.061">
+<testcase name="Simple Form Demo › Two Input Fields - empty second value" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.825">
 </testcase>
-<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="1.702">
-</testcase>
-</testsuite>
-<testsuite name="specs/lambdatest/sliders.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="1" failures="0" skipped="0" time="2.241" errors="0">
-<testcase name="Drag &amp; Drop Sliders › move default value 25 slider to 95 and verify" classname="specs/lambdatest/sliders.spec.ts" time="2.241">
+<testcase name="Simple Form Demo › Two Input Fields - both empty" classname="specs/lambdatest/simpleFormDemo.spec.ts" time="2.78">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/addRemoveElements.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="3" failures="0" skipped="0" time="3.21" errors="0">
-<testcase name="The Internet – Add/Remove Elements › Initial state contains no delete buttons" classname="specs/the-internet/addRemoveElements.spec.ts" time="0.793">
-</testcase>
-<testcase name="The Internet – Add/Remove Elements › Add multiple delete buttons (random between 3 and 10)" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.359">
-</testcase>
-<testcase name="The Internet – Add/Remove Elements › Remove delete buttons one by one until none remain" classname="specs/the-internet/addRemoveElements.spec.ts" time="1.058">
+<testsuite name="specs/lambdatest/sliders.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="1" failures="0" skipped="0" time="4.761" errors="0">
+<testcase name="Drag &amp; Drop Sliders › move default value 25 slider to 95 and verify" classname="specs/lambdatest/sliders.spec.ts" time="4.761">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/checkboxes.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="1" failures="0" skipped="0" time="1.137" errors="0">
-<testcase name="Checkboxes tests – state machine validation › Validate all checkbox state transitions" classname="specs/the-internet/checkboxes.spec.ts" time="1.137">
+<testsuite name="specs/the-internet/addRemoveElements.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="3" failures="0" skipped="0" time="7.892" errors="0">
+<testcase name="The Internet – Add/Remove Elements › Initial state contains no delete buttons" classname="specs/the-internet/addRemoveElements.spec.ts" time="2.381">
+</testcase>
+<testcase name="The Internet – Add/Remove Elements › Add multiple delete buttons (random between 3 and 10)" classname="specs/the-internet/addRemoveElements.spec.ts" time="2.61">
+</testcase>
+<testcase name="The Internet – Add/Remove Elements › Remove delete buttons one by one until none remain" classname="specs/the-internet/addRemoveElements.spec.ts" time="2.901">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/dropdown.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="3" failures="0" skipped="0" time="2.118" errors="0">
-<testcase name="The Internet – Dropdown List › Initial state shows placeholder text" classname="specs/the-internet/dropdown.spec.ts" time="0.827">
-</testcase>
-<testcase name="The Internet – Dropdown List › Selecting Option 1 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.656">
-</testcase>
-<testcase name="The Internet – Dropdown List › Selecting Option 2 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="0.635">
+<testsuite name="specs/the-internet/checkboxes.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="1" failures="0" skipped="0" time="2.086" errors="0">
+<testcase name="Checkboxes tests – state machine validation › Validate all checkbox state transitions" classname="specs/the-internet/checkboxes.spec.ts" time="2.086">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/dynamicLoading.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="2" failures="0" skipped="2" time="0.001" errors="0">
-<testcase name="Dynamic Loading – Hello World › Example 1 – hidden element becomes visible" classname="specs/the-internet/dynamicLoading.spec.ts" time="0.001">
-<properties>
-<property name="skip" value="Dynamic Loading is stable only on Windows Chromium">
-</property>
-</properties>
-<skipped>
-</skipped>
+<testsuite name="specs/the-internet/dropdown.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="3" failures="0" skipped="0" time="4.279" errors="0">
+<testcase name="The Internet – Dropdown List › Initial state shows placeholder text" classname="specs/the-internet/dropdown.spec.ts" time="1.46">
 </testcase>
-<testcase name="Dynamic Loading – Hello World › Example 2 – element is rendered dynamically" classname="specs/the-internet/dynamicLoading.spec.ts" time="0">
-<properties>
-<property name="skip" value="Dynamic Loading is stable only on Windows Chromium">
-</property>
-</properties>
-<skipped>
-</skipped>
+<testcase name="The Internet – Dropdown List › Selecting Option 1 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="1.458">
+</testcase>
+<testcase name="The Internet – Dropdown List › Selecting Option 2 is preserved" classname="specs/the-internet/dropdown.spec.ts" time="1.361">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/jsAlerts.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="6" failures="0" skipped="0" time="3.827" errors="0">
-<testcase name="JS Alert › accept alert" classname="specs/the-internet/jsAlerts.spec.ts" time="0.635">
-</testcase>
-<testcase name="JS Confirm › accept confirm" classname="specs/the-internet/jsAlerts.spec.ts" time="0.663">
-</testcase>
-<testcase name="JS Confirm › dismiss confirm" classname="specs/the-internet/jsAlerts.spec.ts" time="0.765">
-</testcase>
-<testcase name="JS Prompt › dismiss prompt returns null" classname="specs/the-internet/jsAlerts.spec.ts" time="0.553">
-</testcase>
-<testcase name="JS Prompt › accept empty input" classname="specs/the-internet/jsAlerts.spec.ts" time="0.554">
-</testcase>
-<testcase name="JS Prompt › accept custom text" classname="specs/the-internet/jsAlerts.spec.ts" time="0.657">
+<testsuite name="specs/the-internet/dynamicLoading.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="1" failures="1" skipped="0" time="4.93" errors="0">
+<testcase name="Bootstrap Alert Messages – Success alerts › Should display and auto-dismiss success alert without closing on clicks" classname="specs/the-internet/dynamicLoading.spec.ts" time="4.93">
+<failure message="dynamicLoading.spec.ts:8:7 Should display and auto-dismiss success alert without closing on clicks" type="FAILURE">
+<![CDATA[  [webkit] › specs/the-internet/dynamicLoading.spec.ts:8:7 › Bootstrap Alert Messages – Success alerts › Should display and auto-dismiss success alert without closing on clicks 
+
+    Error: page.goto: Protocol error (Playwright.navigate): Cannot navigate to invalid URL
+    Call log:
+      - navigating to "bootstrap-alert-messages-demo", waiting until "load"
+
+
+       at ../src/pages/lambdatest/bootstrapAlertMessages.page.ts:39
+
+      37 |   // Navigate to Bootstrap Alert Messages page
+      38 |   async goto(): Promise<void> {
+    > 39 |     await this.page.goto('bootstrap-alert-messages-demo');
+         |                     ^
+      40 |   }
+      41 |
+      42 |   // Trigger autoclosable success alert
+        at BootstrapAlertMessagesPage.goto (/Users/runner/work/playwright-portfolio/playwright-portfolio/src/pages/lambdatest/bootstrapAlertMessages.page.ts:39:21)
+        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:13:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: page.goto: Protocol error (Playwright.navigate): Cannot navigate to invalid URL
+    Call log:
+      - navigating to "bootstrap-alert-messages-demo", waiting until "load"
+
+
+       at ../src/pages/lambdatest/bootstrapAlertMessages.page.ts:39
+
+      37 |   // Navigate to Bootstrap Alert Messages page
+      38 |   async goto(): Promise<void> {
+    > 39 |     await this.page.goto('bootstrap-alert-messages-demo');
+         |                     ^
+      40 |   }
+      41 |
+      42 |   // Trigger autoclosable success alert
+        at BootstrapAlertMessagesPage.goto (/Users/runner/work/playwright-portfolio/playwright-portfolio/src/pages/lambdatest/bootstrapAlertMessages.page.ts:39:21)
+        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:13:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry1/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: page.goto: Protocol error (Playwright.navigate): Cannot navigate to invalid URL
+    Call log:
+      - navigating to "bootstrap-alert-messages-demo", waiting until "load"
+
+
+       at ../src/pages/lambdatest/bootstrapAlertMessages.page.ts:39
+
+      37 |   // Navigate to Bootstrap Alert Messages page
+      38 |   async goto(): Promise<void> {
+    > 39 |     await this.page.goto('bootstrap-alert-messages-demo');
+         |                     ^
+      40 |   }
+      41 |
+      42 |   // Trigger autoclosable success alert
+        at BootstrapAlertMessagesPage.goto (/Users/runner/work/playwright-portfolio/playwright-portfolio/src/pages/lambdatest/bootstrapAlertMessages.page.ts:39:21)
+        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:13:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry2/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry2/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #3 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: page.goto: Protocol error (Playwright.navigate): Cannot navigate to invalid URL
+    Call log:
+      - navigating to "bootstrap-alert-messages-demo", waiting until "load"
+
+
+       at ../src/pages/lambdatest/bootstrapAlertMessages.page.ts:39
+
+      37 |   // Navigate to Bootstrap Alert Messages page
+      38 |   async goto(): Promise<void> {
+    > 39 |     await this.page.goto('bootstrap-alert-messages-demo');
+         |                     ^
+      40 |   }
+      41 |
+      42 |   // Trigger autoclosable success alert
+        at BootstrapAlertMessagesPage.goto (/Users/runner/work/playwright-portfolio/playwright-portfolio/src/pages/lambdatest/bootstrapAlertMessages.page.ts:39:21)
+        at /Users/runner/work/playwright-portfolio/playwright-portfolio/tests/specs/the-internet/dynamicLoading.spec.ts:13:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry3/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry3/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry1/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry1/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry1/trace.zip]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry2/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry2/video.webm]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry3/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/specs-the-internet-dynamic-80154-t-without-closing-on-clicks-webkit-retry3/video.webm]]
+]]>
+</system-out>
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/login.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="6" failures="0" skipped="0" time="4.037" errors="0">
-<testcase name="Login tests › valid login redirects to secure area" classname="specs/the-internet/login.spec.ts" time="0.753">
+<testsuite name="specs/the-internet/jsAlerts.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="6" failures="0" skipped="0" time="9.255" errors="0">
+<testcase name="JS Alert › accept alert" classname="specs/the-internet/jsAlerts.spec.ts" time="1.251">
 </testcase>
-<testcase name="Login tests › invalid login - invalid username" classname="specs/the-internet/login.spec.ts" time="0.763">
+<testcase name="JS Confirm › accept confirm" classname="specs/the-internet/jsAlerts.spec.ts" time="1.61">
 </testcase>
-<testcase name="Login tests › invalid login - invalid password" classname="specs/the-internet/login.spec.ts" time="0.714">
+<testcase name="JS Confirm › dismiss confirm" classname="specs/the-internet/jsAlerts.spec.ts" time="1.426">
 </testcase>
-<testcase name="Login tests › invalid login - empty username" classname="specs/the-internet/login.spec.ts" time="0.608">
+<testcase name="JS Prompt › dismiss prompt returns null" classname="specs/the-internet/jsAlerts.spec.ts" time="1.848">
 </testcase>
-<testcase name="Login tests › invalid login - empty password" classname="specs/the-internet/login.spec.ts" time="0.588">
+<testcase name="JS Prompt › accept empty input" classname="specs/the-internet/jsAlerts.spec.ts" time="1.408">
 </testcase>
-<testcase name="Login tests › invalid login - both fields empty" classname="specs/the-internet/login.spec.ts" time="0.611">
+<testcase name="JS Prompt › accept custom text" classname="specs/the-internet/jsAlerts.spec.ts" time="1.712">
 </testcase>
 </testsuite>
-<testsuite name="specs/the-internet/logout.spec.ts" timestamp="2025-12-18T17:32:30.087Z" hostname="webkit" tests="1" failures="0" skipped="0" time="0.973" errors="0">
-<testcase name="Logout tests › Logout and verify redirect" classname="specs/the-internet/logout.spec.ts" time="0.973">
+<testsuite name="specs/the-internet/login.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="6" failures="0" skipped="0" time="11.089" errors="0">
+<testcase name="Login tests › valid login redirects to secure area" classname="specs/the-internet/login.spec.ts" time="2.163">
+</testcase>
+<testcase name="Login tests › invalid login - invalid username" classname="specs/the-internet/login.spec.ts" time="1.574">
+</testcase>
+<testcase name="Login tests › invalid login - invalid password" classname="specs/the-internet/login.spec.ts" time="1.975">
+</testcase>
+<testcase name="Login tests › invalid login - empty username" classname="specs/the-internet/login.spec.ts" time="1.477">
+</testcase>
+<testcase name="Login tests › invalid login - empty password" classname="specs/the-internet/login.spec.ts" time="1.822">
+</testcase>
+<testcase name="Login tests › invalid login - both fields empty" classname="specs/the-internet/login.spec.ts" time="2.078">
+</testcase>
+</testsuite>
+<testsuite name="specs/the-internet/logout.spec.ts" timestamp="2025-12-18T17:44:10.377Z" hostname="webkit" tests="1" failures="0" skipped="0" time="3.234" errors="0">
+<testcase name="Logout tests › Logout and verify redirect" classname="specs/the-internet/logout.spec.ts" time="3.234">
 </testcase>
 </testsuite>
 </testsuites>
