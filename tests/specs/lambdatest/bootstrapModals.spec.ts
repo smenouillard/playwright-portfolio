@@ -2,7 +2,11 @@
 // https://www.lambdatest.com/selenium-playground/bootstrap-modal-demo
 
 import { test, expect } from '@playwright/test';
+import { appUrls } from '../../../src/config/appUrls';
 import { BootstrapModalPage } from '../../../src/pages/lambdatest/bootstrapModals.page';
+
+// Set baseURL for Lambdatest playground
+test.use({ baseURL: appUrls.lambdaTest });
 
 test.describe('Bootstrap Modal – Windows Chromium only', () => {
   let modal: BootstrapModalPage;
@@ -14,14 +18,11 @@ test.describe('Bootstrap Modal – Windows Chromium only', () => {
       'Windows + Chromium only'
     );
 
-    // Navigate to page
-    await page.goto(
-      'https://www.lambdatest.com/selenium-playground/bootstrap-modal-demo',
-      { waitUntil: 'domcontentloaded' }
-    );
-
     // Instantiate page object
     modal = new BootstrapModalPage(page);
+
+    // Navigate to Bootstrap Modal page
+    await modal.goto();
   });
 
   test('open modal and verify visibility', async () => {

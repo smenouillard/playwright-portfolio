@@ -11,6 +11,11 @@ export class BootstrapModalPage {
     this.page = page;
   }
 
+  // Navigate to Bootstrap Modal page
+  async goto(): Promise<void> {
+    await this.page.goto('bootstrap-modal-demo');
+  }
+
   // Return launch button for single modal
   singleModalLaunchButton(): Locator {
     return this.page.getByRole('button', { name: 'Launch Modal' }).first();
