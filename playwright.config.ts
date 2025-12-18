@@ -15,7 +15,7 @@ export default defineConfig({
   expect: { timeout: 5_000 },
 
   // Retries only in CI to stabilize slower browsers like Firefox
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 3 : 0,
 
   // Default test settings
   use: {
@@ -51,5 +51,5 @@ export default defineConfig({
     { name: 'webkit-linux', use: { ...devices['Desktop Safari'] } },
   ],
 
-  workers: process.env.CI ? 2 : undefined,
+  workers: process.env.CI ? 2 : 1,
 });

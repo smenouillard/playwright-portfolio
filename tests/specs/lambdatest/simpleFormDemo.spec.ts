@@ -7,12 +7,12 @@ import { SimpleFormDemoPage } from '../../../src/pages/lambdatest/simpleFormDemo
 
 test.use({ baseURL: appUrls.lambdaTest });
 
-// generate random valid values
+// Generate random valid values
 const randomA = Math.floor(Math.random() * 50) + 1;
 const randomB = Math.floor(Math.random() * 50) + 1;
 const randomSum = String(randomA + randomB);
 
-// data-driven scenarios
+// Data-driven scenarios
 const sumScenarios = [
   { name: "valid random numbers", a: String(randomA), b: String(randomB), expected: randomSum },
   { name: 'invalid first value', a: 'abc', b: '5', expected: 'Entered value is not a number' },
@@ -28,13 +28,13 @@ test.describe('Simple Form Demo', () => {
   test('Single Input Field', async ({ page }) => {
     const simpleFormDemoPage = new SimpleFormDemoPage(page);
 
-    // open page
+    // Open page
     await simpleFormDemoPage.goto();
 
-    // enter value
+    // Enter value
     await simpleFormDemoPage.enterSingleValue('Hello Playwright');
 
-    // check result
+    // Check result
     await expect(simpleFormDemoPage.singleMessage).toHaveText('Hello Playwright');
   });
 
@@ -42,13 +42,13 @@ test.describe('Simple Form Demo', () => {
     test(`Two Input Fields - ${name}`, async ({ page }) => {
       const simpleFormDemoPage = new SimpleFormDemoPage(page);
 
-      // open page
+      // Open page
       await simpleFormDemoPage.goto();
 
-      // enter values
+      // Enter values
       await simpleFormDemoPage.enterTwoValues(a, b);
 
-      // check result
+      // Check result
       await expect(simpleFormDemoPage.sumResult).toHaveText(expected);
     });
   });

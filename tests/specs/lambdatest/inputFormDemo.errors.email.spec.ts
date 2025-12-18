@@ -21,18 +21,18 @@ test.use({ baseURL: appUrls.lambdaTest });
 
 test.describe('LambdaTest – Input Form Demo – Native HTML5 email validation', () => {
 
-  // invalid emails
+  // invalid emails dataset (value = tested data, label = safe test name)
   const invalidEmails = [
-    'test',
-    'test@',
-    'john@.com',
-    '@domain.com',
-    'john@@example.com',
-    'john@domain..com',
+    { value: 'test', label: 'simple text' },
+    { value: 'test@', label: 'name with at sign' },
+    { value: 'john@.com', label: 'name at dot com' },
+    { value: '@domain.com', label: 'missing local part' },
+    { value: 'john@@example.com', label: 'double at sign' },
+    { value: 'john@domain..com', label: 'double dot in domain' },
   ];
 
-  for (const email of invalidEmails) {
-    test(`Email "${email}" is invalid`, async ({ page }) => {
+  for (const { value, label } of invalidEmails) {
+    test(`Email invalid – ${label}`, async ({ page }) => {
       const p = new InputFormDemoPage(page);
       await p.goto();
 
@@ -48,7 +48,7 @@ test.describe('LambdaTest – Input Form Demo – Native HTML5 email validation'
       await p.zipInput.fill('75000');
 
       // fill invalid email
-      await p.emailInput.fill(email);
+      await p.emailInput.fill(value);
 
       // submit -> should trigger native email validation
       await p.submitButton.click();
@@ -73,7 +73,7 @@ test.describe('LambdaTest – Input Form Demo – Native HTML5 email validation'
       address1: '1 Rue Test',
       address2: '2nd Floor',
       state: 'IDF',
-      zip: '75000'
+      zip: '75000',
     });
 
     // submit -> email should be valid

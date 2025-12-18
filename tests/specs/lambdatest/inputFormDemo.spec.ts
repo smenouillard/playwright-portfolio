@@ -23,7 +23,7 @@ test.describe('LambdaTest – Input Form Demo', () => {
     const p = new InputFormDemoPage(page);
     await p.goto();
 
-    // fill all fields
+    // Fill all fields
     await p.fillForm({
       name: 'John Doe',
       email: 'john@example.com',
@@ -38,13 +38,13 @@ test.describe('LambdaTest – Input Form Demo', () => {
       zip: '75000'
     });
 
-    // submit form
+    // Submit form
     await p.submitButton.click();
 
-    // success message is visible
+    // Success message is visible
     await expect(p.successMessage).toBeVisible();
 
-    // form is hidden after submission
+    // Form is hidden after submission
     await expect(p.form).toBeHidden();
   });
 

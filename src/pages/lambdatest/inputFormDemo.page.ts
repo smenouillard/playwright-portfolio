@@ -6,10 +6,10 @@ import { Page, Locator } from '@playwright/test';
 export class InputFormDemoPage {
   readonly page: Page;
 
-  // form
+  // Form
   readonly form: Locator;
 
-  // form fields
+  // Form fields
   readonly nameInput: Locator;
   readonly emailInput: Locator;
   readonly passwordInput: Locator;
@@ -22,17 +22,17 @@ export class InputFormDemoPage {
   readonly stateInput: Locator;
   readonly zipInput: Locator;
 
-  // button and success message
+  // Button and success message
   readonly submitButton: Locator;
   readonly successMessage: Locator;
 
   constructor(page: Page) {
     this.page = page;
 
-    // form container
+    // Form container
     this.form = page.locator('#seleniumform');
 
-    // text inputs
+    // Text inputs
     this.nameInput = page.locator('#name');
     this.emailInput = page.locator('#inputEmail4');
     this.passwordInput = page.locator('#inputPassword4');
@@ -44,23 +44,23 @@ export class InputFormDemoPage {
     this.stateInput = page.locator('#inputState');
     this.zipInput = page.locator('#inputZip');
 
-    // dropdown
+    // Dropdown
     this.countrySelect = page.locator('select[name="country"]');
 
-    // submit button
+    // Submit button
     this.submitButton = page.locator('button.selenium_btn');
 
-    // success message
+    // Success message
     this.successMessage = page.locator('.success-msg');
   }
 
-  // navigate to page
+  // Navigate to page
   async goto() {
     await this.page.goto('input-form-demo');
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  // fill all form fields
+  // Fill all form fields
   async fillForm(data: {
     name: string;
     email: string;
@@ -79,7 +79,7 @@ export class InputFormDemoPage {
     await this.passwordInput.fill(data.password);
     await this.companyInput.fill(data.company);
     await this.websiteInput.fill(data.website);
-    // select only if a value is provided (allows tests to leave country empty)
+    // Select only if a value is provided (allows tests to leave country empty)
     if (data.country) {
       await this.countrySelect.selectOption(data.country);
     }

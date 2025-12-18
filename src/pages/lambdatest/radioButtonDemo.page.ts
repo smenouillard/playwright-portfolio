@@ -6,18 +6,18 @@ import { Page, Locator } from '@playwright/test';
 export class RadioButtonDemoPage {
   readonly page: Page;
 
-  // Test 1 — single radio group
+  // Test 1 — Single radio group
   readonly maleRadio: Locator;
   readonly femaleRadio: Locator;
   readonly getValueButton: Locator;
   readonly singleResult: Locator;
 
-  // Test 2 — disabled radio group
+  // Test 2 — Disabled radio group
   readonly rb1: Locator;
   readonly rb2: Locator;
   readonly rbDisabled: Locator;
 
-  // Test 3 — gender + age section
+  // Test 3 — Gender + age section
   readonly genderRadios: Locator;
   readonly ageRadios: Locator;
   readonly getValuesButton: Locator;
@@ -45,9 +45,9 @@ export class RadioButtonDemoPage {
     this.ageRadios = page.locator('input[name="ageGroup"]');
     this.getValuesButton = page.locator('button:has-text("Get values")');
 
-    // UPDATED: correct result locators
-    this.genderOutput = page.locator('span.genderbutton');          // ← NEW
-    this.ageOutput = page.locator('span.groupradiobutton');         // ← NEW
+    // Result locators
+    this.genderOutput = page.locator('span.genderbutton');
+    this.ageOutput = page.locator('span.groupradiobutton');
   }
 
   // Navigate to Radio Button Demo

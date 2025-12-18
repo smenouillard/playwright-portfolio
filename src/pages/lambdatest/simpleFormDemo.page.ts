@@ -33,7 +33,7 @@ export class SimpleFormDemoPage {
   }
 
   async goto() {
-    await this.page.goto("simple-form-demo"); // correct (pas de slash)
+    await this.page.goto("simple-form-demo");
     await this.page.waitForLoadState("domcontentloaded");
   }
 
