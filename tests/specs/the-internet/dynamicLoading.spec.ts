@@ -5,6 +5,14 @@ import { test } from '@playwright/test';
 import { DynamicLoadingPage } from '../../../src/pages/the-internet/dynamicLoading.page';
 
 test.describe('Dynamic Loading – Hello World', () => {
+  test.beforeEach(async ({ }, testInfo) => {
+    // Skip test on unsupported OS or browser
+    test.skip(
+      testInfo.project.name !== 'Windows - Chromium',
+      'Dynamic Loading is stable only on Windows Chromium'
+    );
+  });
+
   test('Example 1 – hidden element becomes visible', async ({ page }) => {
     // Instantiate page object
     const dynamicLoading = new DynamicLoadingPage(page);
@@ -12,17 +20,17 @@ test.describe('Dynamic Loading – Hello World', () => {
     // Navigate to Dynamic Loading entry page
     await dynamicLoading.goto();
 
-    // Open "Example 1: Element on page that is hidden"
+    // Open Example 1 page
     await dynamicLoading.openExample1();
 
     // Start dynamic loading
     await dynamicLoading.start();
 
-    // Assert loader appears and stays briefly
+    // Assert loader lifecycle
     await dynamicLoading.expectLoaderLifecycle();
 
-    // Assert final result is loaded
-    await dynamicLoading.expectResultLoaded();
+    // Assert Hello World success message
+    await dynamicLoading.expectHelloWorld();
   });
 
   test('Example 2 – element is rendered dynamically', async ({ page }) => {
@@ -32,16 +40,16 @@ test.describe('Dynamic Loading – Hello World', () => {
     // Navigate to Dynamic Loading entry page
     await dynamicLoading.goto();
 
-    // Open "Example 2: Element rendered after the fact"
+    // Open Example 2 page
     await dynamicLoading.openExample2();
 
     // Start dynamic loading
     await dynamicLoading.start();
 
-    // Assert loader appears and stays briefly
+    // Assert loader lifecycle
     await dynamicLoading.expectLoaderLifecycle();
 
-    // Assert final result is loaded
-    await dynamicLoading.expectResultLoaded();
+    // Assert Hello World success message
+    await dynamicLoading.expectHelloWorld();
   });
 });

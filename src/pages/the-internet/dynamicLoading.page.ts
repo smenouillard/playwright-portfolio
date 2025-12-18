@@ -12,7 +12,7 @@ export class DynamicLoadingPage {
 
   readonly startButton: Locator;
   readonly loader: Locator;
-  readonly finishContainer: Locator;
+  readonly helloWorld: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -28,7 +28,7 @@ export class DynamicLoadingPage {
     // Dynamic loading elements
     this.startButton = page.getByRole('button', { name: 'Start' });
     this.loader = page.locator('#loading img'); // Spinner image only
-    this.finishContainer = page.locator('#finish');
+    this.helloWorld = page.locator('#finish h4');
   }
 
   // Navigate to Dynamic Loading entry page
@@ -51,14 +51,16 @@ export class DynamicLoadingPage {
     await this.startButton.click();
   }
 
-  // Verify loader lifecycle (appear, stay briefly)
+  // Verify loader lifecycle (appear, stay briefly, disappear)
   async expectLoaderLifecycle(): Promise<void> {
     await expect(this.loader).toBeVisible();
     await expect(this.loader).toBeVisible({ timeout: 300 });
+    await expect(this.loader).toBeHidden();
   }
 
-  // Verify final result is loaded (contractual, CI-safe)
-  async expectResultLoaded(): Promise<void> {
-    await expect(this.finishContainer).toBeAttached();
+  // Verify final "Hello World!" message
+  async expectHelloWorld(): Promise<void> {
+    await expect(this.helloWorld).toBeVisible();
+    await expect(this.helloWorld).toHaveText('Hello World!');
   }
 }
