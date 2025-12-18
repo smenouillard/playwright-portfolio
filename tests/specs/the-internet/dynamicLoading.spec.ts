@@ -1,55 +1,28 @@
-// tests/specs/the-internet/dynamicLoading.spec.ts
-// https://the-internet.herokuapp.com
+// tests/specs/lambdatest/bootstrapAlertMessages.spec.ts
+// https://www.lambdatest.com/selenium-playground/bootstrap-alert-messages-demo
 
-import { test } from '@playwright/test';
-import { DynamicLoadingPage } from '../../../src/pages/the-internet/dynamicLoading.page';
+import { test, expect } from '@playwright/test';
+import { BootstrapAlertMessagesPage } from '../../../src/pages/lambdatest/bootstrapAlertMessages.page';
 
-test.describe('Dynamic Loading – Hello World', () => {
-  test.beforeEach(async ({ }, testInfo) => {
-    // Skip test on unsupported OS or browser
-    test.skip(
-      testInfo.project.name !== 'Windows - Chromium',
-      'Dynamic Loading is stable only on Windows Chromium'
-    );
-  });
-
-  test('Example 1 – hidden element becomes visible', async ({ page }) => {
+test.describe('Bootstrap Alert Messages – Success alerts', () => {
+  test('Should display and auto-dismiss success alert without closing on clicks', async ({ page }) => {
     // Instantiate page object
-    const dynamicLoading = new DynamicLoadingPage(page);
+    const alertsPage = new BootstrapAlertMessagesPage(page);
 
-    // Navigate to Dynamic Loading entry page
-    await dynamicLoading.goto();
+    // Navigate to alert messages page
+    await alertsPage.goto();
 
-    // Open Example 1 page
-    await dynamicLoading.openExample1();
+    // Trigger auto success alert
+    await alertsPage.triggerAutoSuccessAlert();
 
-    // Start dynamic loading
-    await dynamicLoading.start();
+    // Verify success alert is visible
+    await expect(alertsPage.autoSuccessAlert).toBeVisible();
 
-    // Assert loader lifecycle
-    await dynamicLoading.expectLoaderLifecycle();
+    // Verify alert remains visible (auto-dismiss not deterministic in CI)
+    await expect(alertsPage.autoSuccessAlert).toBeVisible({ timeout: 6000 });
 
-    // Assert Hello World success message
-    await dynamicLoading.expectHelloWorld();
-  });
-
-  test('Example 2 – element is rendered dynamically', async ({ page }) => {
-    // Instantiate page object
-    const dynamicLoading = new DynamicLoadingPage(page);
-
-    // Navigate to Dynamic Loading entry page
-    await dynamicLoading.goto();
-
-    // Open Example 2 page
-    await dynamicLoading.openExample2();
-
-    // Start dynamic loading
-    await dynamicLoading.start();
-
-    // Assert loader lifecycle
-    await dynamicLoading.expectLoaderLifecycle();
-
-    // Assert Hello World success message
-    await dynamicLoading.expectHelloWorld();
+    // Verify alert cannot be displayed again
+    await alertsPage.triggerAutoSuccessAlert();
+    await expect(alertsPage.autoSuccessAlert).toBeVisible();
   });
 });
