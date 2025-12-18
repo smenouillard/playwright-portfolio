@@ -17,7 +17,7 @@ export class DynamicLoadingPage {
   constructor(page: Page) {
     this.page = page;
 
-    // Example navigation links
+    // Locate example navigation links
     this.example1Link = page.getByRole('link', {
       name: 'Example 1: Element on page that is hidden',
     });
@@ -25,9 +25,9 @@ export class DynamicLoadingPage {
       name: 'Example 2: Element rendered after the fact',
     });
 
-    // Dynamic loading elements
+    // Locate dynamic loading elements
     this.startButton = page.getByRole('button', { name: 'Start' });
-    this.loader = page.locator('#loading img'); // Spinner image only
+    this.loader = page.locator('#loading img');
     this.helloWorld = page.locator('#finish h4');
   }
 
@@ -36,31 +36,31 @@ export class DynamicLoadingPage {
     await this.page.goto(`${appUrls.theInternet}dynamic_loading`);
   }
 
-  // Open Example 1 via page link
+  // Open Example 1 page
   async openExample1(): Promise<void> {
     await this.example1Link.click();
   }
 
-  // Open Example 2 via page link
+  // Open Example 2 page
   async openExample2(): Promise<void> {
     await this.example2Link.click();
   }
 
-  // Start the dynamic loading process
+  // Start dynamic loading
   async start(): Promise<void> {
     await this.startButton.click();
   }
 
-  // Verify loader lifecycle (appear, stay briefly, disappear)
+  // Assert loader appears and stays briefly
   async expectLoaderLifecycle(): Promise<void> {
     await expect(this.loader).toBeVisible();
     await expect(this.loader).toBeVisible({ timeout: 300 });
-    await expect(this.loader).toBeHidden();
   }
 
-  // Verify final "Hello World!" message
+  // Assert Hello World message appears and loader disappears
   async expectHelloWorld(): Promise<void> {
     await expect(this.helloWorld).toBeVisible();
     await expect(this.helloWorld).toHaveText('Hello World!');
+    await expect(this.loader).toBeHidden();
   }
 }

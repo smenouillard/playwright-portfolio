@@ -6,10 +6,10 @@ import { DynamicLoadingPage } from '../../../src/pages/the-internet/dynamicLoadi
 
 test.describe('Dynamic Loading – Hello World', () => {
   test.beforeEach(async ({ }, testInfo) => {
-    // Skip test on unsupported OS or browser
+    // Skip test if not running on Windows Chromium
     test.skip(
       testInfo.project.name !== 'Windows - Chromium',
-      'Dynamic Loading is stable only on Windows Chromium'
+      'WIP we test Windows Chromium only for now'
     );
   });
 
@@ -29,7 +29,7 @@ test.describe('Dynamic Loading – Hello World', () => {
     // Assert loader lifecycle
     await dynamicLoading.expectLoaderLifecycle();
 
-    // Assert Hello World success message
+    // Assert Hello World success message and loader disappearance
     await dynamicLoading.expectHelloWorld();
   });
 
@@ -49,7 +49,7 @@ test.describe('Dynamic Loading – Hello World', () => {
     // Assert loader lifecycle
     await dynamicLoading.expectLoaderLifecycle();
 
-    // Assert Hello World success message
+    // Assert Hello World success message and loader disappearance
     await dynamicLoading.expectHelloWorld();
   });
 });
