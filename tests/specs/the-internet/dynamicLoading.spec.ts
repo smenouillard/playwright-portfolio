@@ -6,12 +6,11 @@ import { DynamicLoadingPage } from '../../../src/pages/the-internet/dynamicLoadi
 
 test.describe('Dynamic Loading – Hello World', () => {
   test.beforeEach(async ({ }, testInfo) => {
-    // Skip test if not running on Windows + Chromium
-    const isWindows = process.platform === 'win32';
-    const isChromium = testInfo.project.use.browserName === 'chromium';
-
-    // Skip test on unsupported OS or browser
-    test.skip(!(isWindows && isChromium), 'Windows + Chromium only');
+    // Skip test if not running on Windows + Chromium (WIP, will run on other platforms later)
+    test.skip(
+      testInfo.project.name !== 'chromium' || process.platform !== 'win32',
+      'Windows + Chromium only'
+    );
   });
 
   test('Example 1 – hidden element becomes visible', async ({ page }) => {
