@@ -18,11 +18,11 @@ test.describe('Dynamic Loading – Hello World', () => {
     // Start dynamic loading
     await dynamicLoading.start();
 
-    // Assert loader appears, stays briefly, then disappears
+    // Assert loader appears and stays briefly
     await dynamicLoading.expectLoaderLifecycle();
 
-    // Assert final "Hello World!" message is visible and correct
-    await dynamicLoading.expectHelloWorld();
+    // Assert final result is loaded
+    await dynamicLoading.expectResultLoaded();
   });
 
   test('Example 2 – element is rendered dynamically', async ({ page }) => {
@@ -38,10 +38,10 @@ test.describe('Dynamic Loading – Hello World', () => {
     // Start dynamic loading
     await dynamicLoading.start();
 
-    // Assert loader appears, stays briefly, then disappears
+    // Assert loader appears and stays briefly
     await dynamicLoading.expectLoaderLifecycle();
 
-    // Assert final "Hello World!" message is visible and correct
-    await dynamicLoading.expectHelloWorld();
+    // Assert final result is loaded
+    await dynamicLoading.expectResultLoaded();
   });
 });
