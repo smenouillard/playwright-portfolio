@@ -361,16 +361,16 @@
   <h1>Playwright Reports</h1>
 
   <!-- Publish timestamp -->
-  <p><strong>Published:</strong> 2025-12-18 16:40 UTC</p>
+  <p><strong>Published:</strong> 2025-12-18 16:46 UTC</p>
 
   <!-- Commit SHA -->
-  <p><strong>Commit:</strong> 2b6ae1c52d4cb0d0cf6fdcccb0d99b66f0f74706</p>
+  <p><strong>Commit:</strong> 6ee6d96d3691126ca9f23e538675391a2b054b84</p>
 
   <!-- Run number -->
-  <p><strong>Run:</strong> #50</p>
+  <p><strong>Run:</strong> #51</p>
 
   <!-- Link to GitHub Actions logs -->
-  <p><a href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20343956673">View Full Run Logs</a></p>
+  <p><a href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20344169990">View Full Run Logs</a></p>
 
   <!-- Toolbar: theme toggle and status filters -->
   <div class="toolbar">
@@ -405,6 +405,24 @@
   </thead>
   <tbody>
 
+<tr class="summary-row" data-status="pass">
+  <td class="status-cell">
+    <span class="status-pill pill-pass">
+      🟢 PASS
+    </span>
+  </td>
+
+  <!-- OS cell -->
+  <td class="os-cell">🪟 Windows</td>
+
+  <!-- Browser cell -->
+  <td class="browser-cell">🌐 Chromium</td>
+
+  <td class="num-cell">73</td>
+  <td class="num-cell">0</td>
+  <td class="num-cell">0</td>
+  <td class="time-cell">79s</td>
+</tr>
 <tr class="summary-row" data-status="skip">
   <td class="status-cell">
     <span class="status-pill pill-skip">
@@ -421,30 +439,12 @@
   <td class="num-cell">75</td>
   <td class="num-cell">0</td>
   <td class="num-cell">3</td>
-  <td class="time-cell">118s</td>
+  <td class="time-cell">114s</td>
 </tr>
-<tr class="summary-row" data-status="skip">
+<tr class="summary-row" data-status="fail">
   <td class="status-cell">
-    <span class="status-pill pill-skip">
-      🟡 SKIPPED
-    </span>
-  </td>
-
-  <!-- OS cell -->
-  <td class="os-cell">🍎 macOS</td>
-
-  <!-- Browser cell -->
-  <td class="browser-cell">🌐 Chromium</td>
-
-  <td class="num-cell">74</td>
-  <td class="num-cell">0</td>
-  <td class="num-cell">5</td>
-  <td class="time-cell">60s</td>
-</tr>
-<tr class="summary-row" data-status="skip">
-  <td class="status-cell">
-    <span class="status-pill pill-skip">
-      🟡 SKIPPED
+    <span class="status-pill pill-fail">
+      🔴 FAIL
     </span>
   </td>
 
@@ -455,9 +455,9 @@
   <td class="browser-cell">🍏 WebKit</td>
 
   <td class="num-cell">76</td>
-  <td class="num-cell">0</td>
+  <td class="num-cell">2</td>
   <td class="num-cell">5</td>
-  <td class="time-cell">75s</td>
+  <td class="time-cell">101s</td>
 </tr>
 <tr class="summary-row" data-status="fail">
   <td class="status-cell">
@@ -475,12 +475,12 @@
   <td class="num-cell">75</td>
   <td class="num-cell">1</td>
   <td class="num-cell">3</td>
-  <td class="time-cell">202s</td>
+  <td class="time-cell">68s</td>
 </tr>
-<tr class="summary-row" data-status="fail">
+<tr class="summary-row" data-status="skip">
   <td class="status-cell">
-    <span class="status-pill pill-fail">
-      🔴 FAIL
+    <span class="status-pill pill-skip">
+      🟡 SKIPPED
     </span>
   </td>
 
@@ -491,9 +491,9 @@
   <td class="browser-cell">🦊 Firefox</td>
 
   <td class="num-cell">76</td>
-  <td class="num-cell">2</td>
+  <td class="num-cell">0</td>
   <td class="num-cell">3</td>
-  <td class="time-cell">127s</td>
+  <td class="time-cell">76s</td>
 </tr>
 <tr class="summary-row" data-status="skip">
   <td class="status-cell">
@@ -511,7 +511,7 @@
   <td class="num-cell">75</td>
   <td class="num-cell">0</td>
   <td class="num-cell">5</td>
-  <td class="time-cell">107s</td>
+  <td class="time-cell">124s</td>
 </tr>
   </tbody>
 </table>
@@ -522,6 +522,41 @@
   <!-- Report list section -->
   <h2>Report List</h2>
   
+<div class="report-block" data-status="pass">
+  <div class="report-header">
+    <div class="report-header-main">
+      <span class="status-pill pill-pass">
+        🟢 PASS
+      </span>
+      <span class="badge os-badge">🪟 Windows</span>
+      <span class="badge browser-badge">🌐 Chromium</span>
+    </div>
+    <span class="caret">▼</span>
+  </div>
+
+  <div class="report-content">
+
+    <!-- Compact visual summary -->
+    <div class="quick-summary">
+      📊 73 tests • 🔴 0 failed • 🟡 0 skipped • ⏱ 79s
+    </div>
+
+    <!-- Visual timestamp -->
+    <div class="quick-summary">
+      🕒 2025-12-18 16:45 UTC
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="./report-windows-latest-chromium/playwright-report/index.html" target="_blank">📄 HTML</a>
+      <a class="link-pill" href="./report-windows-latest-chromium/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
+      <a class="link-pill" href="./report-windows-latest-chromium/junit/test-results.xml" target="_blank">📑 XML</a>
+      <a class="link-pill" href="./report-windows-latest-chromium/playwright-report.zip" download>📦 ZIP</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20344169990" target="_blank">📘 Logs</a>
+    </div>
+
+  </div>
+</div>
+
 <div class="report-block" data-status="skip">
   <div class="report-header">
     <div class="report-header-main">
@@ -538,12 +573,12 @@
 
     <!-- Compact visual summary -->
     <div class="quick-summary">
-      📊 75 tests • 🔴 0 failed • 🟡 3 skipped • ⏱ 118s
+      📊 75 tests • 🔴 0 failed • 🟡 3 skipped • ⏱ 114s
     </div>
 
     <!-- Visual timestamp -->
     <div class="quick-summary">
-      🕒 2025-12-18 16:38 UTC
+      🕒 2025-12-18 16:46 UTC
     </div>
 
     <div class="links">
@@ -551,52 +586,17 @@
       <a class="link-pill" href="./report-windows-latest-edge/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-windows-latest-edge/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-windows-latest-edge/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20343956673" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20344169990" target="_blank">📘 Logs</a>
     </div>
 
   </div>
 </div>
 
-<div class="report-block" data-status="skip">
+<div class="report-block" data-status="fail">
   <div class="report-header">
     <div class="report-header-main">
-      <span class="status-pill pill-skip">
-        🟡 SKIPPED
-      </span>
-      <span class="badge os-badge">🍎 macOS</span>
-      <span class="badge browser-badge">🌐 Chromium</span>
-    </div>
-    <span class="caret">▼</span>
-  </div>
-
-  <div class="report-content">
-
-    <!-- Compact visual summary -->
-    <div class="quick-summary">
-      📊 74 tests • 🔴 0 failed • 🟡 5 skipped • ⏱ 60s
-    </div>
-
-    <!-- Visual timestamp -->
-    <div class="quick-summary">
-      🕒 2025-12-18 16:34 UTC
-    </div>
-
-    <div class="links">
-      <a class="link-pill" href="./report-macos-latest-chromium/playwright-report/index.html" target="_blank">📄 HTML</a>
-      <a class="link-pill" href="./report-macos-latest-chromium/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
-      <a class="link-pill" href="./report-macos-latest-chromium/junit/test-results.xml" target="_blank">📑 XML</a>
-      <a class="link-pill" href="./report-macos-latest-chromium/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20343956673" target="_blank">📘 Logs</a>
-    </div>
-
-  </div>
-</div>
-
-<div class="report-block" data-status="skip">
-  <div class="report-header">
-    <div class="report-header-main">
-      <span class="status-pill pill-skip">
-        🟡 SKIPPED
+      <span class="status-pill pill-fail">
+        🔴 FAIL
       </span>
       <span class="badge os-badge">🍎 macOS</span>
       <span class="badge browser-badge">🍏 WebKit</span>
@@ -608,12 +608,12 @@
 
     <!-- Compact visual summary -->
     <div class="quick-summary">
-      📊 76 tests • 🔴 0 failed • 🟡 5 skipped • ⏱ 75s
+      📊 76 tests • 🔴 2 failed • 🟡 5 skipped • ⏱ 101s
     </div>
 
     <!-- Visual timestamp -->
     <div class="quick-summary">
-      🕒 2025-12-18 16:34 UTC
+      🕒 2025-12-18 16:42 UTC
     </div>
 
     <div class="links">
@@ -621,7 +621,7 @@
       <a class="link-pill" href="./report-macos-latest-webkit/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-macos-latest-webkit/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-macos-latest-webkit/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20343956673" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20344169990" target="_blank">📘 Logs</a>
     </div>
 
   </div>
@@ -643,12 +643,12 @@
 
     <!-- Compact visual summary -->
     <div class="quick-summary">
-      📊 75 tests • 🔴 1 failed • 🟡 3 skipped • ⏱ 202s
+      📊 75 tests • 🔴 1 failed • 🟡 3 skipped • ⏱ 68s
     </div>
 
     <!-- Visual timestamp -->
     <div class="quick-summary">
-      🕒 2025-12-18 16:39 UTC
+      🕒 2025-12-18 16:43 UTC
     </div>
 
     <div class="links">
@@ -656,17 +656,17 @@
       <a class="link-pill" href="./report-ubuntu-latest-chromium/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-ubuntu-latest-chromium/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-ubuntu-latest-chromium/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20343956673" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20344169990" target="_blank">📘 Logs</a>
     </div>
 
   </div>
 </div>
 
-<div class="report-block" data-status="fail">
+<div class="report-block" data-status="skip">
   <div class="report-header">
     <div class="report-header-main">
-      <span class="status-pill pill-fail">
-        🔴 FAIL
+      <span class="status-pill pill-skip">
+        🟡 SKIPPED
       </span>
       <span class="badge os-badge">🐧 Ubuntu</span>
       <span class="badge browser-badge">🦊 Firefox</span>
@@ -678,12 +678,12 @@
 
     <!-- Compact visual summary -->
     <div class="quick-summary">
-      📊 76 tests • 🔴 2 failed • 🟡 3 skipped • ⏱ 127s
+      📊 76 tests • 🔴 0 failed • 🟡 3 skipped • ⏱ 76s
     </div>
 
     <!-- Visual timestamp -->
     <div class="quick-summary">
-      🕒 2025-12-18 16:35 UTC
+      🕒 2025-12-18 16:43 UTC
     </div>
 
     <div class="links">
@@ -691,7 +691,7 @@
       <a class="link-pill" href="./report-ubuntu-latest-firefox/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-ubuntu-latest-firefox/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-ubuntu-latest-firefox/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20343956673" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20344169990" target="_blank">📘 Logs</a>
     </div>
 
   </div>
@@ -713,12 +713,12 @@
 
     <!-- Compact visual summary -->
     <div class="quick-summary">
-      📊 75 tests • 🔴 0 failed • 🟡 5 skipped • ⏱ 107s
+      📊 75 tests • 🔴 0 failed • 🟡 5 skipped • ⏱ 124s
     </div>
 
     <!-- Visual timestamp -->
     <div class="quick-summary">
-      🕒 2025-12-18 16:35 UTC
+      🕒 2025-12-18 16:44 UTC
     </div>
 
     <div class="links">
@@ -726,7 +726,7 @@
       <a class="link-pill" href="./report-ubuntu-latest-webkit/jsonReports/jsonReport.json" target="_blank">🧩 JSON</a>
       <a class="link-pill" href="./report-ubuntu-latest-webkit/junit/test-results.xml" target="_blank">📑 XML</a>
       <a class="link-pill" href="./report-ubuntu-latest-webkit/playwright-report.zip" download>📦 ZIP</a>
-      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20343956673" target="_blank">📘 Logs</a>
+      <a class="link-pill" href="https://github.com/smenouillard/playwright-portfolio/actions/runs/20344169990" target="_blank">📘 Logs</a>
     </div>
 
   </div>
